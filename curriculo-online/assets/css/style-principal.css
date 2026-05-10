@@ -62,6 +62,9 @@ nav a:hover{
     border-radius:50%;
     object-fit:cover;
 }
+.user.mobile {
+    display: none;
+}
 
 /* MENU MOBILE */
 
@@ -245,7 +248,11 @@ footer{
     }
 
     .user{
-        /* display:none; */
+        display:none;
+    }
+
+    .user.mobile{
+        display: inline;
     }
 
     .hero h1{

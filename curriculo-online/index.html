@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Currículo Online</title>
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -18,7 +19,7 @@
                 <h1>Currículo Online - Login</h1>
             </header>
 
-            <form action="#" method="POST" class="login-form">
+            <form action="#" method="POST" class="login-form" id="form">
                 <div class="input-group">
                     <div class="field">
                         <label for="email" class="sr-only">E-mail</label>
@@ -28,26 +29,30 @@
                         name="email" 
                         placeholder="E-mail" 
                         autofocus 
-                        required>
+                        required
+                        >
+                        <a>Resposta</a>
                     </div>
                     
-                    <div class="field password-field">
+                    <div class="field password-field" >
                         <label for="password" class="sr-only">Senha</label>
                         <input 
                         type="password" 
-                        id="password" 
-                        name="password" 
+                        id="senha" 
+                        name="senha" 
                         placeholder="Senha" 
-                        required>
+                        required
+                        min="6"
+                        >
+                        <a>Resposta</a>
                     </div>
-                </div>
 
+                </div>                
+                <button type="submit" class="btn-login">Entrar</button>
                 <div class="registration-area">
                     <span>Não tem login?</span>
                     <a href="cadastrar-usuario.html" class="btn-signup">Cadastre-se</a>
                 </div>
-
-                <button type="submit" class="btn-login">Entrar</button>
                 
             </form>
 
@@ -56,6 +61,6 @@
             </footer>
         </section>
     </main>
-    <script src="assets/js/tempo.js"></script>
+    <script src="assets/js/login-validacao.js"></script>
 </body>
 </html>

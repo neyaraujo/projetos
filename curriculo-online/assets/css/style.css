@@ -77,12 +77,22 @@ body {
 /* Input Styles */
 .input-group {
     background: var(--white);
-    margin-bottom: 2rem;
-    overflow: hidden;
+    margin-bottom: 1em;
+    /* overflow: hidden; */
 }
 
 .field {
     position: relative;
+}
+
+.field a {
+    position: absolute;
+    left:0;
+    bottom: -20px;
+    font-size: 0.8em;
+    color: #ff3b25;
+    visibility: hidden;
+    
 }
 
 .field input:focus {
@@ -155,7 +165,10 @@ input::placeholder {
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
+
+    margin-bottom: 1em;
     transition: background 0.2s, transform 0.1s;
+
 }
 
 .btn-login:hover {
@@ -171,4 +184,13 @@ input::placeholder {
     margin-top: 3rem;
     font-size: 0.9rem;
     color: var(--text-muted);
+}
+
+.error input {
+    border-color: #ff3b25;
+    visibility: visible;
+}
+.error a {
+    color: #ff3b25;
+    visibility: visible;
 }

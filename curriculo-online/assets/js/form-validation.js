@@ -11,9 +11,17 @@ form.addEventListener("submit",(event) => {
     const senha = document.getElementById("senha");
     const confirma_senha = document.getElementById("confirma-senha");
 
-
     checkForm();
-    
+
+    })
+
+    nome.addEventListener("blur",()=>{
+        checkInputNome()
+    })
+
+    email.addEventListener("blur",()=>{
+        checkinputEmail
+    })
 
     function checkInputNome(){
         const nomeValue = nome.value;
@@ -25,7 +33,7 @@ form.addEventListener("submit",(event) => {
         }
     }
     
-    function checkImputEmail() {
+    function checkinputEmail() {
         const emailValue = email.value;
         
         if(emailValue === ''){
@@ -74,7 +82,7 @@ form.addEventListener("submit",(event) => {
 
     function checkForm(){
         checkInputNome()
-        checkImputEmail()
+        checkinputEmail()
         checkInputPassword()
         checkSenhaConfirmacao()
 
@@ -91,7 +99,7 @@ form.addEventListener("submit",(event) => {
         
     }
 
-})
+
 
 
 

@@ -48,13 +48,14 @@
                 </div>
 
                 <button type="submit" class="btn-login">Entrar</button>
+                
             </form>
 
             <footer class="login-footer">
-                <p>© <?= date('Y') ?> Franciney Araujo. All rights reserved.</p>
+                <p>&copy;<span id="ano"></span> Franciney Araujo. All rights reserved.</p>
             </footer>
         </section>
     </main>
-
+    <script src="assets/js/tempo.js"></script>
 </body>
 </html>

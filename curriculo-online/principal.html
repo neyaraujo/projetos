@@ -4,11 +4,281 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil</title>
-    <link rel="stylesheet" href="assets/css/principal.css">
+    <!-- <link rel="stylesheet" href="assets/css/principal.css"> -->
+     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        a, ul {
+            list-style: none;
+            text-decoration: none;
+            color: inherit;
+        }
+        body, header, nav, main, aside, footer {
+            display: flex;
+            margin: 3px;
+        }
+        body {
+            
+            font-family: Arial, Helvetica, sans-serif;
+            flex-wrap: wrap;
+
+        }
+
+        /* HEADER */
+        header {
+            justify-content: flex-start;
+            align-items: center;
+            margin: 3px;
+            flex: 1 1 100vw;
+            height: 100px;
+            /* background: darkgray; */
+            order: 1;
+        }
+        
+        header #logo {
+            font-weight: bold;
+            font-size: 2rem;
+            flex: 0 1 200px;
+            /* background: rgb(223, 223, 223); */
+            margin: 3%;
+            white-space: nowrap;
+            color: rgb(0, 81, 255);
+        }
+
+        header #logo span {
+            color: rgb(0, 183, 255);
+        }
+        
+        /* NAV */
+        nav {
+   
+            justify-content: space-between;
+            align-items: center;
+    
+            flex: 1 1 200px;
+            /* background: rgb(112, 112, 112); */
+            order: 2;
+        }
+
+        nav ul {
+            margin: 3%;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: rgb(0, 147, 192);
+        }
+
+        nav #logout {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 3%;
+        }
+        nav #logout img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+
+        }
+
+        /* MAIN */
+        main {
+            flex: 10 1 500px;
+            justify-content: center;
+            background: rgb(228, 228, 228);
+            height: calc(100vh - 224px);
+            padding-left: 50px;
+            order: 4;
+        }
+
+        main section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        main h2 {
+            font-size: 4rem;
+        }
+
+        main .email {
+            background: rgba(0, 225, 255, 0.144) ;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: rgb(0, 92, 197);
+        }
+
+
+        main .btn {
+            background: rgb(0, 89, 255);
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+            color: #fff;
+        }
+        
+        /* ASIDE */
+        aside {
+            flex-wrap: wrap;
+            align-items: center;
+            flex: 1 1 200px;
+   
+            /* background: rgb(212, 212, 212); */
+            order: 3;
+        }
+
+        aside h2 {
+            font-size: 1rem;
+            padding: 5px;
+            
+        }
+        aside p {
+            padding: 5px;
+            font-size: 0.8rem;
+        }
+
+        aside .item {
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: column;
+            flex: 1 1 100vw;
+            
+        }
+        aside a{
+            border: 1px solid gray;
+            background: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        aside a span {    
+            font-size: 10px;            
+        }
+
+        /* FOOTER */
+        footer {
+     
+            justify-content: flex-start;
+            align-items: center;
+            flex: 1 1 100vw;
+            height: 100px;
+            /* background: darkgray; */
+            order: 5;
+        }
+
+
+        @media (max-width: 900px) {
+            header {
+                text-align: center;
+            }
+            header #logo {
+                flex: 0 1 100vw;
+            }
+            nav {
+                position: fixed;
+                top: 0;
+                background: rgba(169, 169, 169, 0.301);
+                visibility: hidden;
+            }
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 100vw;
+                height: 100vh;
+                margin: 0;
+            }
+            main{
+                display: flex;
+                flex: 1 1 100vw;
+                text-align: center;
+                height: calc(100vh - 336px);
+                order: 3;
+            }
+            aside{
+                flex-direction: row;
+                align-items: last baseline;
+                justify-content: space-between;
+                order: 4;
+                /* background: red; */
+                flex: 1 1 100vw;
+        
+            }
+            aside a, aside h2, aside p {
+                /* display: inline-block; */                
+            }
+            aside .item {
+                /* background: darkgray; */
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                flex: 0 0 auto;
+            }
+
+            footer{
+
+            }
+ 
+        }
+
+        @media (max-width:666px) {
+            header {
+                height: 70px;
+            }
+
+            main {
+                height: 200px;
+            
+            }
+
+            main h2 {
+                font-size: 2rem;
+            }
+            main .email {
+                font-size: 0.8rem;
+            }
+            main .btn {
+                padding: 5px 10px;
+                font-size: 0.8rem;
+            }
+
+            main p {
+                font-size:  0.8rem;
+            }
+
+            aside {
+                flex-direction: column;
+                align-items: center;
+            }
+            aside .item {
+                align-items: center;
+            }
+
+            aside h2 {
+                padding: 0;
+            }
+            aside a {
+                padding: 3px 5px;
+            }
+            footer {
+                height: 70px;
+            }
+
+        }
+     </style>
 </head>
 <body>
     <header>
-        <h1>CURRÍCULO <span>ONLINE</span></h1>
+        <a id="logo" href="#">CURRÍCULO <span>ONLINE</span></a>
         <nav>
             <ul class="navegacao-primaria">
                 <li><a href="#home">Home</a></li>
@@ -17,37 +287,40 @@
                 <li><a href="#home">Cursos</a></li>
                 <li><a href="#home">Currículo</a></li>
             </ul>
+            <div id="logout">
+                <img src="img1.jpg" alt="imgagem">
+                <a href="#">Sair</a>
+
+            </div>
         </nav>
-        <div class="logout">
-            <img src="assets/images/favicon.png" alt="">
-            <a href="#">Sair</a>
-        </div>
     </header>
-    <section class="hero">
-        <article>
+    <main>
+        <section>
             <h2>Atualize seu perfil</h2>
             <a class="email" href="#">neyaraujophp@gmail.com</a>
             <p>Mantenha seus dados atualizados para ter um curriculo completo</p>
             <a class="btn" href="">Atualizar perfil</a>
-        </article>
-    </section>
-    <section class="card">
-        <div class="item">
-            <h2>Cadastrar Formações</h2>
-            <p>Faça o cadastro completo das suas formações</p>
-            <a href="">Cadastrar</a>
-        </div>
-        <div class="item">
-            <h2>Cadastrar Formações</h2>
-            <p>Faça o cadastro completo das suas formações</p>
-            <a href="">Cadastrar</a>
-        </div>
-        <div class="item">
-            <h2>Cadastrar Formações</h2>
-            <p>Faça o cadastro completo das suas formações</p>
-            <a href="">Cadastrar</a>
-        </div>
-
-    </section>
+        </section>
+    </main>
+        <aside>
+                <div class="item">
+                    <h2>Cadastrar Formações</h2>
+                    <p>Faça o cadastro completo das suas formações</p>
+                    <a href="">Cadastrar <span>>></span></a>
+                </div>
+                <div class="item">
+                    <h2>Cadastre seus cursos</h2>
+                    <p>Descreva quais cursos você fez.</p>
+                    <a href="">Cadastrar <span>>></span></a>
+                </div>
+                <div class="item">
+                    <h2>Configurações</h2>
+                    <p>Configure sua conta</p>
+                    <a href="">Cadastrar <span>>></span></a>
+                </div>
+        </aside>
+        <footer>
+            <p>Franciney Araujo &copy;</p>
+        </footer>
 </body>
 </html>

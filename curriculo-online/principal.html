@@ -17,12 +17,12 @@
             text-decoration: none;
             color: inherit;
         }
-        body, header, nav, main, aside, footer {
+        header, nav, main, aside, footer {
             display: flex;
             margin: 3px;
         }
         body {
-            
+            display: flex;
             font-family: Arial, Helvetica, sans-serif;
             flex-wrap: wrap;
             height: 100vh;
@@ -166,8 +166,6 @@
 
         /* FOOTER */
         footer {
-            position: relative;
-            bottom: 0;
             justify-content: flex-start;
             align-items: center;
             flex: 1 1 100vw;
@@ -239,7 +237,7 @@
             }
 
             main {
-                height: 200px;
+                height: calc(100vh - 467px);
             
             }
 

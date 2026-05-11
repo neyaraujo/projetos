@@ -21,6 +21,7 @@
             display: flex;
             margin: 3px;
         }
+
         body {
             display: flex;
             font-family: Arial, Helvetica, sans-serif;
@@ -48,6 +49,11 @@
             margin: 3%;
             white-space: nowrap;
             color: rgb(0, 81, 255);
+        }
+
+        #open-menu, #open-close-menu {
+            border: none;
+            background: none;
         }
 
         header #logo span {
@@ -186,16 +192,29 @@
             nav {
                 position: fixed;
                 top: 0;
-                background: rgba(169, 169, 169, 0.301);
+                background: rgba(0, 119, 255, 0.979);
                 visibility: hidden;
             }
+
+            nav #logout {
+                position: fixed;
+                right: 0;
+                top: 0;
+            }
             nav ul {
+                padding-left: 50px;
+                position: relative;
+                top: 100px;
                 flex-direction: column;
-                align-items: center;
-                justify-content: center;
+                align-items: flex-start;
+                justify-content: flex-start;
                 width: 100vw;
                 height: 100vh;
                 margin: 0;
+            }
+
+            nav ul li a {
+                color: #fff;
             }
             main{
                 display: flex;
@@ -234,6 +253,10 @@
         @media (max-width:666px) {
             header {
                 height: 70px;
+            }
+            
+            nav {
+                display: flex;
             }
 
             main {
@@ -290,10 +313,12 @@
      </style>
 </head>
 <body>
-    <header>
+    <header >
+        <button id="open-menu">&#9776;</button>
         <a id="logo" href="#">CURRÍCULO <span>ONLINE</span></a>
-        <nav>
+        <nav id="menu">
             <ul class="navegacao-primaria">
+                <button id="closer-menu">X</button>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#home">Perfil</a></li>
                 <li><a href="#home">Formação</a></li>
@@ -303,7 +328,6 @@
             <div id="logout">
                 <img src="img1.jpg" alt="imgagem">
                 <a href="#">Sair</a>
-
             </div>
         </nav>
     </header>
@@ -336,5 +360,19 @@
             
             <p>Franciney Araujo &copy;</p>
         </footer>
+
+        <script>
+            const open_menu = document.getElementById("oepn-menu");
+            const closer_menu = document.getElementById("closer-menu");
+
+            open_menu.addEventListener('click',()=>{
+                menu.style.display = 'flex'
+            })
+            closer_menu.addEventListener('click',()=>{
+                menu.removeAttribute('style')
+            })
+
+            
+        </script>
 </body>
 </html>

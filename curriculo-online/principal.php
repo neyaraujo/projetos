@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -8,31 +8,11 @@
 <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 <link rel="stylesheet" href="assets/css/style-principal.css">
+<link rel="stylesheet" href="assets/css/global.css">
 </head>
 <body>
 
-<header>
-
-    <div class="logo">CURRÍCULO ONLINE</div>
-    <nav id="menu">
-        <a class="user mobile"><img src="https://i.pravatar.cc/100" alt=""></a>
-        <a href="#">Home</a>
-        <a href="#">Perfil</a>
-        <a href="#">Formação</a>
-        <a href="#">Cursos</a>
-        <a href="#">Currículo</a>
-        <a class="user mobile" href="#">Sair</a>
-    </nav>
-
-    <div class="user">
-        <img src="https://i.pravatar.cc/100" alt="">
-        <span>Sair</span>
-    </div>
-    <div class="menu-toggle" id="menu-toggle">
-        <i class="fa-solid fa-bars"></i>
-    </div>
-</header>
-
+<?php include_once 'header.php'?>
 <section class="hero">
 
     <h1>Atualize seu currículo</h1>
@@ -95,70 +75,7 @@
 <p>&copy;<span id="ano"></span> Franciney Araujo. All rights reserved.</p>
 </footer>
 
-<script>
-
-/* MENU MOBILE */
-
-const menuToggle = document.getElementById('menu-toggle');
-const menu = document.getElementById('menu');
-
-menuToggle.addEventListener('click', () => {
-    menu.classList.toggle('active');
-});
-
-/* CAROUSEL */
-
-const slides = document.querySelector('.slides');
-const slide = document.querySelectorAll('.slide');
-
-const prev = document.querySelector('.prev');
-const next = document.querySelector('.next');
-
-let index = 0;
-
-function showSlide(){
-    slides.style.transform = `translateX(-${index * 100}%)`;
-}
-
-next.addEventListener('click', () => {
-
-    index++;
-
-    if(index >= slide.length){
-        index = 0;
-    }
-
-    showSlide();
-
-});
-
-prev.addEventListener('click', () => {
-
-    index--;
-
-    if(index < 0){
-        index = slide.length - 1;
-    }
-
-    showSlide();
-
-});
-
-/* AUTO PLAY */
-
-setInterval(() => {
-
-    index++;
-
-    if(index >= slide.length){
-        index = 0;
-    }
-
-    showSlide();
-
-}, 10000);
-
-</script>
+<script src="assets/js/mobili-menu.js"></script>
 
 </body>
 </html>

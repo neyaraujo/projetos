@@ -1,74 +1,9 @@
 @charset "UTF-8";
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
-}
-
-body{
-    background:#f4f4f4;
-    color:#333;
-}
-
 /* HEADER */
-
-header{
-    width:100%;
-    height:70px;
-    background:#fff;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:0 40px;
-    box-shadow:0 2px 10px rgba(0,0,0,.05);
-    position:fixed;
-    top:0;
-    left:0;
-    z-index:1000;
-}
-
-.logo{
-    font-size:24px;
-    font-weight:bold;
-    color:#4a90e2;
-}
-
-nav{
-    display:flex;
-    gap:30px;
-}
-
-nav a{
-    text-decoration:none;
-    color:#555;
-    font-weight:600;
-    transition:.3s;
-}
-
-nav a:hover{
-    color:#4a90e2;
-}
-
-.user{
-    display:flex;
-    align-items:center;
-    gap:10px;
-}
-
-.user img{
-    width:45px;
-    height:45px;
-    border-radius:50%;
-    object-fit:cover;
-}
-.user.mobile {
-    display: none;
-}
 
 /* MENU MOBILE */
 
-.menu-toggle{
+header .menu-toggle{
     display:none;
     font-size:28px;
     cursor:pointer;
@@ -101,6 +36,20 @@ nav a:hover{
     text-align:center;
 }
 
+/* HERO - BOTÕES */
+
+.hero .btn:hover{
+    background:#fff;
+}
+
+.hero .prev{
+    left:15px;
+}
+
+.hero .next{
+    right:15px;
+}
+
 /* CAROUSEL */
 
 .carousel{
@@ -113,25 +62,25 @@ nav a:hover{
     box-shadow:0 10px 25px rgba(0,0,0,.15);
 }
 
-.slides{
+.carousel .slides{
     display:flex;
     width:300%;
     height:100%;
     transition:.5s;
 }
 
-.slide{
+.carousel .slides .slide{
     width:100%;
     position:relative;
 }
 
-.slide img{
+.carousel .slide img{
     width:100%;
     height:100%;
     object-fit:cover;
 }
 
-.caption{
+.carousel .slide .caption{
     position:absolute;
     bottom:30px;
     left:30px;
@@ -160,33 +109,7 @@ nav a:hover{
     background: var(--hover-blue);
 }
 
-/* BOTÕES */
 
-.btn{
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%);
-    width:50px;
-    height:50px;
-    border:none;
-    border-radius:50%;
-    background:rgba(255,255,255,.8);
-    cursor:pointer;
-    font-size:22px;
-    transition:.3s;
-}
-
-.btn:hover{
-    background:#fff;
-}
-
-.prev{
-    left:15px;
-}
-
-.next{
-    right:15px;
-}
 
 /* CARDS */
 
@@ -221,17 +144,7 @@ nav a:hover{
 }
 
 
-:root {
-    --primary-blue: #0066ff;
-    --hover-blue: #0052cc;
-    --primary-yellow: #ffc107;
-    --hover-yellow: #eab000;
-    --text-dark: #333;
-    --text-muted: #666;
-    --bg-light: #f4f7f9;
-    --border-color: #e0e0e0;
-    --white: #ffffff;
-}
+
 
 .card button::after{
     content: ">>";

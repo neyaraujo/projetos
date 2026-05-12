@@ -26,11 +26,13 @@ body {
 
 /* HEADER */
 header {
-    
 }
 
 /* NAV */
 .navigation {
+    position: fixed;
+    width: 100%;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -68,14 +70,67 @@ header {
     border-radius: 50%;
 }
 .navigation .login a {
+    font-size: 1rem;
     padding: 10px;
     color: var(--cor05);
 }
 
 /* MENU */
 .navigation .menu {
+
     display: none; 
     color: var(--cor05);
 }
+/* HOME */
+.home {
+
+}
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.home-img {
+    width: 100%;
+}
+.home-img img {
+    width: 100%;
+}
+.home-text {
+    position: relative;
+    bottom: 200px;
+    background: var(--cor05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 60px;
+    gap: 20px;
+}
+.home-text .home-h4 {
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+.home-text .home-h1 {
+    font-size: 3rem;
+    font-weight: 500;
+    color: var(--cor01);
+}
+.home-text .home-btn {
+    border: 1px solid var(--cor01);
+    padding: 15px 30px;
+    color: var(--cor01);
+    transition: 0.3s all;
+}
+
+.home-text .home-btn:hover{
+    background: var(--cor01);
+    color: var(--cor05);
+}
+
+
+
+
+
 
 

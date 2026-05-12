@@ -51,11 +51,6 @@
             color: rgb(0, 81, 255);
         }
 
-        #open-menu, #open-close-menu {
-            border: none;
-            background: none;
-        }
-
         header #logo span {
             color: rgb(0, 183, 255);
         }
@@ -251,8 +246,20 @@
         }
 
         @media (max-width:666px) {
+            
             header {
                 height: 70px;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            header #open-menu {
+                background: gray;
+                color: #fff;
+                border: none;
+                display: block;
+                
             }
             
             nav {
@@ -314,8 +321,8 @@
 </head>
 <body>
     <header >
-        <button id="open-menu">&#9776;</button>
         <a id="logo" href="#">CURRÍCULO <span>ONLINE</span></a>
+        <button id="open-menu">&#9776;</button>
         <nav id="menu">
             <ul class="navegacao-primaria">
                 <button id="closer-menu">X</button>

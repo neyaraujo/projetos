@@ -90,8 +90,11 @@ body {
     cursor: pointer;
     margin-top: 14px;
 } */
- .form button {
+
+.form button {
     width: 100%;
+    background: var(--cor01);
+    color: var(--cor05);
  }
 
 .form-content.error input {

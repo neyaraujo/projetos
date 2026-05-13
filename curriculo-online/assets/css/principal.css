@@ -47,7 +47,6 @@ header {
     padding: 15px 40px ;
     box-shadow: 0 0 1rem #000;
     z-index: 1;
-
     transition: 0.3s all;
 }
 
@@ -56,12 +55,14 @@ header {
     font-weight: 500;
     font-size: 1.5rem;
     color: var(--cor05);
+    transition: 0.3s all;
 }
 
 .navigation ul {
     display: flex;
     color: var(--cor05);
-    gap: 3rem;
+    gap: 2rem;
+    transition: 0.3s all;
 }
 .navigation ul li {
     padding: 5px 10px;
@@ -82,6 +83,7 @@ header {
 .navigation .login {
     display: flex;
     align-items: center;
+    transition: 0.3s all;
 }
 .navigation .login img {
     width: 26px;
@@ -136,6 +138,7 @@ header {
     font-size: 3rem;
     font-weight: 500;
     color: var(--cor01);
+    transition: 0.3s all;
 }
 /* BOTAO */
 /* .home-text .home-btn {
@@ -166,6 +169,7 @@ header {
 .cardes .item h1 {
     font-weight: 500;
     text-align: center;
+    transition: 0.3s all;
 }
 .cardes .item p {
     padding: 10px;
@@ -183,6 +187,24 @@ header {
     margin-top: 50px;
     padding: 10px;
     text-align: center;
+}
+/* MEDIA */
+@media(max-width: 1030px) {
+    .navigation .logo {
+        font-size: 1rem;
+    }
+    .navigation ul {
+        gap: 0;
+    }
+    .navigation ul a {
+        font-size: 0.9rem;
+    }
+    .home-text .home-h1 {
+        font-size: 2.5rem;
+    }
+    .cardes .item h1 {
+        font-size: 1.5em;
+    } 
 }
 
 @media(max-width: 756px) {

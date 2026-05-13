@@ -23,3 +23,29 @@ img {
     max-width: 100%;
     display: block;
 }
+
+.btn-primary {
+    background: var(--cor05);
+    color: var(--cor01);
+    font-family: var(--font-padrao);
+    list-style: none;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 3px;
+    border: 1px solid var(--cor01);
+    cursor: pointer;
+    transition: 0.3s all;
+}
+.btn-primary:hover {
+    background-color: var(--cor01);
+    color: var(--cor05);
+
+}
+.shadow {
+    box-shadow: 0 0 5px  rgba(0, 0, 0, 0.1);
+}
+.shadow-inset {
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.25);
+}
+

@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+:root {
+    --cor01: #0C3C60;
+    --cor02: #253541;
+    --cor03: #4D33DE;
+    --cor04: #000000;
+    --cor05: #ffffff;
+    --cor06: #6ed1ff;
+    --font-padrao: "Roboto", sans-serif;
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-padrao);
+    list-style: none;
+    text-decoration: none;
+}
+img {
+    max-width: 100%;
+    display: block;
+}

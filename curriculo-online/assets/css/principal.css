@@ -1,5 +1,6 @@
 @charset "UTF8";
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
     --cor01: #0C3C60;
@@ -7,6 +8,9 @@
     --cor03: #4D33DE;
     --cor04: #000000;
     --cor05: #ffffff;
+    --cor06: #6ed1ff;
+
+    --font-padrao: "Roboto", sans-serif;
 }
 
 /* RESET */
@@ -14,7 +18,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-padrao);
     list-style: none;
     text-decoration: none;
 }
@@ -27,8 +31,10 @@ body {
 
 /* HEADER */
 header {
-    position:sticky;
+    position: fixed;
+    width: 100%;
     top: 0;
+    z-index: 1;   
 }
 
 /* NAV */
@@ -60,9 +66,13 @@ header {
 .navigation ul li {
     padding: 5px 10px;
 }
+.navigation li a:hover{
+    color: #6ed1ff;
+}
 .navigation li a {
     font-size: 1rem;
     color: var(--cor05);
+    transition: 0.3s;
 }
 
 .navigation .login {
@@ -95,21 +105,18 @@ header {
     flex-direction: column;
     align-items: center;
 }
-.home-img {
+.home-bg {
     background: #000 url(../images/bg-principal.jpg) no-repeat center center;
-    background-clip: cover;
-
+    background-size: cover;
     margin-bottom: 50px;
     width: 100%;
-    /* background: #0C3C60; */
     height: 400px;
-    /* overflow: hidden; */
+
 }
 .home-img img {
     width: 100%;
     display: none;
     /* display: none; */
-    
 }
 .home-text {
     position: absolute;
@@ -146,7 +153,6 @@ header {
 .cardes {
     display: flex;
     justify-content: space-between;
-
 }
 .cardes .item {
     flex: 1 1 200px;
@@ -176,10 +182,9 @@ header {
 }
 
 .footer {
-    position: fixed;
-    bottom: 5px;
-    left: 50%;
-    transform: translateX(-50%);
+    margin-top: 50px;
+    padding: 10px;
+    text-align: center;
 }
 
 @media(max-width: 756px) {
@@ -189,13 +194,24 @@ header {
 
     .navigation{
         padding: 10px;
+        /* display: flex; */
+    }
+
+    .navigation .logo {
+
+        font-size: 1.3rem;
+        order: 1;
     }
 
     .navigation ul {
         display: none;
     }
+
+    .navigation .login {
+        order: 2;
+    }
     .navigation .menu {
-        display: block;
+        display: inline-block;
     }
 
     .home .home-img {
@@ -214,8 +230,6 @@ header {
         display: flex;
         flex-direction: column;
     }
-
-
 
 
 

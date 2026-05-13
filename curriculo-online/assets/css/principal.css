@@ -38,6 +38,8 @@ header {
     align-items: center;
     background: var(--cor01);
     padding: 15px 40px ;
+    box-shadow: 0 0 1rem #000;
+    z-index: 1;
 }
 
 .navigation .logo {
@@ -93,13 +95,18 @@ header {
 }
 .home-img {
     width: 100%;
+    background: #0C3C60;
+    height: 400px;
+    overflow: hidden;
 }
 .home-img img {
     width: 100%;
+    /* display: none; */
+    
 }
 .home-text {
     position: relative;
-    bottom: 200px;
+    bottom: 223px;
     background: var(--cor05);
     display: flex;
     flex-direction: column;
@@ -127,6 +134,39 @@ header {
     background: var(--cor01);
     color: var(--cor05);
 }
+
+.cardes {
+
+    position: absolute;
+    bottom: -140px;
+    display: flex;
+    justify-content: space-between;
+}
+.cardes .item {
+    flex: 1 1 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cardes .item h1 {
+    font-weight: 500;
+    padding: 10px;
+}
+.cardes .item p {
+    padding: 20px;
+    text-align: justify;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+.cardes .item .btn {
+    background: var(--cor05);
+    color: var(--cor01);
+    margin-top: auto;
+    border: 1px solid var(--cor01);
+    padding: 10px 20px;
+    margin-bottom: 50px;
+}
+
 
 
 

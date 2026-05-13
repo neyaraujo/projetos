@@ -24,14 +24,15 @@ body {
     background: white;
 }
 
+
 /* HEADER */
 header {
-
+    position:sticky;
+    top: 0;
 }
 
 /* NAV */
 .navigation {
-    position: fixed;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -85,7 +86,7 @@ header {
 }
 /* HOME */
 .home {
-
+    position: relative;
 }
 .home-container {
     display: flex;
@@ -106,7 +107,7 @@ header {
 }
 .home-text {
     position: relative;
-    bottom: 223px;
+    top: -245;
     background: var(--cor05);
     display: flex;
     flex-direction: column;
@@ -136,9 +137,6 @@ header {
 }
 
 .cardes {
-
-    position: absolute;
-    bottom: -140px;
     display: flex;
     justify-content: space-between;
 }

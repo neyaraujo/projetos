@@ -94,29 +94,33 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
 }
 .home-img {
+    background: #000 url(../images/bg-principal.jpg) no-repeat center center;
+    background-clip: cover;
+
     margin-bottom: 50px;
     width: 100%;
-    background: #0C3C60;
+    /* background: #0C3C60; */
     height: 400px;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 .home-img img {
     width: 100%;
+    display: none;
     /* display: none; */
     
 }
 .home-text {
     position: absolute;
-    top: 180px;
+    top: 200px;
     background: var(--cor05);
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 50px 60px;
+    padding: 20px 100px;
     gap: 20px;
+
 }
 .home-text .home-h4 {
     font-weight: 400;
@@ -152,11 +156,11 @@ header {
 
 }
 .cardes .item h1 {
+    margin-top: 60px;
     font-weight: 500;
-    padding: 10px;
 }
 .cardes .item p {
-    padding: 20px;
+    padding: 10px;
     text-align: justify;
     font-size: 1rem;
     margin-bottom: 10px;
@@ -190,6 +194,27 @@ header {
     .navigation ul {
         display: none;
     }
+    .navigation .menu {
+        display: block;
+    }
+
+    .home .home-img {
+
+    }
+    .home .home-text {
+        top: 240px
+    }
+    .home-text .home-h4 {
+        font-size: 1rem;
+    }
+    .home-text .home-h1 {
+        font-size: 1.5rem;
+    }
+    .cardes {
+        display: flex;
+        flex-direction: column;
+    }
+
 
 
 

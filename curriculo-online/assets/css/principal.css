@@ -13,16 +13,6 @@
     --font-padrao: "Roboto", sans-serif;
 }
 
-/* RESET */
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: var(--font-padrao);
-    list-style: none;
-    text-decoration: none;
-} */
-
 body {
     background: white;
     height: 100vh;
@@ -43,7 +33,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--cor01);
+    background: var(--cor03);
     padding: 15px 40px ;
     box-shadow: 0 0 1rem #000;
     z-index: 1;
@@ -67,11 +57,7 @@ header {
 .navigation ul li {
     padding: 5px 10px;
 }
-.navigation li a:hover,
-.navigation .login a:hover,
-.navigation .logo:hover{
-    color: #6ed1ff;
-}
+
 
 .navigation li a, 
 .navigation .login a {
@@ -80,11 +66,26 @@ header {
     transition: 0.3s;
 }
 
+.navigation a::after {
+    content: "";
+    display: block;
+    width:0;
+    height: 2px;
+    background: var(--cor05);
+    transition: all 0.3s ease-in-out 0.05s;
+}
+
+.navigation a:hover::after {
+    width: 100%;
+    background: var(--cor06);
+}
+
 .navigation .login {
     display: flex;
     align-items: center;
     transition: 0.3s all;
 }
+
 .navigation .login img {
     width: 26px;
     height: 26px;

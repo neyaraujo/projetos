@@ -44,8 +44,32 @@
                         required
                         min="6"
                         >
+                        <span class="toggle-password" id="toggle-password">👁</span>
                         <a>Resposta</a>
                     </div>
+<script>
+    const senha = document.getElementById("senha");
+    const togglePassword = document.getElementById("toggle-password");
+    
+    togglePassword.addEventListener('click',()=> {
+        const isPassword = senha.getAttribute("type") === "password"; 
+        senha.setAttribute("type", isPassword ? "text" :"password");
+
+        togglePassword.innerText = isPassword ? "🙈" : "👁";
+
+    })
+</script>
+                    <style>
+                        .fiel {
+                            position: relative;
+                        }
+                        .field .toggle-password {
+                            position: absolute;
+                            right: 10px;
+                            cursor: pointer;
+                            padding: 5px;
+                        }
+                    </style>
 
                 </div>                
                 <button type="submit" class="btn-login">Entrar</button>
@@ -61,6 +85,6 @@
             </footer>
         </section>
     </main>
-    <script src="assets/js/login-validacao.js"></script>
+    <script src="assets/js/index.js"></script>
 </body>
 </html>

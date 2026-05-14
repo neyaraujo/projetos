@@ -1,3 +1,4 @@
+// DECLARAÇÃO AS CONSTANTES
 const form = document.getElementById("form");
 const nome = document.getElementById("nome");
 const nacionalidade = document.getElementById("nacionalidade");
@@ -8,6 +9,10 @@ const celular = document.getElementById("celular");
 const email = document.getElementById("email");
 const senha = document.getElementById("senha");
 const confirma_senha = document.getElementById("confirma-senha");
+const togglePasswordSenha = document.getElementById
+const toggle_password_confirmation = document.getElementById("toggle-password-confirmation")
+const togglePasswordsenha = document.getElementById("toggle-password-senha")
+
 
 form.addEventListener("submit",(event) => {
     event.preventDefault();
@@ -58,11 +63,11 @@ function checkInputPassword(){
 
 function checkSenhaConfirmacao(){
     const senhaValue = senha.value;
-    const confirmaSenhaValor = confirma_senha.value;
+    const confirma_senhaValor = confirma_senha.value;
 
-    if(confirmaSenhaValor === ''){
+    if(confirma_senhaValor === ''){
         erroInput(confirma_senha, "A confirmação de senha é obrigatória");
-    }else if(confirmaSenhaValor !== senhaValue){
+    }else if(confirma_senhaValor !== senhaValue){
         erroInput(confirma_senha, "As senhas não são iguais")
     }else{
         const formItem = confirma_senha.parentElement;
@@ -94,8 +99,25 @@ function checkForm(){
     if(isValid){
         location.href = 'index.html';
     }
-
     
+}
+
+
+// SHOW PASSWORD
+
+
+togglePasswordsenha.addEventListener('click',() =>{
+    showPassword()
+})
+toggle_password_confirmation.addEventListener('click',() =>{
+    showPassword()
+})
+function showPassword() {
+    const isPassword = senha.getAttribute("type") === "password";
+    senha.setAttribute("type", isPassword ? "text" : "password");
+    confirma_senha.setAttribute("type", isPassword ? "text" : "password");
+    togglePasswordsenha.innerText = isPassword ? "🙈" : "👁";
+    toggle_password_confirmation.innerText = isPassword ? "🙈" : "👁";
 }
 
 

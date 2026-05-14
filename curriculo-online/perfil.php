@@ -4,89 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Pefil</title>
+    <title>Principal</title>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/principal.css">
-    <link rel="stylesheet" href="assets/css/geral.css">
-    <style>
-        .navigation li:nth-child(2) a {
-            color: cadetblue;
-        }
-        body {
-            height: 100vh;
-            background: #4D33DE;
-        }
-        header {
-            position: sticky;
-            top: 0;
-        }
-        main {
-            
-        }
-        main .perfil {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        main .perfil .header {
-            width: 100%;
-            background: rgb(226, 226, 226);
-            padding: 20px;
-            text-align: left;
-        }
-
-        main .perfil img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-        }
-
-        main .perfil h1  {
-            color: rgb(0, 49, 141);
-            font-size: 1.5rem;
-            font-weight: 400;
-        }
-
-        main .perfil .foto {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-        }
-        main .perfil .foto a {
-            color: rgb(255, 255, 255);
-            padding: 5px;
-            font-style: italic;
-        }
-        
-        main .perfil button {
-            padding: 10px 20px;
-        }
-        
-    </style>
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
     <link rel="stylesheet" href="assets/css/perfil.css">
 </head>
 <body>
-    <header>
-        <nav class="navigation">
-            <a class="logo" href="">CURRICULO ONLINE</a>
-            <ul class="nav-menu">
-                <li lang="nav-item"><a href="principal.html">Home</a></li>
-                <li lang="nav-item"><a href="#">Pefil</a></li>
-                <li lang="nav-item"><a href="#">Formação</a></li>
-                <li lang="nav-item"><a href="#">Cursos</a></li>
-                <li lang="nav-item"><a href="#">Currículo</a></li>
-                <li lang="nav-item"><a href="#">Download</a></li>
-            </ul>
-            <div class="login">
-                <img class="login-foto" src="assets/images/favicon.png" alt="foto perfil" width="26px">
-                <a href="#">Sair</a>
-            </div>
-            <div class="menu">
-                <span class="material-symbols-outlined">menu</span>
-            </div>
-        </nav>
-    </header>
+    <?php require_once "header.php"?>
     <main>
         <section class="perfil">
             <div class="header">
@@ -99,6 +25,7 @@
             </div>
         </section>
         <section>
+
 <form class="form" action="#" id="form">
             <div class="form-content">
                 <label for="nome"><sup>*</sup>Nome Completo</label>
@@ -171,10 +98,7 @@
         </form>
         </section>
     </main>
-    <footer class="footer">
-        <p>&copy;<span id="ano"></span> Franciney Araujo. All rights reserved.</p>
-    </footer>        
-
+<?php require_once "footer.php"?>     
 
 </body>
 </html>

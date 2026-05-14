@@ -13,12 +13,6 @@
     --font-padrao: "Roboto", sans-serif;
 }
 
-body {
-    background: white;
-    height: 100vh;
-}
-
-
 /* HEADER */
 header {
     position: fixed;
@@ -122,7 +116,7 @@ header {
 .home-text {
     position: absolute;
     top: 200px;
-    background: var(--cor05);
+    /* background: var(--cor05); */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -138,7 +132,7 @@ header {
     text-align: center;
     font-size: 3rem;
     font-weight: 500;
-    color: var(--cor01);
+    /* color: var(--cor01); */
     transition: 0.3s all;
 }
 /* BOTAO */
@@ -161,6 +155,7 @@ header {
     gap: 20px;
 }
 .cardes .item {
+    /* background: var(--cor05); */
     padding: 20px 0;
     flex: 1 1 200px;
     display: flex;
@@ -257,8 +252,6 @@ header {
         display: flex;
         flex-direction: column;
     }
-
-
 
 }
 

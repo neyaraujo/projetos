@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -6,59 +7,42 @@
 
     <title>Principal</title>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
     <link rel="stylesheet" href="assets/css/principal.css">
-    <link rel="stylesheet" href="assets/css/geral.css">
-    
 </head>
-
 <body>
-    <header>
-        <nav class="navigation">
-            <a class="logo" href="">CURRICULO ONLINE</a>
-            <ul class="nav-menu">
-                <li lang="nav-item"><a href="#">Home</a></li>
-                <li lang="nav-item"><a href="perfil.html">Pefil</a></li>
-                <li lang="nav-item"><a href="#">Formação</a></li>
-                <li lang="nav-item"><a href="#">Cursos</a></li>
-                <li lang="nav-item"><a href="#">Currículo</a></li>
-                <li lang="nav-item"><a href="#">Download</a></li>
-            </ul>
-            <div class="login">
-                <img class="login-foto" src="assets/images/favicon.png" alt="foto perfil" width="26px">
-                <a href="#">Sair</a>
-            </div>
-            <div class="menu">
-                <span class="material-symbols-outlined">menu</span>
-            </div>
-        </nav>
-    </header>
+
+    <?php require_once "header.php"?>
+
     <main class="home">
         <section class="home-container">
             <div class="home-bg">
                 <!-- background -->
             </div>
-            <div class="home-text">
+            <div class="home-text card-primary">
                 <h4 class="home-h4">Seja um profissional preparado!</h4>
                 <h1 class="home-h1">ATUALIZE SEU CURRÍCULO</h1>
                 <a class="btn-primary" href="#">Atualizar Perfil</a>
             </div>
         </section>
         <section class="cardes">
-            <article class="item shadow">
+            <article class="item shadow item-primary">
                 <h1>Cadastrar Formações</h1>
                 <p>
                     Faça o cadastro completo das suas formações.
                 </p>
                 <a class="btn-primary" href="">Cadastrar</a>
             </article>
-            <article class="item shadow">
+            <article class="item shadow item-primary">
                 <h1>cadastre seus Cursos</h1>
                 <p>
                     Configure a sua conta.
                 </p>
                 <a class="btn-primary" href="">Cadastrar</a>
             </article>
-                        <article class="item shadow">
+                        <article class="item shadow item-primary">
                 <h1>Configurações</h1>
                 <p>
                     Configure a sua conta.
@@ -68,9 +52,7 @@
         </section>
     </main>
 
-    <footer class="footer">
-        <p>&copy;<span id="ano"></span> Franciney Araujo. All rights reserved.</p>
-    </footer>        
+<?php require_once "footer.php"?>
 
 
 </body>

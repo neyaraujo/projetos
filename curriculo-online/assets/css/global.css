@@ -10,6 +10,11 @@
     --font-padrao: "Roboto", sans-serif;
 }
 
+body {
+    background: var(--cor03);
+    height: 100vh;
+}
+
 /* RESET */
 * {
     margin: 0;
@@ -25,26 +30,47 @@ img {
 }
 
 .btn-primary {
-    background: var(--cor05);
-    color: var(--cor01);
+    /* background: var(--cor05); */
+    color: var(--cor05);
     font-family: var(--font-padrao);
     list-style: none;
     padding: 15px 30px;
     text-decoration: none;
     font-size: 1rem;
     border-radius: 3px;
-    border: 1px solid var(--cor01);
+    border: 1px solid var(--cor05);
     cursor: pointer;
     transition: 0.3s all;
 }
+
 .btn-primary:hover {
-    background-color: var(--cor01);
+    background-color: var(--cor03);
+    color: var(--cor05);
+    border-color: var(--cor05);
+}
+
+.card-primary,
+.card-primary h1,
+.card-primary h4{
+    background: var(--cor03);
     color: var(--cor05);
 }
+
+.item-primary {
+    color: var(--cor05);
+    /* background: var(--cor03); */
+    border: 1px solid var(--cor05);
+}
+
+
 .shadow {
-    box-shadow: 0 0 5px  rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 5px 2px  rgba(255, 255, 255, 0.5);
 }
 .shadow-inset {
     box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.25);
+}
+
+footer{
+    color: var(--cor05);
 }
 

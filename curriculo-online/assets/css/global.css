@@ -30,7 +30,7 @@ img {
 }
 
 .btn-primary {
-    /* background: var(--cor05); */
+    background: var(--cor03);
     color: var(--cor05);
     font-family: var(--font-padrao);
     list-style: none;
@@ -44,8 +44,8 @@ img {
 }
 
 .btn-primary:hover {
-    background-color: var(--cor03);
-    color: var(--cor05);
+    background-color: var(--cor05);
+    color: var(--cor03);
     border-color: var(--cor05);
 }
 

@@ -1,6 +1,20 @@
 const form = document.getElementById("form");
 const email = document.getElementById("email");
 const senha = document.getElementById("senha");
+const togglePassword = document.getElementById("toggle-password");
+
+
+
+togglePassword.addEventListener('click',()=> {
+    const isPassword = senha.getAttribute("type") === "password"; 
+    senha.setAttribute("type", isPassword ? "text" :"password");
+
+    togglePassword.innerText = isPassword ? "🙈" : "👁";
+})
+
+
+
+
 
 form.addEventListener("submit",(event) =>{
     event.preventDefault();
@@ -43,7 +57,7 @@ function checkForm() {
 
     if (isValid) {
         alert("LOGIN ACEITO");
-        location.assign('principal.html')
+        location.assign('principal.php')
     }
 }
 

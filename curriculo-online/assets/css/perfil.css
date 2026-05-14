@@ -13,13 +13,11 @@
     --font-padrao: "Roboto", sans-serif;
 }
 
+
 .navigation li:nth-child(2) a {
-    color: cadetblue;
+    color: var(--cor04);
 }
-/* body {
-    height: 100vh;
-    background: #4D33DE;
-} */
+
 header {
     position: sticky;
     top: 0;
@@ -115,8 +113,6 @@ main .perfil button {
 
 .form button {
     width: 100%;
-    background: var(--cor01);
-    color: var(--cor05);
  }
 
 .form-content.error input {

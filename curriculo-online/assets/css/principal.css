@@ -13,84 +13,11 @@
     --font-padrao: "Roboto", sans-serif;
 }
 
-/* HEADER */
-header {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1;   
-}
-
-/* NAV */
-.navigation {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: var(--cor03);
-    padding: 15px 40px ;
-    box-shadow: 0 0 1rem #000;
-    z-index: 1;
-    transition: 0.3s all;
-}
-
-.navigation .logo {
+.nav-menu li:nth-child(1) a {
     color: var(--cor04);
     font-weight: 500;
-    font-size: 1.5rem;
-    color: var(--cor05);
-    transition: 0.3s all;
 }
 
-.navigation ul {
-    display: flex;
-    color: var(--cor05);
-    gap: 2rem;
-    transition: 0.3s all;
-}
-.navigation ul li {
-    padding: 5px 10px;
-}
-
-
-.navigation li a, 
-.navigation .login a {
-    font-size: 1rem;
-    color: var(--cor05);
-    transition: 0.3s;
-}
-
-.navigation a::after {
-    content: "";
-    display: block;
-    width:0;
-    height: 2px;
-    background: var(--cor05);
-    transition: all 0.3s ease-in-out 0.05s;
-}
-
-.navigation a:hover::after {
-    width: 100%;
-    background: var(--cor06);
-}
-
-.navigation .login {
-    display: flex;
-    align-items: center;
-    transition: 0.3s all;
-}
-
-.navigation .login img {
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-}
-
-/* MENU */
-.navigation .menu {
-    display: none; 
-    color: var(--cor05);
-}
 /* HOME */
 .home {
     position: relative;
@@ -106,8 +33,8 @@ header {
     margin-bottom: 50px;
     width: 100%;
     height: 400px;
-
 }
+
 .home-img img {
     width: 100%;
     display: none;
@@ -135,13 +62,6 @@ header {
     /* color: var(--cor01); */
     transition: 0.3s all;
 }
-/* BOTAO */
-/* .home-text .home-btn {
-    border: 1px solid var(--cor01);
-    padding: 15px 30px;
-    color: var(--cor01);
-    transition: 0.3s all;
-} */
 
 .home-text .home-btn:hover{
     background: var(--cor01);
@@ -179,22 +99,8 @@ header {
     margin-top: auto;
 }
 
-.footer {
-    margin-top: 50px;
-    padding: 10px;
-    text-align: center;
-}
 /* MEDIA */
 @media(max-width: 1030px) {
-    .navigation .logo {
-        font-size: 1rem;
-    }
-    .navigation ul {
-        gap: 0;
-    }
-    .navigation ul a {
-        font-size: 0.9rem;
-    }
     .home-text .home-h1 {
         font-size: 2.5rem;
     }
@@ -207,31 +113,6 @@ header {
 }
 
 @media(max-width: 756px) {
-    header {
-        width: 100%;
-    }
-
-    .navigation{
-        padding: 10px;
-        /* display: flex; */
-    }
-
-    .navigation .logo {
-
-        font-size: 1.3rem;
-        order: 1;
-    }
-
-    .navigation ul {
-        display: none;
-    }
-
-    .navigation .login {
-        order: 2;
-    }
-    .navigation .menu {
-        display: inline-block;
-    }
 
     .home .home-img {
 

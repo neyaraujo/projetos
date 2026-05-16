@@ -1,6 +1,3 @@
-    <?php 
-        session_start();
-    ?>
     <header>
         <nav class="navigation">
             <a class="logo" href="">CURRICULO ONLINE</a>

@@ -1,5 +1,6 @@
 <?php 
-    
+    session_start();
+    require_once 'acoes/verificar-logado.php';
 ?>
 
 <!DOCTYPE html>

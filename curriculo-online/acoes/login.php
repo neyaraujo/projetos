@@ -26,11 +26,13 @@
             $_SESSION['idusuario'] = $dados['idusuario'];
             $_SESSION['email'] = $dados['email'];
             header('Location: ../painel.php'); // REDIRECIONAR PARA O PAINEL
+    
         } else {
             // CRIAR VARIAVEIS DE SESSAO
             $_SESSION['mensagem'] = "Erro no login! E-email ou senha incorretos";
             $_SESSION['status'] = "danger";
             header('Location: ../index.php');
+
         }
         mysqli_close($con); // fechar conexao
     }

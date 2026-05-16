@@ -102,7 +102,7 @@
                 <a id="msg-conf">Confirme sua senha</a>
                 <span id="toggle-password-confirmation" class="toggle-password">👁</span>
             </div>
-            <button class="btn-primary" type="submit">Cadastrar</button>
+            <button class="btn-primary" type="submit" name="btn_cadastrar">Cadastrar</button>
         </form>
    </div>
    

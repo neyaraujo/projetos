@@ -1,3 +1,6 @@
+<?php 
+    
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -10,7 +13,7 @@
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/footer.css">
-    <link rel="stylesheet" href="assets/css/principal.css">
+    <link rel="stylesheet" href="assets/css/painel.css">
 </head>
 <body>
 

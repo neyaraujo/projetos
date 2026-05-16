@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Principal</title>
+    <title>Pefil</title>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/header.css">
@@ -98,7 +98,8 @@
         </form>
         </section>
     </main>
-<?php require_once "footer.php"?>     
+<?php require_once "footer.php"?>    
+<script src="assets/js/header.js"></script>
 
 </body>
 </html>

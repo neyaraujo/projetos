@@ -1,3 +1,8 @@
+<?php 
+    // inicia sessão
+    session_start()
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -16,10 +21,22 @@
                 <div class="logo-circle">
                     <img src="assets/images/favicon.png" alt="Ícone de perfil e documentos">
                 </div>
+     
+
                 <h1>Currículo Online - Login</h1>
+
+                           <?php 
+                    if(isset($_SESSION['mensagem'])){
+                        echo "
+                        <div class='alert alert-{$_SESSION['status']}'>
+                            {$_SESSION['mensagem']}
+                        </div>";
+                    }
+                    session_unset(); // DESTRUIR VARIAVEIS DE SESSAO
+                ?>
             </header>
 
-            <form action="#" method="POST" class="login-form" id="form">
+            <form action="acoes/login.php" method="POST" class="login-form" id="form">
                 <div class="input-group">
                     <div class="field">
                         <label for="email" class="sr-only">E-mail</label>
@@ -51,19 +68,11 @@
 
 </script>
                     <style>
-                        .fiel {
-                            position: relative;
-                        }
-                        .field .toggle-password {
-                            position: absolute;
-                            right: 10px;
-                            cursor: pointer;
-                            padding: 5px;
-                        }
+
                     </style>
 
                 </div>                
-                <button type="submit" class="btn-login">Entrar</button>
+                <button type="submit" class="btn-login" name="btn_entrar">Entrar</button>
                 <div class="registration-area">
                     <span>Não tem login?</span>
                     <a href="register-user.html" class="btn-signup">Cadastre-se</a>

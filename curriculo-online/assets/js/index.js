@@ -17,8 +17,7 @@ togglePassword.addEventListener('click',()=> {
 
 
 form.addEventListener("submit",(event) =>{
-    event.preventDefault();
-
+    
     checkForm()
 })
 
@@ -55,9 +54,9 @@ function checkForm() {
         return !item.classList.contains('error');
     });
 
-    if (isValid) {
-        alert("LOGIN ACEITO");
-        location.assign('principal.php')
+    // se conter erro no email ou senha, permance na mesma pagina
+    if (!isValid) {
+        event.preventDefault();
     }
 }
 

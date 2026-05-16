@@ -40,7 +40,7 @@ body {
 }
 
 .header {
-    background: var(--cor01);
+    background: var(--cor03);
     padding: 24px;
     text-align: center;
     color: #fff;
@@ -92,8 +92,12 @@ body {
 
 .form button {
     width: 100%;
-    background: var(--cor01);
+    background: var(--cor03);
     color: var(--cor05);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 3px;
+    cursor: pointer;
  }
 
 .form-content.error input {

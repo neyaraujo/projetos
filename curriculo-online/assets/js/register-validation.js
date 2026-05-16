@@ -97,7 +97,7 @@ function checkForm(){
     });     
     
     if(isValid){
-        location.href = 'acoes/cria-usuario.php';
+        // location.href = 'acoes/cria-usuario.php';
     }
     
 }

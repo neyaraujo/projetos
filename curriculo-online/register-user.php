@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/register-user.css">
-    <link rel="stylesheet" href="assets/css/geral.css">
     <title>Cadastrar Usuário</title>
 </head>
 <body>
@@ -13,7 +12,7 @@
             <h2>Nova conta</h2>
         </section>
 
-        <form class="form" action="#" id="form">
+        <form class="form" action="acoes/cria-usuario.php" id="form" method="POST">
             <div class="form-content">
                 <label for="nome"><sup>*</sup>Nome Completo</label>
                 <input 
@@ -106,7 +105,7 @@
         </form>
    </div>
    
-   <script src="assets/js/register-validation.js"></script>
+   <!-- <script src="assets/js/register-validation.js"></script> -->
     
 </body>
 </html>

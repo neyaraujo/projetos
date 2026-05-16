@@ -75,7 +75,7 @@
                 <button type="submit" class="btn-login" name="btn_entrar">Entrar</button>
                 <div class="registration-area">
                     <span>Não tem login?</span>
-                    <a href="register-user.html" class="btn-signup">Cadastre-se</a>
+                    <a href="register-user.php" class="btn-signup">Cadastre-se</a>
                 </div>
                 
             </form>

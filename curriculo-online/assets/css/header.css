@@ -29,15 +29,15 @@
 /* HEADER */
 header {
     background: var(--white);
-    /* position: fixed; */
-    width: 100%;
+    width: 100vw;
+    height: 50px;
     top: 0;
-    z-index: 1;   
 }
 
 /* NAV */
 .navigation {
     width: 100%;
+    height: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -128,6 +128,7 @@ header {
     cursor: pointer;
 }
 
+
 /* MEDIA */
 @media(max-width: 1030px) {
     .navigation .menu {
@@ -157,7 +158,7 @@ header {
     }
 
     .navigation ul {
-        /* display: none; */
+        display: none;
     }
 
     .navigation .logo {
@@ -168,33 +169,6 @@ header {
     }
 }
 
-@media(max-width: 756px) {
-    header {
-        width: 100%;
-    }
-
-    .navigation{
-        padding: 10px;
-        justify-content: space-between;
-    }
-
-    .navigation .logo {
-        font-size: 1.3rem;
-        order: 1;
-    }
-
-    .navigation .login {
-        margin-left: 0;
-        order: 2;
-    }
-    
-
-
-    .login .email {
-        display: none;
-    }
-
-}
 
 
 

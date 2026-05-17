@@ -37,6 +37,7 @@
 }
 .home-container {
     max-width: 100%;
+    height: calc(100vh - 279px);
     display: flex;
     align-items: center;
     justify-content:center;
@@ -100,6 +101,7 @@
     font-size: 1rem;
     margin-bottom: 10px;
     text-align: center;
+    /* color: var(--text-muted); */
 }
 
 .cardes .item a {
@@ -128,9 +130,6 @@
     .cardes .item p {
         font-size: 1rem;
     }
-}
-
-@media(max-width: 756px) {
 
     .home .home-img {
 
@@ -151,7 +150,6 @@
         display: flex;
         flex-direction: column;
     }
-
 }
 
 

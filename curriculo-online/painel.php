@@ -18,7 +18,7 @@
 </head>
 <body>
 
-    <?php require_once "header.php"?>
+    <!-- <?php require_once "header.php"?> -->
 
     <main class="home">
         <section class="home-container">
@@ -56,7 +56,7 @@
         </section>
     </main>
 
-<?php require_once "footer.php"?>
+<!-- <?php require_once "footer.php"?> -->
 <script src="assets/js/header.js"></script>
 
 </body>

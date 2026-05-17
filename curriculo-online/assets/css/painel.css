@@ -13,6 +13,11 @@
     --font-padrao: "Roboto", sans-serif;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 :root {
     --primary-blue: #0066ff;
@@ -25,6 +30,10 @@
     --border-color: #e0e0e0;
     --white: #ffffff;
 }
+body{
+    width: 100vw;
+    overflow-x: hidden;
+}
 
 .nav-menu li:nth-child(1) a {
     color: var(--text-dark);
@@ -33,25 +42,25 @@
 
 /* HOME */
 .home {
-    width: 100vw;
+    max-width: 100%px;
+
 }
 .home-container {
-    max-width: 100%;
-    height: calc(100vh - 279px);
+    height: calc(100vh - 259px);
     display: flex;
     align-items: center;
     justify-content:center;
-    gap:20px;
 }
 
 .home-text {
+    max-width: 800px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .home-text .home-h1 {
-    max-width: 900px;
+    width: 100%;
     text-align: center;
     font-size: 4rem;
     font-weight: 500;
@@ -81,11 +90,9 @@
     border-top: 1px solid var(--cor05);
     display: flex;
     justify-content: space-between;
-    gap: 20px;
 }
 .cardes .item {
-    padding: 20px 0;
-    flex: 1 1 180px;
+    flex: 1 1 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -96,7 +103,6 @@
     transition: 0.3s all;
 }
 .cardes .item p {
-    padding: 10px;
     text-align: justify;
     font-size: 1rem;
     margin-bottom: 10px;
@@ -104,12 +110,21 @@
     /* color: var(--text-muted); */
 }
 
-.cardes .item a {
-    margin-top: auto;
-}
-
 /* MEDIA */
 @media(max-width: 1030px) {
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .home {
+        padding: 10px;
+        margin: 0 auto;
+        max-width: 100vw;
+    }
+    .home-text {
+        max-width: 100%;
+    }
     .logo {
         order: 1;
     }
@@ -118,14 +133,12 @@
     }
 
     .home-text {
-        top: 200px;
     }
     .home-text .home-h1 {
         font-size: 2.5rem;
     }
     .cardes .item h1 {
         font-size: 1.3em;
-        color: var(--cor03);
     } 
     .cardes .item p {
         font-size: 1rem;
@@ -135,16 +148,14 @@
 
     }
     .home .home-text {
-        top: 250px;
-        padding: 10px 10px;
 
     }
     .home-text .home-h4 {
         font-size: 1rem;
     }
     .home-text .home-h1 {
-        font-size: 1.5rem;
-        text-align: center;
+        font-size: 3rem;
+        line-height: 3rem;
     }
     .cardes {
         display: flex;

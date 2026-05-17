@@ -15,8 +15,8 @@ const togglePasswordsenha = document.getElementById("toggle-password-senha")
 
 
 form.addEventListener("submit",(event) => {
-    event.preventDefault();
     checkForm();
+
 })
 
 nome.addEventListener("blur",()=>{
@@ -96,8 +96,8 @@ function checkForm(){
         return item.className === "form-content"
     });     
     
-    if(isValid){
-        // location.href = 'acoes/cria-usuario.php';
+    if(!isValid){
+        event.preventDefault();
     }
     
 }

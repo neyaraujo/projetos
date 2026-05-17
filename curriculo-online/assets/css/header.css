@@ -9,13 +9,27 @@
     --cor04: #000000;
     --cor05: #ffffff;
     --cor06: #6ed1ff;
+    --cor07: #3055D9;
 
     --font-padrao: "Roboto", sans-serif;
 }
 
+:root {
+    --primary-blue: #0066ff;
+    --hover-blue: #0052cc;
+    --primary-yellow: #ffc107;
+    --hover-yellow: #eab000;
+    --text-dark: #333;
+    --text-muted: #666;
+    --bg-light: #f4f7f9;
+    --border-color: #e0e0e0;
+    --white: #ffffff;
+}
+
 /* HEADER */
 header {
-    position: fixed;
+    background: var(--white);
+    /* position: fixed; */
     width: 100%;
     top: 0;
     z-index: 1;   
@@ -27,19 +41,22 @@ header {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    background: var(--cor03);
+    /* background: var(--cor03); */
     padding: 15px 40px ;
-    box-shadow: 0 0 1rem #000;
+    box-shadow: 0 0 10px 5px rgba(0,0,0,0.1);
     z-index: 1;
     transition: 0.3s all;
 }
 
 .navigation .logo {
-    color: var(--cor04);
-    font-weight: 500;
+    color: var(--text-dark);
+    margin-right: 20px;
+    font-weight: 900;
     font-size: 1.5rem;
-    color: var(--cor05);
     transition: 0.3s all;
+}
+.navigation .logo span {
+    font-weight: 200;
 }
 
 .navigation ul {
@@ -58,8 +75,8 @@ header {
     align-items: center;
 }
 .login p {
-    color: var(--cor05);
-    font-weight: 200;
+    color: var(--text-muted);
+    font-style: italic;
 }
 .login a {
     margin-left: 20px;
@@ -70,7 +87,7 @@ header {
 .navigation a, 
 .navigation .login a {
     font-size: 1rem;
-    color: var(--cor05);
+    color: var(--text-muted);
     transition: 0.3s;
 }
 
@@ -100,13 +117,14 @@ header {
     width: 30px;
     height: 30px;
     border-radius: 50%;
+    margin-right: 5px;
 }
 
 
 /* MENU */
 .navigation .menu {
     display: none; 
-    color: var(--cor05);
+    color: var(--text-dark);
     cursor: pointer;
 }
 

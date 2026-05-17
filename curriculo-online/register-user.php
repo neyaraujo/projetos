@@ -105,7 +105,7 @@
         </form>
    </div>
    
-   <!-- <script src="assets/js/register-validation.js"></script> -->
+   <script src="assets/js/register-validation.js"></script>
     
 </body>
 </html>

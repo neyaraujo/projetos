@@ -22,14 +22,14 @@
 
     <main class="home">
         <section class="home-container">
-            <div class="home-bg">
-                <!-- background -->
-            </div>
+
             <div class="home-text card-primary">
-                <h4 class="home-h4">Seja um profissional preparado!</h4>
-                <h1 class="home-h1">ATUALIZE SEU CURRÍCULO</h1>
-                <a class="btn-primary" href="#">Atualizar Perfil</a>
-            </div>
+                <div>
+                    <h1 class="home-h1">Crie seu currículo, <span>seja um profissional preparado.</span>
+                    </h1>
+                    <h4><i>"Desistir é para os fracos, quem é fraco é bunda, que não segura peido, que é só um vento."</i></h4>
+                </div>           
+            </div>            
         </section>
         <section class="cardes">
             <article class="item shadow item-primary">
@@ -40,7 +40,7 @@
                 <a class="btn-primary" href="">Cadastrar</a>
             </article>
             <article class="item shadow item-primary">
-                <h1>cadastre seus Cursos</h1>
+                <h1>Cadastre seus Cursos</h1>
                 <p>
                     Configure a sua conta.
                 </p>

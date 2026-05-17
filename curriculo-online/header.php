@@ -1,6 +1,6 @@
     <header>
         <nav class="navigation">
-            <a class="logo" href="">CURRICULO ONLINE</a>
+            <a class="logo" href="">Curriculo<span><i>Online</i></span></a>
             <ul class="nav-menu">
                 <li lang="nav-item"><a href="painel.php">Home</a></li>
                 <li lang="nav-item"><a href="perfil.php">Pefil</a></li>

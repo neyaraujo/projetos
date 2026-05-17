@@ -16,6 +16,7 @@
         $email = mysqli_real_escape_string($con, $_POST['email']);
         $senha = md5(mysqli_real_escape_string($con, $_POST['senha']));
 
+
         // INSTRUÇÃO SQL
         $sql = "INSERT INTO usuarios (nome, nacionalidade, estado_civil, idade, endereco, celular, email, senha) VALUES ('$nome', '$nacionalidade', '$estado_civil', '$idade', '$endereco', '$celular', '$email', '$senha')";
         
@@ -23,11 +24,11 @@
         if(mysqli_query($con, $sql)) {
             $_SESSION['mensagem'] = "Cadastro realizado com sucesso!";
             $_SESSION['status'] = "success";
-            header('Location: index.php');
+            header('Location: ../index.php');
         } else {
             $_SESSION['mensagem'] = "Não foi possível cadastrar!";
             $_SESSION['status'] = "danger";
-            header('Location: index.php');
+            header('Location: ../index.php');
         }
         //FECHAR CONEXAO
         mysqli_close($con);

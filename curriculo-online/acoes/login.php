@@ -7,7 +7,7 @@
 
         // pegar os dados postados e fazer o escape
         $email = mysqli_real_escape_string($con, $_POST['email']);
-        $senha = mysqli_real_escape_string($con, $_POST['senha']);
+        $senha = md5(mysqli_real_escape_string($con, $_POST['senha']));
         
         // CONSULTAR NO BANCO DE DADOS
         $sql = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha';";

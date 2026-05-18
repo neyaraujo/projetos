@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Pefil</title>
+    <title>Perfil</title>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/header.css">
@@ -18,9 +18,9 @@
     <?php require_once "header.php"?>
     <main>
         <section class="perfil">
-            <div class="header">
+            <!-- <div class="header">
                 <h1>Franciney de Jesus Araujo</h1>
-            </div>
+            </div> -->
             <div class="foto">
                 <img src="assets/images/favicon.png" alt="">
                 <a>Nenhum arquivo selecionado...</a>

@@ -18,7 +18,7 @@
 </head>
 <body>
 
-    <!-- <?php require_once "header.php"?> -->
+    <?php require_once "header.php"?>
 
     <main class="home">
         <section class="home-container">
@@ -27,7 +27,7 @@
                 <div>
                     <h1 class="home-h1">Crie seu currículo, <span>seja um profissional preparado.</span>
                     </h1>
-                    <h4><i>"Desistir é para os fracos, quem é fraco é bunda, que não segura peido, que é só um vento."</i></h4>
+                    <!-- <h4><i>"Desistir é para os fracos, quem é fraco é bunda, que não segura peido, que é só um vento."</i></h4> -->
                 </div>           
             </div>            
         </section>
@@ -56,7 +56,7 @@
         </section>
     </main>
 
-<!-- <?php require_once "footer.php"?> -->
+<?php require_once "footer.php"?>
 <script src="assets/js/header.js"></script>
 
 </body>

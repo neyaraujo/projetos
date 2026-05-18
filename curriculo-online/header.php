@@ -1,5 +1,8 @@
     <header>
         <nav class="navigation">
+            <div class="menu">
+                <span class="material-symbols-outlined">menu</span>
+            </div>
             <a class="logo" href="">Curriculo<span><i>Online</i></span></a>
             <ul class="nav-menu">
                 <li lang="nav-item"><a href="painel.php">Home</a></li>
@@ -13,9 +16,6 @@
                 <img class="login-foto" src="assets/images/favicon.png" alt="foto perfil" width="26px">
                 <p class="email"><?= $_SESSION['email'] ?></p>
                 <a href="acoes/logout.php">Sair</a>
-            </div>
-            <div class="menu">
-                <span class="material-symbols-outlined">menu</span>
             </div>
         </nav>
     </header>

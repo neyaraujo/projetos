@@ -10,7 +10,23 @@
     --cor05: #ffffff;
     --cor06: #6ed1ff;
 
+    --primary-blue: #0066ff;
+    --hover-blue: #0052cc;
+    --primary-yellow: #ffc107;
+    --hover-yellow: #eab000;
+    --text-dark: #333;
+    --text-muted: #666;
+    --bg-light: #f4f7f9;
+    --border-color: #e0e0e0;
+    --white: #ffffff;
+
     --font-padrao: "Roboto", sans-serif;
+
+
+}
+
+body {
+
 }
 
 
@@ -20,11 +36,6 @@
     font-weight: bold;
 }
 
-
-header {
-    position: sticky;
-    top: 0;
-}
 main {
     
 }
@@ -36,13 +47,13 @@ main .perfil {
 main .perfil .header {
     width: 100%;
     background: rgb(226, 226, 226);
-    padding: 20px;
+    padding: 10px;
     text-align: left;
 }
 
 main .perfil img {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
 }
 
@@ -83,7 +94,7 @@ main .perfil button {
 .form-content label {
     display: inline-block;
     margin-bottom: 4px;
-    color: var(--cor05);
+    color: var(--text-dark);
 }
 
 .form-content input,

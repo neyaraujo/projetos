@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formações</title>
+    <title>Cursos</title>
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <style>
     @charset "UTF-8";
@@ -136,7 +136,7 @@
                 </div>
                 <nav class="header__nav">
                     <ul class="header__menu">
-                        <li class="header__item"><a class="header__link header__button" href="#">Nova Formação</a></li>
+                        <li class="header__item"><a class="header__link header__button" href="#">Novo Curso</a></li>
                         <li class="header__item"><a class="header__link material-symbols-outlined main__edit" href="painel.php">Close</a></li>
                     </ul>
                 </nav>
@@ -144,7 +144,7 @@
     </header>
     <main class="main">
             <section class="main__courses">
-                <h1 class="main__title">Formações</h1>
+                <h1 class="main__title">Cursos</h1>
                 <ul class="main__list">
                     <li class="main__item">
                         <a href="#" class="material-symbols-outlined main__edit">edit</a>

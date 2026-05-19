@@ -8,8 +8,8 @@
                 <li lang="nav-item"><a href="painel.php">Home</a></li>
                 <li lang="nav-item"><a href="perfil.php">Pefil</a></li>
                 <li lang="nav-item"><a href="formacao.php">Formação</a></li>
-                <li lang="nav-item"><a href="#">Cursos</a></li>
-                <li lang="nav-item"><a href="#">Currículo</a></li>
+                <li lang="nav-item"><a href="curso.php">Cursos</a></li>
+                <li lang="nav-item"><a href="curriculo.php">Currículo</a></li>
                 <li lang="nav-item"><a href="#">Download</a></li>
             </ul>
             <div class="user">

@@ -134,7 +134,7 @@ header {
 @media(max-width: 1030px) {
     .navigation {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
     }
 
 .navigation .email {

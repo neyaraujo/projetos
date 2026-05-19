@@ -22,11 +22,14 @@
 
     --font-padrao: "Roboto", sans-serif;
 
-
 }
 
 * {
     /* outline: 1px solid red; */
+}
+
+body {
+    min-height: 100vh;
 }
 
 

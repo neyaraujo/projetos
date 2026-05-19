@@ -7,7 +7,7 @@
             <ul class="nav-menu">
                 <li lang="nav-item"><a href="painel.php">Home</a></li>
                 <li lang="nav-item"><a href="perfil.php">Pefil</a></li>
-                <li lang="nav-item"><a href="#">Formação</a></li>
+                <li lang="nav-item"><a href="formacao.php">Formação</a></li>
                 <li lang="nav-item"><a href="#">Cursos</a></li>
                 <li lang="nav-item"><a href="#">Currículo</a></li>
                 <li lang="nav-item"><a href="#">Download</a></li>

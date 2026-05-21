@@ -1,9 +1,6 @@
 <?php 
     //inicia sessão n arquivo que chama a consulta
     require_once 'verifica-logado.php';
-
-    session_start();
-
     require_once 'conexao.php';
 
     $id_logado = $_SESSION['idusuario'];
@@ -35,6 +32,9 @@
     $_SESSION['email']          = $email;
     $_SESSION['foto']           = $foto;
 
+    if ($_SESSION['foto'] == "" || $_SESSION['foto'] == NULL) {
+        $_SESSION['foto'] = 'user.png';
+    }
     // fecha o resultado da consulta
     mysqli_free_result($resultado);
 

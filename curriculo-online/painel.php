@@ -1,6 +1,7 @@
 <?php 
     session_start();
     require_once 'acoes/verifica-logado.php';
+    require_once 'acoes/consulta-usuario.php';
 ?>
 
 <!DOCTYPE html>
@@ -93,7 +94,7 @@
 
     <main class="main">
         <section class="main__hero">
-                    <h1 class="main__title"><span class="main__title--strong">Crie seu currículo</span>, seja um profissional preparado.                   
+                    <h1 class="main__title"><span class="main__title--strong">Crie seu currículo</span>, seja um Profissional preparado.                   
         </section>
         <section class="main__cards">
                 <ul class="main__list">

@@ -1,5 +1,8 @@
 <?php 
     session_start();
+    require_once 'acoes/verifica-logado.php';
+    include_once 'acoes/consulta-usuario.php';
+    require_once 'acoes/funcoes.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -18,24 +21,25 @@
     <?php require_once "header.php"?>
     <main>
         <section class="perfil">
-            <!-- <div class="header">
-                <h1>Franciney de Jesus Araujo</h1>
-            </div> -->
-            <div class="foto">
-                <img src="assets/images/favicon.png" alt="">
-                <a>Nenhum arquivo selecionado...</a>
-                <button class="btn-primary">Escolher foto</button>
+            <div class="main__album">
+                <div class="main__fotos">
+                    <img class="main__foto" src="fotos/<?= $_SESSION['foto'] ?>" alt="">
+                </div>
+                <!-- Este input pertece ao formulario form -->
+                <input form="form" class="form__foto" type="file" name="foto" id="foto" value="<?= $foto; ?>" />
             </div>
         </section>
         <section>
 
-<form class="form" action="#" id="form">
+        <form class="form" action="acoes/edita-usuario.php" id="form" method="post" enctype="multipart/form-data">
+
             <div class="form-content">
                 <label for="nome"><sup>*</sup>Nome Completo</label>
                 <input 
                 type="text" 
                 name="nome" 
                 id="nome"
+                value="<?= $_SESSION['nome'] ?>"
                 placeholder="Digite seu nome completo"/>
                 <a></a>
             </div>
@@ -64,6 +68,7 @@
                 type="number" 
                 name="idade" 
                 id="idade"
+                value="<?= $_SESSION['idade'] ?>"
                 step="1"
                 min="1"
                 placeholder="Digite sua idade"/>
@@ -75,6 +80,7 @@
                 type="text" 
                 name="endereco" 
                 id="endereco"
+                value="<?= $_SESSION['endereco'] ?>"
                 placeholder="Rua, Travessa, Quadra..."/>
                 <a></a>
             </div>
@@ -84,6 +90,7 @@
                 type="tel" 
                 name="celular" 
                 id="celular"
+                value="<?= $_SESSION['celular'] ?>"
                 placeholder="(98) xxxx-xxx"/>
                 <a></a>
             </div>
@@ -93,11 +100,12 @@
                 type="email" 
                 name="email" 
                 id="email"
+                value="<?= $_SESSION['email'] ?>"
                 autocomplete="email"
                 placeholder="exemplo@gmail.com"/>
                 <a></a>
             </div>
-            <button class="btn-primary" type="submit">Cadastrar</button>
+            <button class="btn-primary" type="submit" name="btn_atualizar">Atualizar</button>
         </form>
         </section>
     </main>

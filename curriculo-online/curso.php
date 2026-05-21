@@ -1,3 +1,8 @@
+<?php 
+    session_start();
+    require_once 'acoes/verifica-logado.php';
+    require_once 'acoes/consulta-usuario.php';
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -75,14 +80,15 @@
         }
 
         .header__title {
-            font-size: 1.5rem;
+            font-size: clamp(0.8rem, 1.5vw, 1.5rem);
         }
 
         .header__button {
             background: #0C3C60;
-            padding: 10px 15px;
+            padding: 5px 10px;
             border-radius: 3px;
             color: #fff;
+            font-size: 0.8rem;
         }
 
         .main {
@@ -132,7 +138,7 @@
     <header class="header">
             <div class="header__container">
                 <div class="header__name">
-                    <h1 class="header__title">Olá, Franciney</h1>
+                    <h1 class="header__title"><?= "Olá, " . $_SESSION['nome'] ?></h1>
                 </div>
                 <nav class="header__nav">
                     <ul class="header__menu">

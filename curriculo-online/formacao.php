@@ -1,3 +1,9 @@
+<?php 
+    session_start();
+    require_once 'acoes/verifica-logado.php';
+    require_once 'acoes/consulta-usuario.php';
+    require_once 'acoes/funcoes.php';
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -49,7 +55,7 @@
             background-color: #ccc;
             color: #333;
             background: #0C3C60;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: var(--font-padrao);
         }
 
         .header {
@@ -75,14 +81,19 @@
         }
 
         .header__title {
-            font-size: 1.5rem;
+            font-size: clamp(1.2rem, 2vw, 2rem);
+        }
+        .header__title--italic {
+            font-style: italic;
+            font-weight: 200;
         }
 
         .header__button {
             background: #0C3C60;
-            padding: 10px 15px;
+            padding: 5px 10px;
             border-radius: 3px;
             color: #fff;
+            font-size: 0.8rem;
         }
 
         .main {
@@ -92,7 +103,13 @@
             justify-content: center;
             align-items: stretch;
             margin: 0 auto;
-
+        }
+            .main__texto-saudacao {
+            color: #fff;
+            margin-top: 1.5rem;
+            text-align: center;
+            font-size: clamp(1rem, 1.5vw, 1.5rem);
+            font-weight: 400;
         }
 
         .main__courses {
@@ -123,16 +140,15 @@
 
             background: #fff;
         }
-
-
-
     </style>
 </head>
 <body>
     <header class="header">
             <div class="header__container">
                 <div class="header__name">
-                    <h1 class="header__title">Olá, Franciney</h1>
+                    <h1 class="header__title">
+                        <strong>Currículo</strong><span class="header__title--italic">Online</span>
+                    </h1>
                 </div>
                 <nav class="header__nav">
                     <ul class="header__menu">
@@ -143,6 +159,9 @@
             </div>
     </header>
     <main class="main">
+            <section class="main__container-saudacao">
+                <h4 class="main__texto-saudacao"><?= saudacao() . ", " .$_SESSION['nome']; ?>, está preparado para adicionar novas formações em seu currículo?</h4>
+            </section>
             <section class="main__courses">
                 <h1 class="main__title">Formações</h1>
                 <ul class="main__list">

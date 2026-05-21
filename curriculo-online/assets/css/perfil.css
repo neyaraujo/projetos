@@ -32,7 +32,6 @@ body {
     min-height: 100vh;
 }
 
-
 .nav-menu li:nth-child(2) a {
 
     color: var(--cor04);
@@ -45,9 +44,16 @@ main .perfil {
     align-items: center;
 }
 
-main .perfil img {
-    width: 150px;
-    height: 150px;
+.main__fotos {
+    margin-top: 10px;
+    width: 100px;
+    height: 100px;
+}
+
+.main__foto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     border-radius: 50%;
 }
 
@@ -77,6 +83,13 @@ main .perfil button {
     margin: auto;
     max-width: 800px;
     padding: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form__foto {
+    align-self: center;
+    margin-top: 10px;
 }
 
 .form-content {

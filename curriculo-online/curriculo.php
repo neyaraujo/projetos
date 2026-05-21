@@ -1,3 +1,8 @@
+<?php 
+    session_start();
+    require_once 'acoes/verifica-logado.php';
+    require_once 'acoes/consulta-usuario.php';
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -77,7 +82,8 @@
         }
         .main__information {
             color: #fff;
-            font-size: 1.5rem;
+            font-size: clamp(1rem, 1.5vw, 1.5rem);
+            text-align: center;
 
         }
         .main__title {
@@ -118,6 +124,7 @@
 
         .main__img {
             border-radius: 10px;
+            margin-top: auto;
         }
         .main__link {
             color: #494949;
@@ -151,8 +158,9 @@
             <div class="main__imgs">
                 <img class="main__img user" src="assets/images/favicon.png" alt="">
             </div>
-            <p class="main__information">Franciney de Jesus Araujo,</p>
-            <p class="main__information">Brasileiro, Solteiro, 38 anos</p>
+            <p class="main__information"><?= $_SESSION['nome'] . ",<br>" 
+            . $_SESSION['nacionalidade'] . ", " . $_SESSION['estado_civil'] . ", " . $_SESSION['idade'] . " anos" ?></p>
+
         </div>
         <section class="main__section">
             <h2 class="main__title">Formação</h2>
@@ -169,15 +177,15 @@
             <h2 class="main__title contatos">Contatos</h2>
             <ul class="main__cards">
                 <li class="main__card">
-                    <a class="main__link" href="#">Endereço</a>
+                    <a class="main__link" href="#"><?= $_SESSION['endereco'] ?></a>
                     <img class="main__img" src="assets/images/localizacao.jpg" alt="localização">
                 </li>
                 <li class="main__card">
-                    <a class="main__link" href="#">ney@gmail.com</a>
+                    <a class="main__link" href="#"><?= $_SESSION['email'] ?></a>
                     <img class="main__img" src="assets/images/localizacao.jpg" alt="localização">
                 </li>
                 <li class="main__card">
-                    <a class="main__link" href="#">(98) 98548-3758</a>
+                    <a class="main__link" href="#"><?= $_SESSION['celular'] ?></a>
                     <img class="main__img" src="assets/images/localizacao.jpg" alt="localização">
                 </li>
 

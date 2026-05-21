@@ -13,7 +13,9 @@
                 <li lang="nav-item"><a href="#">Download</a></li>
             </ul>
             <div class="user">
-                <img class="foto" src="assets/images/favicon.png" alt="foto perfil" width="26px">
+                <div class="user__container-foto">
+                    <img class="user__foto" src="fotos/<?= $_SESSION['foto'] ?>" alt="foto perfil">
+                </div>
                 <p class="email"><?= $_SESSION['email'] ?></p>
                 <a class="logout" href="acoes/logout.php">Sair</a>
             </div>

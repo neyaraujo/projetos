@@ -3,6 +3,7 @@
     require_once 'acoes/verifica-logado.php';
     require_once 'acoes/consulta-usuario.php';
     require_once 'acoes/funcoes.php';
+    require_once 'acoes/modal.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -80,6 +81,11 @@
             gap: 20px;
         }
 
+
+        .header__name {
+            display: none;
+        }
+
         .header__title {
             font-size: clamp(1.2rem, 2vw, 2rem);
         }
@@ -103,13 +109,6 @@
             justify-content: center;
             align-items: stretch;
             margin: 0 auto;
-        }
-            .main__texto-saudacao {
-            color: #fff;
-            margin-top: 1.5rem;
-            text-align: center;
-            font-size: clamp(1rem, 1.5vw, 1.5rem);
-            font-weight: 400;
         }
 
         .main__courses {
@@ -143,6 +142,7 @@
     </style>
 </head>
 <body>
+
     <header class="header">
             <div class="header__container">
                 <div class="header__name">
@@ -152,21 +152,18 @@
                 </div>
                 <nav class="header__nav">
                     <ul class="header__menu">
-                        <li class="header__item"><a class="header__link header__button" href="#">Nova Formação</a></li>
+                        <li class="header__item"><a class="header__link header__button" href="cadastrar-formacao.php">Nova Formação</a></li>
                         <li class="header__item"><a class="header__link material-symbols-outlined main__edit" href="painel.php">Close</a></li>
                     </ul>
                 </nav>
             </div>
     </header>
     <main class="main">
-            <section class="main__container-saudacao">
-                <h4 class="main__texto-saudacao"><?= saudacao() . ", " .$_SESSION['nome']; ?>, está preparado para adicionar novas formações em seu currículo?</h4>
-            </section>
             <section class="main__courses">
                 <h1 class="main__title">Formações</h1>
                 <ul class="main__list">
                     <li class="main__item">
-                        <a href="#" class="material-symbols-outlined main__edit">edit</a>
+                        <a href="editar-formacao.php" class="material-symbols-outlined main__edit">edit</a>
                         <a href="#" class="material-symbols-outlined main__delete">delete</a>
                         Digitação - Senac-AP - 2000
                     </li>
@@ -179,5 +176,6 @@
                 <a class="main__top" href="#">Topo</a>
             </section>
     </main>
+    <?php modalMensagem()?>
 </body>
 </html>

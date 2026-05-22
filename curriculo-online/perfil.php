@@ -3,6 +3,7 @@
     require_once 'acoes/verifica-logado.php';
     include_once 'acoes/consulta-usuario.php';
     require_once 'acoes/funcoes.php';
+    require_once 'acoes/modal.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -109,6 +110,9 @@
         </form>
         </section>
     </main>
+
+<?php modalMensagem()?>
+    
 <?php require_once "footer.php"?>    
 <script src="assets/js/header.js"></script>
 

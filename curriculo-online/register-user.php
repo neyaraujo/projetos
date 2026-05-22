@@ -32,6 +32,14 @@
                 <a></a>
             </div>
             <div class="form-content">
+                <label for="genero">Genero</label>
+                <select id="genero" name="genero">
+                    <option value="Masculino">Masculino</option>
+                    <option value="Feminino">Feminino</option>
+                </select>
+                <a></a>
+            </div>
+            <div class="form-content">
                 <label for="estado-civil">Estado Civil</label>
                 <select id="estado-civil" name="estado-civil">
                     <option value="Solteiro">Solteiro(a)</option>

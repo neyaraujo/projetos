@@ -9,6 +9,7 @@
         // pegar os dados postados e fazer o escape
         $nome           = mysqli_real_escape_string($con, $_POST['nome']);
         $nacionalidade  = mysqli_real_escape_string($con, $_POST['nacionalidade']);
+        $genero         = mysqli_real_escape_string($con, $_POST['genero']);
         $estado_civil   = mysqli_real_escape_string($con, $_POST['estado-civil']);
         $idade          = mysqli_real_escape_string($con, $_POST['idade']);
         $endereco       = mysqli_real_escape_string($con, $_POST['endereco']);
@@ -17,7 +18,7 @@
         $senha          = md5(mysqli_real_escape_string($con, $_POST['senha']));
 
         // INSTRUÇÃO SQL
-        $sql = "INSERT INTO usuarios (nome, nacionalidade, estado_civil, idade, endereco, celular, email, senha) VALUES ('$nome', '$nacionalidade', '$estado_civil', '$idade', '$endereco', '$celular', '$email', '$senha')";
+        $sql = "INSERT INTO usuarios (nome, nacionalidade, genero, estado_civil, idade, endereco, celular, email, senha) VALUES ('$nome', '$nacionalidade', '$genero', '$estado_civil', '$idade', '$endereco', '$celular', '$email', '$senha')";
         
         //EXECUTAR INSTRUÇÃO SQL E VERIFICAR SUCESSO
         if(mysqli_query($con, $sql)) {

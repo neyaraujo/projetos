@@ -1,5 +1,7 @@
 <?php 
 
+    session_start();
+
     $nome = "francisca das chagas araujo";
     // Primeira letra maiuscula
     $nome = ucfirst($nome);
@@ -24,6 +26,29 @@
         $artigo = 'a';
     }
 
-    echo "Boa noite " . $pronome . $nome . ", seja bem vind" . $artigo ."!";
+    // echo "Boa noite " . $pronome . $nome . ", seja bem vind" . $artigo ."!";
+
+
+
+    function welcome() {
+        $nome = $_SESSION['nome'];
+        $idade = $_SESSION['idade'];
+        $genero = $_SESSION['genero'];
+        $pronome = '';
+        $artigo = '';
+
+        $nome = ucfirst($nome);
+        $indice = strpos($nome, " ");
+        $nome = substr($nome, 0, $indice );
+        
+        if($genero == 'Masculino') {
+            $pronome = 'senhor ';
+            $artigo = 'o';
+        } elseif ($genero == 'Feminino') {
+            $pronome = 'senhora ';
+            $artigo = 'a';
+            echo ", " . $pronome . $nome . ", Seja Bem Vind" . $artigo . "!";
+        }
+    }
 
 ?>

@@ -1,6 +1,7 @@
 <?php 
     // inicia sessão
-    session_start()
+    session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +26,7 @@
 
                 <h1>Currículo Online - Login</h1>
 
-                           <?php 
+                <?php 
                     if(isset($_SESSION['mensagem'])){
                         echo "
                         <div class='alert alert-{$_SESSION['status']}'>
@@ -34,7 +35,10 @@
                     }
                     session_unset(); // DESTRUIR VARIAVEIS DE SESSAO
                 ?>
+
             </header>
+
+
 
             <form action="acoes/login.php" method="POST" class="login-form" id="form">
                 <div class="input-group">
@@ -85,6 +89,9 @@
             </footer>
         </section>
     </main>
+
+
     <script src="assets/js/index.js"></script>
 </body>
 </html>
+

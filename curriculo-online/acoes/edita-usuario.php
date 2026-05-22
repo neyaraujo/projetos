@@ -8,6 +8,7 @@
         $idusuario      = $_SESSION['idusuario'];
         $nome           = mysqli_real_escape_string($con, $_POST['nome']);
         $nacionalidade  = mysqli_real_escape_string($con, $_POST['nacionalidade']);
+        $genero  = mysqli_real_escape_string($con, $_POST['genero']);
         $estado_civil   = mysqli_real_escape_string($con, $_POST['estado-civil']);
         $idade          = mysqli_real_escape_string($con, $_POST['idade']);
         $endereco       = mysqli_real_escape_string($con, $_POST['endereco']);
@@ -22,6 +23,7 @@
         $sql = "UPDATE usuarios SET
             nome            = '$nome',
             nacionalidade   = '$nacionalidade',
+            genero          = '$genero',
             estado_civil    = '$estado_civil',
             idade           = '$idade',
             endereco        = '$endereco',

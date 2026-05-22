@@ -15,6 +15,7 @@
     $idusuario      = $dados['idusuario'];
     $nome           = $dados['nome'];
     $nacionalidade  = $dados['nacionalidade'];
+    $genero         = $dados['genero'];
     $estado_civil   = $dados['estado_civil'];
     $idade          = $dados['idade'];
     $endereco       = $dados['endereco'];
@@ -25,6 +26,7 @@
     // CRIAR VARIAVEIS DE SESSAO
     $_SESSION['nome']           = $nome;
     $_SESSION['nacionalidade']  = $nacionalidade;
+    $_SESSION['genero']         = $genero;
     $_SESSION['estado_civil']   = $estado_civil;
     $_SESSION['idade']          = $idade;
     $_SESSION['endereco']       = $endereco;

@@ -2,6 +2,7 @@
 const form = document.getElementById("form");
 const nome = document.getElementById("nome");
 const nacionalidade = document.getElementById("nacionalidade");
+const genero = document.getElementById("genero");
 const estado_civil = document.getElementById("estado-civil");
 const idade = document.getElementById("idade");
 const endereco = document.getElementById("endereco");
@@ -19,6 +20,7 @@ form.addEventListener("submit",(event) => {
 
 })
 
+// Evento Blur: quando o elemento perde o foco
 nome.addEventListener("blur",()=>{
     checkInputNome()
 })

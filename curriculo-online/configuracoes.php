@@ -2,14 +2,14 @@
     session_start();
     require_once 'acoes/verifica-logado.php';
     require_once 'acoes/consulta-usuario.php';
-    require_once 'acoes/modal.php';
+    require_once 'acoes/funcoes.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cursos</title>
+    <title>Formações</title>
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <style>
     @charset "UTF-8";
@@ -55,9 +55,8 @@
             background-color: #ccc;
             color: #333;
             background: #0C3C60;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: var(--font-padrao);
         }
-
         .header {
             width: 100%;
             background: #f4f7f9;
@@ -80,10 +79,6 @@
             gap: 20px;
         }
 
-        .header__name {
-            display: none;
-        }
-
         .header__title {
             font-size: clamp(1.2rem, 2vw, 2rem);
         }
@@ -98,54 +93,66 @@
             border-radius: 3px;
             color: #fff;
             font-size: 0.8rem;
-        }
-
+        } 
+        
         .main {
-            max-width: 900px;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: stretch;
-            margin: 0 auto;
-
-        }
-
-        .main__courses {
-            display: flex;
-            flex-direction: column;
-            align-items: stretch;
-        }
-        .main__title {
-            align-self: center;
-            color: #fff;
-            margin-top: 40px;
-            margin-bottom: 20px;
-        }
-
-        .main__item {
-            background: #fff;
-            border: 1px solid #ccc;
-            padding: 10px;
-
-            display: flex;
             align-items: center;
         }
-        .main__top {
-            margin-top: 50px;
-            align-self: center;
-            padding: 10px 20px;
-            border-radius: 5px;
-
-            background: #fff;
+        .configuracoes {
+            min-height: calc(100vh - 100px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
         }
-
-
+        .configuracoes__titulo {
+            font-size: 2rem;
+            color: #fff;
+        }
+        .configuracoes__perfil {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+        .configuracoes__foto {
+            height: 150px;
+            width: 150px;
+            border-radius: 50%;
+            border: 1px solid #fff;
+            object-fit: cover;
+        }
+        .configuracoes__dados {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 1rem;
+            gap: 5px;
+            color: #fff;
+            font-style: italic;
+        }
+        .configuracoes__acoes {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            font-size: 1rem;
+            gap: 5px;
+        }
+        .configuracoes__acoes .botao {
+            color: #fff;
+            padding: 5px 10px;
+            border: 1px solid #fff;
+            border-radius: 3px;
+        }
 
     </style>
 </head>
 <body>
-    <?php modalMensagem();?>
-
     <header class="header">
             <div class="header__container">
                 <div class="header__name">
@@ -153,32 +160,37 @@
                         <strong>Currículo</strong><span class="header__title--italic">Online</span>
                     </h1>
                 </div>
-                
                 <nav class="header__nav">
                     <ul class="header__menu">
-                        <li class="header__item"><a class="header__link header__button" href="cadastrar-cursos.php">Novo Curso</a></li>
                         <li class="header__item"><a class="header__link material-symbols-outlined main__edit" href="painel.php">Close</a></li>
                     </ul>
                 </nav>
             </div>
     </header>
     <main class="main">
-            <section class="main__courses">
-                <h1 class="main__title">Cursos</h1>
-                <ul class="main__list">
-                    <li class="main__item">
-                        <a href="#" class="material-symbols-outlined main__edit">edit</a>
-                        <a href="#" class="material-symbols-outlined main__delete">delete</a>
-                        Digitação - Senac-AP - 2000
-                    </li>
-                    <li class="main__item">
-                        <a href="#" class="material-symbols-outlined main__edit">edit</a>
-                        <a href="#" class="material-symbols-outlined main__delete">delete</a>
-                        Digitação - Senac-AP - 2000
-                    </li>
-                </ul>
-                <a class="main__top" href="#">Topo</a>
-            </section>
+        <section class="configuracoes">
+
+            <h2 class="configuracoes__titulo">Configurações</h2>
+
+            <div class="configuracoes__perfil">
+                <img class="configuracoes__foto" 
+                    src="fotos/<?= $_SESSION['foto'] ?>" 
+                    alt="Foto de perfil de <?= $_SESSION['nome'] ?>"
+                >
+
+                <div class="configuracoes__dados">
+                    <p><?= $_SESSION['nome'] ?></p>
+                    <p><?= $_SESSION['email'] ?></p>
+                </div>
+            </div>
+
+            <div class="configuracoes__acoes">
+                <a href="editar-senha.php" class="botao">Alterar senha</a>
+                <a href="acoes/modal-apagar-usuario.php" class="botao botao--perigo">Excluir conta</a>
+            </div>
+
+        </section>
+            
     </main>
 </body>
 </html>

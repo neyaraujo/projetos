@@ -2,14 +2,14 @@
     session_start();
     require_once 'acoes/verifica-logado.php';
     require_once 'acoes/consulta-usuario.php';
-    require_once 'acoes/modal.php';
+    require_once 'acoes/funcoes.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cursos</title>
+    <title>Editar Senha</title>
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <style>
     @charset "UTF-8";
@@ -55,9 +55,8 @@
             background-color: #ccc;
             color: #333;
             background: #0C3C60;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: var(--font-padrao);
         }
-
         .header {
             width: 100%;
             background: #f4f7f9;
@@ -80,10 +79,6 @@
             gap: 20px;
         }
 
-        .header__name {
-            display: none;
-        }
-
         .header__title {
             font-size: clamp(1.2rem, 2vw, 2rem);
         }
@@ -98,54 +93,59 @@
             border-radius: 3px;
             color: #fff;
             font-size: 0.8rem;
-        }
-
+        } 
+        
         .main {
-            max-width: 900px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: stretch;
+            max-width: 400px;
             margin: 0 auto;
-
-        }
-
-        .main__courses {
+            min-height: calc(100vh - 20vh);
             display: flex;
             flex-direction: column;
-            align-items: stretch;
-        }
-        .main__title {
-            align-self: center;
-            color: #fff;
-            margin-top: 40px;
-            margin-bottom: 20px;
-        }
-
-        .main__item {
-            background: #fff;
-            border: 1px solid #ccc;
-            padding: 10px;
-
-            display: flex;
             align-items: center;
-        }
-        .main__top {
-            margin-top: 50px;
-            align-self: center;
-            padding: 10px 20px;
-            border-radius: 5px;
+            justify-content: center;
 
-            background: #fff;
+            text-align: center;;
         }
 
+        .configuracao {
+            min-width: 100%;
+        }
+        .configuracao__title {
+            color: #fff;
+            padding: 5px;
+        }
+        .configuracao__label {
+            padding: 5px;
+            color: #fff;
+        }
+        .configuracao__input {
+            padding: 5px;
+        }
+        .configuracao__form {
+        
+        }
+        .configuracao__senha {
+                padding: 20px;
+                display: flex;
+                flex-direction: column;        
+        }
+        .configuracao__input {
+
+        }
+        .configuracao__submit {
+            padding: 5px 20px;
+            border-radius: 3px;
+            border: none;
+        }
+        .erro.ativo {
+            background: #ffa200;
+            padding: 5px;
+        }
 
 
     </style>
 </head>
 <body>
-    <?php modalMensagem();?>
-
     <header class="header">
             <div class="header__container">
                 <div class="header__name">
@@ -153,32 +153,55 @@
                         <strong>Currículo</strong><span class="header__title--italic">Online</span>
                     </h1>
                 </div>
-                
                 <nav class="header__nav">
                     <ul class="header__menu">
-                        <li class="header__item"><a class="header__link header__button" href="cadastrar-cursos.php">Novo Curso</a></li>
                         <li class="header__item"><a class="header__link material-symbols-outlined main__edit" href="painel.php">Close</a></li>
                     </ul>
                 </nav>
             </div>
     </header>
     <main class="main">
-            <section class="main__courses">
-                <h1 class="main__title">Cursos</h1>
-                <ul class="main__list">
-                    <li class="main__item">
-                        <a href="#" class="material-symbols-outlined main__edit">edit</a>
-                        <a href="#" class="material-symbols-outlined main__delete">delete</a>
-                        Digitação - Senac-AP - 2000
-                    </li>
-                    <li class="main__item">
-                        <a href="#" class="material-symbols-outlined main__edit">edit</a>
-                        <a href="#" class="material-symbols-outlined main__delete">delete</a>
-                        Digitação - Senac-AP - 2000
-                    </li>
-                </ul>
-                <a class="main__top" href="#">Topo</a>
-            </section>
+            <section class="configuracao">
+
+                <h2 class="configuracao__title">Editar Senha</h2>
+
+                <form class="configuracao__form" action="acoes/edita-senha.php" method="POST">
+                    <div class="configuracao__senha">
+                        <label class="configuracao__label" for="senha">Nova Senha</label>
+                        <input class="configuracao__input" type="password" name="nova_senha" id="nova_senha" minlength="6">
+                    </div>
+                    <a class="erro"></a>
+                    <div class="configuracao__senha">
+                        <label class="configuracao__label" for="confirma_senha">Confirmação de Senha</label>
+                        <input class="configuracao__input" type="password" name="conf_senha" id="conf_senha" minlength="6">
+                    </div>
+                    <button class="configuracao__submit" type="submit" id="btn_editar" name="btn_editar">Editar</button>
+                </form>
+            </section> 
     </main>
+    <script>
+        const senha = document.getElementById("nova_senha");
+        const confirma_senha = document.getElementById("conf_senha");
+        const btn_editar = document.getElementById('btn_editar');
+        const mensagem = document.querySelector('.erro');
+
+        btn_editar.addEventListener('click', function () {
+            const senhaValor = senha.value;
+            const confirmaValor = confirma_senha.value;
+            if (senhaValor === '') {
+                mensagem.classList.add('ativo')
+                mensagem.textContent = "Preencha o campo senha"
+                senha.focus();
+                event.preventDefault();
+                return
+            } else if (senhaValor !== confirmaValor){
+                mensagem.classList.add('ativo')
+                mensagem.textContent = "As senhas são diferentes"
+                event.preventDefault();
+            } else {
+                mensagem.classList.remove('ativo')
+            }    
+        })
+    </script>
 </body>
 </html>

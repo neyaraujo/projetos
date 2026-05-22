@@ -164,8 +164,25 @@
         </div>
         <section class="main__section">
             <h2 class="main__title">Formação</h2>
-            <p class="main__content">Nome da formação 1</p>
-            <p class="main__content">Nome da formação 2</p>
+            
+            <?php
+
+                include_once 'acoes/consulta-formacoes-do-usuario.php';
+
+                while ($dados = mysqli_fetch_assoc($resultado)) {
+                    $idformacao     = $dados['idformacao'];
+                    $nivel          = $dados['nivel'];
+                    $nome_curso     = $dados['nome_curso'];
+                    $instituicao    = $dados['instituicao'];
+                    $ano_inicio     = $dados['ano_inicio'];
+                    $ano_temino     = $dados['ano_termino'];
+                    $situacao       = !empty($dados['situacao']) ? $dados['situacao'] : 'concluido';
+
+                    echo "<li class='main__content'>$nome_curso - $instituicao - $ano_inicio - $situacao</li>";
+
+                }
+                
+            ?>
         </section>
         <section class="main__section">
             <h2 class="main__title">Cursos</h2>

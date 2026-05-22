@@ -41,6 +41,6 @@
     mysqli_free_result($resultado);
 
     // fecha a conexão
-    mysqli_close($con);
+    // mysqli_close($con);
 
 ?>

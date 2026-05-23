@@ -51,4 +51,10 @@
         }
     }
 
+    function contarString() {
+        $texto = "Escola Fundamental de Ensino Médio Professor Rubem almeida";
+        echo strlen($texto);
+    }
+    contarString();
+
 ?>

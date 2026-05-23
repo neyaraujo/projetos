@@ -82,10 +82,6 @@
         }
 
 
-        .header__name {
-            display: none;
-        }
-
         .header__title {
             font-size: clamp(1.2rem, 2vw, 2rem);
         }
@@ -130,6 +126,7 @@
 
             display: flex;
             align-items: center;
+            gap: 10px;
         }
         .main__top {
             margin-top: 50px;
@@ -158,19 +155,30 @@
                 </nav>
             </div>
     </header>
+
+    <?php modalMensagem()?>
+    
     <main class="main">
             <section class="main__courses">
                 <h1 class="main__title">Formações</h1>
                 <ul class="main__list">
-                    <li class="main__item">
-                        <a href="editar-formacao.php" class="material-symbols-outlined main__edit">edit</a>
-                        <a href="#" class="material-symbols-outlined main__delete">delete</a>
-                        Digitação - Senac-AP - 2000
-                    </li>
-                    <li class="main__item">
-                        <a href="#" class="material-symbols-outlined main__edit">edit</a>
-                        <a href="#" class="material-symbols-outlined main__delete">delete</a>
-                        Digitação - Senac-AP - 2000
+                        <?php
+                            include_once 'acoes/consulta-formacoes-do-usuario.php';
+                            
+                            while ($dados = mysqli_fetch_assoc($resultado)) {
+                                $idformacao     = $dados['idformacao'];
+                                $nivel          = $dados['nivel'];
+                                $nome_curso     = $dados['nome_curso'];
+                                $instituicao    = $dados['instituicao'];
+                                $ano_inicio     = $dados['ano_inicio'];
+                                $ano_temino     = $dados['ano_termino'];
+                                $situacao       = $dados['situacao'] ?: 'concluido';
+
+                                echo "<li class='main__item'>
+                                    <a href='editar-formacao.php?id={$idformacao}'>Editar</a>
+                                    <a href='editar-formacao.php?id={$idformacao}'>Excluir</a>$nome_curso - $instituicao - $ano_inicio</li>";
+                                }     
+                        ?>
                     </li>
                 </ul>
                 <a class="main__top" href="#">Topo</a>

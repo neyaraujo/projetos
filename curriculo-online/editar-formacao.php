@@ -1,7 +1,7 @@
 <?php 
     session_start();
     require_once 'acoes/verifica-logado.php';
-    include_once 'acoes/consulta-formacoes.php';
+    include_once 'acoes/consulta-formacao.php';
     $id_logado = $_SESSION['idusuario'];
     $email_logado = $_SESSION['email'];
 ?>
@@ -36,6 +36,7 @@
             min-width: 100%;
         }
         .header__list{
+            
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -158,10 +159,14 @@ body {
     <div class="container">
        <main>
            <h2 class="main__subtitulo">Cadastro de Formação</h2>
-            <form class="form" action="acoes/cria-formacao.php" id="form" method="POST">
+
+            <form class="form" action="acoes/edita-formacao.php" id="form" method="POST">
                 <div class="form-content">
                     <label for="nivel">Nivel de Escolaridade</label>
                     <select id="nivel" name="nivel">
+                        <optgroup label="Dado anterior">
+                            <option value="<?= $nivel; ?>"><?= $nivel; ?></option>
+                        </optgroup>
                         <option value="Ensino Fundamental">Ensino Fundamental</option>
                         <option value="Ensino Médio">Esnino Médio</option>
                         <option value="Ensino Superior">Ensino Superior</option>
@@ -182,13 +187,24 @@ body {
                     <a></a>
                 </div>
                 <div class="form-content">
-                    <label for="endereco">Instituição</label>
+                    <label for="nome_curso">Instituicao</label>
                     <input
                     type="text"
-                    name="instituicao"
-                    id="instituicao"
+                    name="nome_curso"
+                    id="nome_curso"
+                    value="<?= $instituicao ?>"
                     placeholder=""/>
                     <a></a>
+                </div>
+                <div class="form-content">
+                    <label for="nivel">Situação</label>
+                    <select name="situacao" id="situacao">
+                    <optgroup label="Dado anterior">
+                        <option value="<?= $situacao; ?>"><?= $situacao; ?></option>
+                    </optgroup>
+                        <option value="Concluído">Concluído</option>
+                        <option value="Andamento">Andamento</option>
+                    </select>
                 </div>
                 <div class="form-content">
                     <label for="ano_inicio">Ano do Início</label>
@@ -196,6 +212,7 @@ body {
                     type="number"
                     name="ano_inicio"
                     id="ano_inicio"
+                    value="<?= $ano_inicio ?>"
                     placeholder=""/>
                     <a></a>
                 </div>
@@ -205,9 +222,11 @@ body {
                     type="number"
                     name="ano_termino"
                     id="ano_termino"
+                    value="<?= $ano_termino ?>"
                     placeholder=""/>
                     <a></a>
                 </div>
+                <input type="hidden" name="idformacao" id="id_formacao" value="<?= $idformacao ?>">
                 <input type="hidden" name="idusuario" id="idusuario" value="<?= $id_logado ?>">
                 <button class="btn-primary" type="submit" name="btn_editar">Editar</button>
             </form>

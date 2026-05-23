@@ -180,7 +180,7 @@ body {
                     <a></a>
                 </div>
                 <div class="form-content">
-                    <label for="endereco">Instituição</label>
+                    <label for="instituicao">Instituição</label>
                     <input
                     type="text"
                     name="instituicao"
@@ -189,7 +189,7 @@ body {
                     <a></a>
                 </div>
                 <div class="form-content">
-                    <select>
+                    <select name="situacao" id="situacao">
                         <option value="Concluído">Concluído</option>
                         <option value="Andamento">Andamento</option>
                     </select>

@@ -186,7 +186,7 @@
 
             <div class="configuracoes__acoes">
                 <a href="editar-senha.php" class="botao">Alterar senha</a>
-                <a href="acoes/modal-apagar-usuario.php" class="botao botao--perigo">Excluir conta</a>
+                <a href="acoes/apagar-usuario.php" class="botao botao--perigo">Excluir conta</a>
             </div>
 
         </section>

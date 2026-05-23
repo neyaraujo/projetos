@@ -4,14 +4,8 @@
     
     $id_logado = $_SESSION['idusuario'];
 
-    
     $sql = "SELECT * FROM cursos WHERE idusuario = '$id_logado'";
 
-    
     $resultado = mysqli_query($con, $sql);
-
-    if (!$resultado) {
-        die("Erro na colsulta: " . mysqli_error($con));
-    }
 
 ?>

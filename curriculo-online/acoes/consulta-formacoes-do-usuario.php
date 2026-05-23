@@ -3,14 +3,9 @@
     require_once 'conexao.php';
     
     $id_logado = $_SESSION['idusuario'];
-
     
     $sql = "SELECT * FROM formacoes WHERE idusuario = '$id_logado'";
     
     $resultado = mysqli_query($con, $sql);
-
-    if (!$resultado) {
-        die("Erro na colsulta: " . mysqli_error($con));
-    }
 
 ?>

@@ -175,8 +175,9 @@
                                 $situacao       = $dados['situacao'] ?: 'concluido';
 
                                 echo "<li class='main__item'>
-                                    <a href='editar-formacao.php?id={$idformacao}'>Editar</a>
-                                    <a href='editar-formacao.php?id={$idformacao}'>Excluir</a>$nome_curso - $instituicao - $ano_inicio</li>";
+                                    <a class='material-symbols-outlined main__edit' href='editar-formacao.php?id={$idformacao}'>Edit</a>
+                                    <a class='material-symbols-outlined main__delete' href='acoes/modal-apagar-formacao.php?id={$idformacao}'>Delete</a>$nome_curso - $instituicao - $ano_inicio
+                                    </li>";
                                 }     
                         ?>
                     </li>

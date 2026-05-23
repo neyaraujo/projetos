@@ -1,6 +1,7 @@
 <?php 
     session_start();
     require_once 'acoes/verifica-logado.php';
+
     $id_logado = $_SESSION['idusuario'];
     $email_logado = $_SESSION['email'];
 ?>
@@ -12,7 +13,7 @@
 
     <link rel="stylesheet" href="assets/css/register-user.css">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <title>Cadastrar Cursos</title>
+    <title>Editar Curso</title>
     <style>
         :root {
         --cor01: #0C3C60;
@@ -185,7 +186,7 @@ body {
                     placeholder=""/>
                     <a></a>
                 </div>
-                <input type="hiden" name="idusuario" id="idusuario" value="<?= $id_logado ?>">
+                <input type="hidden" name="idusuario" id="idusuario" value="<?= $id_logado ?>">
                 <button class="btn-primary" type="submit" name="btn_cadastrar">Cadastrar</button>
             </form>
               </div>

@@ -11,7 +11,7 @@
                 <li lang="nav-item"><a href="formacao.php">Formação</a></li>
                 <li lang="nav-item"><a href="curso.php">Cursos</a></li>
                 <li lang="nav-item"><a href="curriculo.php">Currículo</a></li>
-                <li lang="nav-item"><a href="#">Download</a></li>
+                <li lang="nav-item"><a href="configuracoes.php">Configuração</a></li>
             </ul>
             <div class="user">
                 <div class="user__container-foto">

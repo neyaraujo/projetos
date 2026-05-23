@@ -1,7 +1,9 @@
 <?php 
     session_start();
     require_once 'acoes/verifica-logado.php';
-    include_once 'acoes/consulta-formacao.php';
+    require_once 'acoes/conexao.php';
+    include_once 'acoes/consulta-curso.php';
+
     $id_logado = $_SESSION['idusuario'];
     $email_logado = $_SESSION['email'];
 ?>
@@ -13,7 +15,7 @@
 
     <link rel="stylesheet" href="assets/css/register-user.css">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <title>Editar Formação</title>
+    <title>Cadastrar Cursos</title>
     <style>
         :root {
         --cor01: #0C3C60;
@@ -36,7 +38,6 @@
             min-width: 100%;
         }
         .header__list{
-            
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -151,33 +152,18 @@ body {
 <body>
         <header class="header__container">
            <ul class="header__list">
-               <li class="header__list-item">CADASTRAR</li>
-               <li class="header__list-item"><a class="header__list-link material-symbols-outlined main__edit" href="formacao.php">close</a></li>
+               <li class="header__list-item">EDITAR</li>
+               <li class="header__list-item"><a class="header__list-link material-symbols-outlined main__edit" href="curso.php">close</a></li>
            </ul>
        </header>
     
     <div class="container">
        <main>
-           <h2 class="main__subtitulo">Cadastro de Formação</h2>
+           <h2 class="main__subtitulo">Editar Curso</h2>
 
-            <form class="form" action="acoes/edita-formacao.php" id="form" method="POST">
+            <form class="form" action="acoes/edita-curso.php" id="form" method="POST">
                 <div class="form-content">
-                    <label for="nivel">Nivel de Escolaridade</label>
-                    <select id="nivel" name="nivel">
-                        <optgroup label="Dado anterior">
-                            <option value="<?= $nivel; ?>"><?= $nivel; ?></option>
-                        </optgroup>
-                        <option value="Ensino Fundamental">Ensino Fundamental</option>
-                        <option value="Ensino Médio">Esnino Médio</option>
-                        <option value="Ensino Superior">Ensino Superior</option>
-                        <option value="Pós-Graduação">Pós-Graduação</option>
-                        <option value="Mestrado">Mestrado</option>
-                        <option value="Doutorado">Doutorado</option>
-                    </select>
-                    <a></a>
-                </div>
-                <div class="form-content">
-                    <label for="nome_curso">Nome do Curso</label>
+                    <label for="curso">Nome do Curso</label>
                     <input
                     type="text"
                     name="nome_curso"
@@ -187,7 +173,7 @@ body {
                     <a></a>
                 </div>
                 <div class="form-content">
-                    <label for="nome_curso">Instituicao</label>
+                    <label for="instituicao">Instituição</label>
                     <input
                     type="text"
                     name="instituicao"
@@ -197,37 +183,16 @@ body {
                     <a></a>
                 </div>
                 <div class="form-content">
-                    <label for="nivel">Situação</label>
-                    <select name="situacao" id="situacao">
-                    <optgroup label="Dado anterior">
-                        <option value="<?= $situacao; ?>"><?= $situacao; ?></option>
-                    </optgroup>
-                        <option value="Concluído">Concluído</option>
-                        <option value="Andamento">Andamento</option>
-                    </select>
-                </div>
-                <div class="form-content">
-                    <label for="ano_inicio">Ano do Início</label>
+                    <label for="ano_curso">Ano do Curso</label>
                     <input
                     type="number"
-                    name="ano_inicio"
-                    id="ano_inicio"
-                    value="<?= $ano_inicio ?>"
+                    name="ano_curso"
+                    id="ano_curso"
+                    value="<?= $ano_curso ?>"
                     placeholder=""/>
                     <a></a>
                 </div>
-                <div class="form-content">
-                    <label for="ano_termno">Ano do Término</label>
-                    <input
-                    type="number"
-                    name="ano_termino"
-                    id="ano_termino"
-                    value="<?= $ano_termino ?>"
-                    placeholder=""/>
-                    <a></a>
-                </div>
-                <input type="hidden" name="idformacao" id="id_formacao" value="<?= $idformacao ?>">
-                <input type="hidden" name="idusuario" id="idusuario" value="<?= $id_logado ?>">
+                <input type="hidden" name="idcurso" id="idcurso" value="<?= $idcurso ?>">
                 <button class="btn-primary" type="submit" name="btn_editar">Editar</button>
             </form>
               </div>

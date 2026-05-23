@@ -80,10 +80,6 @@
             gap: 20px;
         }
 
-        .header__name {
-            display: none;
-        }
-
         .header__title {
             font-size: clamp(1.2rem, 2vw, 2rem);
         }
@@ -166,16 +162,20 @@
             <section class="main__courses">
                 <h1 class="main__title">Cursos</h1>
                 <ul class="main__list">
-                    <li class="main__item">
-                        <a href="#" class="material-symbols-outlined main__edit">edit</a>
-                        <a href="#" class="material-symbols-outlined main__delete">delete</a>
-                        Digitação - Senac-AP - 2000
-                    </li>
-                    <li class="main__item">
-                        <a href="#" class="material-symbols-outlined main__edit">edit</a>
-                        <a href="#" class="material-symbols-outlined main__delete">delete</a>
-                        Digitação - Senac-AP - 2000
-                    </li>
+                        <?php 
+                            include_once 'acoes/consulta-cursos-do-usuario.php';
+                            while ($dados = mysqli_fetch_assoc($resultado)) {
+                                $idcurso = $dados['idcurso'];
+                                $nome_curso = $dados['nome_curso'];
+                                $instituicao = $dados['instituicao'];
+                                $ano_curso = $dados['ano_curso'];
+                                    
+                                    echo "<li class='main__item'>
+                                    <a class='material-symbols-outlined main__edit' href='editar-curso.php?id={$idcurso}'>Edit</a>
+                                    <a class='material-symbols-outlined main__delete' href='acoes/modal-apagar-curso.php?id={$idcurso}'>Delete</a>$nome_curso - $instituicao - $ano_curso
+                                    </li>";                              
+                            }
+                        ?>
                 </ul>
                 <a class="main__top" href="#">Topo</a>
             </section>

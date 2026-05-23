@@ -117,16 +117,16 @@
         <section class="main__cards">
                 <ul class="main__list">
                     <li class="main__item">
-                        <h2 class="main__subtitle">Cadastrar Formações</h2>
+                        <h2 class="main__subtitle">Formações</h2>
                         <p class="main__paragrafo">
                             Faça o cadastro completo das suas formações.
                         </p>
                         <a class="main__link" href="cadastrar-formacao.php">Cadastrar</a>
                     </li>
                     <li class="main__item">
-                        <h2 class="main__subtitle">Cadastre seus Cursos</h2>
+                        <h2 class="main__subtitle">Cursos</h2>
                         <p class="main__paragrafo">
-                            Configure a sua conta.
+                            Atualize seus cursos.
                         </p>
                         <a class="main__link" href="cadastrar-cursos.php">Cadastrar</a>
                     </li>

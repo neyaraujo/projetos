@@ -25,9 +25,6 @@
             text-decoration: none;
             color: initial;
         }
-        img {
-            max-width: 100%;
-        }
         body {
             width: 100%;
             min-height: 100vh;
@@ -40,6 +37,15 @@
             padding: 10px;
             background: #fff;
             box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        .header__menu {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .header__menu:hover {
+            text-decoration: underline;
         }
 
         .header__container {
@@ -76,9 +82,16 @@
             width: 100px;
             height: 100px;
             border-radius: 50%;
+            overflow: hidden;
         }
         .main__img.user {
             width: 100%;
+            
+        }
+        
+        .main__aside {
+                background: #fff;
+                padding: 10px;
         }
         .main__information {
             color: #fff;
@@ -86,24 +99,35 @@
             text-align: center;
 
         }
-        .main__title {
+        .main__user-title {
             text-align: center;
             color: white;
-        }
-        .main__title--size {
             font-size: clamp(1.5rem, 2vw, 2rem );
         }
+
+        .main__container-foto {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        .main__foto-perfil {
+            width: 100%;
+            object-fit: cover;
+        }
+        .main__title {
+            color: #fff;
+        }
+
         .main__title.contatos {
             color: #004869;
+            text-align: center;
         }
         .main__content {
             background: #fff;
             padding: 10px;
             border: 1px solid #ccc;
             font-size: 1rem;
-        }
-        .main__aside {
-            background: #fff;
         }
         .main__cards {
             display: flex;
@@ -113,22 +137,23 @@
 
         }
         .main__card {
-            padding: 10px;
+            margin-top: auto;
             flex: 1 1 250px;
-            text-align: center;
-            
+
             display: flex;
             flex-direction: column;
+            align-items: center;
             gap: 10px;
         }
 
-        .main__img {
+        .main__card-img {
             border-radius: 10px;
-            margin-top: auto;
+            width: 100%;
         }
         .main__link {
             color: #494949;
-            margin-bottom: 5px;
+            margin-bottom: 10px; 
+
         }
         .footer {
             color: #fff;
@@ -144,9 +169,8 @@
             <a class="header__logo" href="painel.php">Curriculo<i class="header__enfase">Online</i></a>
             <nav class="header__nav">
                 <ul class="header__menu">
-                    <li class="header__item">
-                        <a href="painel.php" class="header__link material-symbols-outlined main__edit">Close</a>
-                    </li>
+                        <li class="header__item"><a href="imprimir-curriculo.php">Visualizar impressão</a></li>
+                        <li class="header__item"><a href="painel.php" class="header__link material-symbols-outlined main__edit">Close</a></li>
                 </ul>
             </nav>
         </div>
@@ -154,9 +178,9 @@
     </header>
     <main class="main">
         <div class="main__user">
-            <h2 class="main__title main__title--size">Quem sou eu?</h2>
-            <div class="main__imgs">
-                <img class="main__img user" src="assets/images/favicon.png" alt="">
+            <h2 class="main__user-title">Quem sou eu?</h2>
+            <div class="main__container-foto">
+                <img class="main__foto-perfil" src="fotos/<?= $foto ?>" alt="">
             </div>
             <p class="main__information"><?= $_SESSION['nome'] . ",<br>" 
             . $_SESSION['nacionalidade'] . ", " . $_SESSION['estado_civil'] . ", " . $_SESSION['idade'] . " anos" ?></p>
@@ -207,23 +231,21 @@
             <ul class="main__cards">
                 <li class="main__card">
                     <a class="main__link" href="#"><?= $_SESSION['endereco'] ?></a>
-                    <img class="main__img" src="assets/images/localizacao.jpg" alt="localização">
+                    <img class="main__card-img" src="assets/images/localizacao.jpg" alt="localização">
                 </li>
                 <li class="main__card">
                     <a class="main__link" href="#"><?= $_SESSION['email'] ?></a>
-                    <img class="main__img" src="assets/images/localizacao.jpg" alt="localização">
+                    <img class="main__card-img" src="assets/images/localizacao.jpg" alt="localização">
                 </li>
                 <li class="main__card">
                     <a class="main__link" href="#"><?= $_SESSION['celular'] ?></a>
-                    <img class="main__img" src="assets/images/localizacao.jpg" alt="localização">
+                    <img class="main__card-img" src="assets/images/localizacao.jpg" alt="localização">
                 </li>
 
             </ul>
         </aside>
 
     </main>
-    <footer class="footer">
-        <p>Texto do footer</p>
-    </footer>
+    <?php require_once 'footer.php'?>
 </body>
 </html>

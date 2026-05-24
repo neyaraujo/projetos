@@ -8,13 +8,13 @@
     $resultado = mysqli_query($con, $sql);
 
     while($dados = mysqli_fetch_array($resultado)) {
-        $idformacao = $dados['idformacao'];
-        $nivel = $dados['nivel'];
-        $nome_curso = $dados['nome_curso'];
-        $instituicao = $dados['instituicao'];
-        $ano_inicio = $dados['ano_inicio'];
-        $ano_termino = $dados['ano_termino'];
-        $situacao = $dados['situacao'];
+        $idformacao         = $dados['idformacao'];
+        $nivel              = $dados['nivel'];
+        $nome_curso         = $dados['nome_curso'];
+        $instituicao        = $dados['instituicao'];
+        $ano_inicio         = $dados['ano_inicio'];
+        $ano_termino        = $dados['ano_termino'];
+        $situacao           = $dados['situacao'];
     }
 
 

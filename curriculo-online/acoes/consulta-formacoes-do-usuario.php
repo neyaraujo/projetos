@@ -4,7 +4,9 @@
     
     $id_logado = $_SESSION['idusuario'];
     
-    $sql = "SELECT * FROM formacoes WHERE idusuario = '$id_logado'";
+    $sql =  "SELECT * FROM formacoes 
+            WHERE idusuario = '$id_logado'
+            ORDER BY ano_termino DESC ";
     
     $resultado = mysqli_query($con, $sql);
 

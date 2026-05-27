@@ -19,9 +19,9 @@
 
         // INSTRUÇÃO SQL
         $sql = "INSERT INTO usuarios (nome, nacionalidade, genero, estado_civil, idade, endereco, celular, email, senha) VALUES ('$nome', '$nacionalidade', '$genero', '$estado_civil', '$idade', '$endereco', '$celular', '$email', '$senha')";
-        
-        //EXECUTAR INSTRUÇÃO SQL E VERIFICAR SUCESSO
-        if(mysqli_query($con, $sql)) {
+
+//EXECUTAR INSTRUÇÃO SQL E VERIFICAR SUCESSO
+        if(mysqli_query($con, $sql)) {    
             $_SESSION['mensagem'] = "Cadastro realizado com sucesso!";
             $_SESSION['status'] = "success";
             header('Location: ../index.php');
@@ -30,8 +30,8 @@
             $_SESSION['status'] = "danger";
             header('Location: ../index.php');
         }
-        //FECHAR CONEXAO
-        mysqli_close($con);
+            //FECHAR CONEXAO
+            mysqli_close($con);
 
     }
         

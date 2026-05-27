@@ -2,6 +2,7 @@
     session_start();
     require_once 'acoes/verifica-logado.php';
     include_once 'acoes/consulta-usuario.php';
+    include_once 'acoes/consulta-cargo.php';
 
 ?>
 
@@ -11,6 +12,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <?php include_once 'acoes/link-icons.php'?>
+
     <title>Document</title>
     <style>
         
@@ -53,14 +57,14 @@
         }
 
         .header__title {
-            font-size: 24pt;
+            font-size: clamp(1.5rem, 4vw, 3rem);
         }
 
         .header {
             display: flex;
-            
+            flex-direction: row-reverse;
+            justify-content: space-between;
             align-items: flex-start;
-
             gap: 30px;
 
             margin-bottom: 30px;
@@ -127,7 +131,7 @@
     <nav class="nav">
         <ul class="nav__list">
             <li class="nav__item"><button id="btn_toggle">Remover/Foto</button></li>
-            <li class="nav__item"><button>Imprimir</button></li>
+            <li class="nav__item"><button id="btn-print">Imprimir</button></li>
             <li class="nav__item close"><a href="curriculo.php">X</a></li>
             
         </ul>
@@ -147,26 +151,49 @@
         
         </script>
             <div class="header__dados">
-                <h1 class="header__title"><?= $nome ?></h1>
+                <h1 class="header__title">
+                    <?= $nome ?>
+                </h1>
                 <ul class="header__list">
-                    <li class="header__item"><?= $idade ?> anos</li>
-                    <li class="header__item"><?= $nacionalidade ?></li>
+                    <!-- <li class="header__item"><?= $idade ?> anos</li> -->
+                    <!-- <li class="header__item"><?= $nacionalidade ?></li> -->
                 </ul>
-                <address class="header__endereco">
-                    Endereço: <?= $endereco ?> <br>
-                    Telefone:<?= $celular ?><br>
-                    Email: <?= $email ?>
+
+                <style>
+                    .address {
+                        margin-top: 20px;
+                    }
+                    .address__dados {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        
+                    }
+                </style>
+                <address class="address">
+                    <p class="address__dados"><span class="material-symbols-outlined">location_on</span><?= $endereco ?></p>
+                    <p class="address__dados"><span class="material-symbols-outlined">phone</span>Celular:<?= $celular ?></p>
+                    <p class="address__dados"><span class="material-symbols-outlined">email</span><?= $email ?></p>
                 </address>
             </div>
         </header>
         <main class="main">
-            <h2 class="main__title">Objetivo</h2>
+            <h2 class="main__title">
+                CARGO PRETENDIDO
+            </h2>
             <hr class="main__row">
-            <p class="main__dados">Analista Finaceiro</p>
-            <h2 class="main__title">Resumo</h2>
+            <p class="main__dados">
+                <?= $cargo ?>
+            </p>
+            <h2 class="main__title">
+                PERFIL PROFISSIONAL
+            </h2>
             <hr class="main__row">
-            <p class="main__dados">Profissional com mais de 10 anos de experiência em gestão adminsitrativa e financeira, atuando na otimização de processos, controle orçamentário e gestão de euqipes. Reconhecido por alcançar resultados significativos, como a redução de custos em 20% e o aumento da eficiência operacional em empresas de médio e grande porte.</p>
-            <h2 class="main__title">Formação Acadêmica</h2>
+            <p class="main__dados">
+                <?= $perfil ?>
+
+            </p>
+            <h2 class="main__title">FORMAÇÃO ACADÊMICA</h2>
             <hr class="main__row">
             <ul class="main__list">
                 <?php require_once 'acoes/consulta-formacoes-do-usuario.php';?>
@@ -184,7 +211,7 @@
                     }
                 ?>
             </ul>
-            <h2 class="main__title">Cursos Profissionalizantes</h2>
+            <h2 class="main__title">CURSOS PROFISSIONALIZANTES</h2>
             <hr class="main__row">
             <ul class="main__list">
         
@@ -199,11 +226,18 @@
         
                     echo "<li class='main__item'>$ano_curso - $nome_curso - $instituicao</li>";
                     }
-        
+
                 ?>
             </ul>
         </main>
     </div>
+    <script>
+        const btn_print = document.getElementById('btn-print');
+
+        btn_print.addEventListener('click',()=> {
+            window.print();
+        })
+    </script>
 
 </body>
 </html>

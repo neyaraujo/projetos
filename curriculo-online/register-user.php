@@ -61,12 +61,12 @@
                 <a></a>
             </div>
             <div class="form-content">
-                <label for="endereco">Endereço completo</label>
+                <label for="endereco">Cidade, Estado</label>
                 <input 
                 type="text" 
                 name="endereco" 
                 id="endereco"
-                placeholder="Rua, Travessa, Quadra..."/>
+                placeholder="Pinheiro, Maranhão"/>
                 <a></a>
             </div>
             <div class="form-content">

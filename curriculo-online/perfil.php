@@ -4,6 +4,7 @@
     include_once 'acoes/consulta-usuario.php';
     require_once 'acoes/funcoes.php';
     require_once 'acoes/modal.php';
+    require_once 'acoes/consulta-cargo.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -35,6 +36,54 @@
         <form class="form" action="acoes/edita-usuario.php" id="form" method="post" enctype="multipart/form-data">
 
             <div class="form-content">
+                <label for="estado-civil">Cargo Pretendido</label>
+                <select id="cargo" name="cargo">
+                    <optgroup label="Cargo Anterior">
+                        <option value="<?= $cargo ?>"><?= $cargo ?></option>
+                    </optgroup>
+                    <option value="Auxiliar Administrativo">Auxiliar Administrativo</option>
+                    <option value="Recepcionista">Recepcionista</option>
+                    <option value="Secretária">Secretária</option>
+                    <option value="Vendedor">Vendedor</option>
+                    <option value="Analista de Dados">Analista de Dados</option>
+                </select>
+                <a></a>
+            </div>
+
+            <div class="form-content">
+                <label for="perfil">Perfil Profissonal</label>
+
+                <textarea class="form__perfil" 
+                    name="perfil" 
+                    id="perfil"
+                    rows="5"
+                    maxlength="500">
+                    <?= $perfil ?>
+                </textarea>
+                <p class="perfil__btn" id="btn-next">próximo>></p>
+                <style>
+
+                    .form__perfil {
+                        padding: 5px;
+                        width: 100%;
+                        text-align: left;
+                        font-size: 12px;
+                    }
+                    .perfil__btn {
+                        font-size: 12px;
+                        color: white;
+                        font-style: italic;
+                        padding: 5px;
+                        display: inline-block;
+                        background: #282828;
+                        border-radius: 5px;
+                        font-weight: 600;
+                        cursor: pointer;
+
+                    }
+                </style>
+            </div>
+            <div class="form-content">
                 <label for="nome"><sup>*</sup>Nome Completo</label>
                 <input 
                 type="text" 
@@ -61,6 +110,14 @@
                     <option value="Solteiro">Viúvo(a)</option>
                     <option value="Solteiro">Divorciado(a)</option>
                 </select>
+                <a id="msg"></a>
+            </div>
+            <div class="form-content">
+                <label for="genero">genero</label>
+                <select id="genero" name="genero">
+                    <option value="Solteiro">Masculino</option>
+                    <option value="Solteiro">Feminino</option>
+                </select>
                 <a></a>
             </div>
             <div class="form-content">
@@ -76,13 +133,13 @@
                 <a></a>
             </div>
             <div class="form-content">
-                <label for="endereco">Endereço completo</label>
+                <label for="endereco">Cidade, Estado</label>
                 <input 
                 type="text" 
                 name="endereco" 
                 id="endereco"
                 value="<?= $_SESSION['endereco'] ?>"
-                placeholder="Rua, Travessa, Quadra..."/>
+                placeholder="Pinheiro, Maranhão..."/>
                 <a></a>
             </div>
             <div class="form-content">
@@ -115,6 +172,7 @@
     
 <?php require_once "footer.php"?>    
 <script src="assets/js/header.js"></script>
+<script src="assets/js/cargos.js"></script>
 
 </body>
 </html>

@@ -2,6 +2,8 @@
     session_start();
     require_once 'acoes/verifica-logado.php';
     require_once 'acoes/consulta-usuario.php';
+    require_once 'acoes/consulta-cargo.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -155,6 +157,14 @@
             margin-bottom: 10px; 
 
         }
+
+        .profile {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+
         .footer {
             color: #fff;
             text-align: center;
@@ -186,6 +196,24 @@
             . $_SESSION['nacionalidade'] . ", " . $_SESSION['estado_civil'] . ", " . $_SESSION['idade'] . " anos" ?></p>
 
         </div>
+        
+        <section class="main__section profile">
+            <article class="profile__item">
+                <h2 class="main__title">Cargo Pretendido</h2>
+                <p class="main__content">
+                    <?= $cargo ?>
+                </p>
+            </article>
+            <article class="profile__item">
+                <h2 class="main__title">
+                    Perfil Profissional
+                </h2>
+            <p class="main__content profile__dados">
+                <?= $perfil ?>
+            </p>
+            </article>
+
+        </section>
         <section class="main__section">
             <h2 class="main__title">Formação</h2>
             <ul>

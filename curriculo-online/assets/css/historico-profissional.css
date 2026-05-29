@@ -1,0 +1,148 @@
+@charset "UTF8";
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --cor01: #0C3C60;
+    --cor02: #253541;
+    --cor03: #4D33DE;
+    --cor04: #000000;
+    --cor05: #ffffff;
+    --cor06: #6ed1ff;
+
+    --primary-blue: #0066ff;
+    --hover-blue: #0052cc;
+    --primary-yellow: #ffc107;
+    --hover-yellow: #eab000;
+    --text-dark: #333;
+    --text-muted: #666;
+    --bg-light: #f4f7f9;
+    --border-color: #e0e0e0;
+    --white: #ffffff;
+
+    --font-padrao: "Roboto", sans-serif;
+
+}
+
+* {
+    /* outline: 1px solid red; */
+}
+
+body {
+    min-height: 100vh;
+}
+
+.nav-menu li:nth-child(2) a {
+
+    color: var(--cor04);
+    font-weight: bold;
+}
+
+main .perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main__fotos {
+    margin-top: 10px;
+    width: 100px;
+    height: 100px;
+}
+
+.main__foto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+main .perfil h1  {
+    color: rgb(0, 49, 141);
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+main .perfil .foto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+main .perfil .foto a {
+    color: var(--text-dark);
+    padding: 5px;
+    font-style: italic;
+}
+
+main .perfil button {
+    padding: 10px 20px;
+}
+
+.form{
+    margin: auto;
+    max-width: 800px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form__foto {
+    align-self: center;
+    margin-top: 10px;
+}
+
+.form-content {
+    margin-bottom: 8px;
+    padding-bottom: 18px ;
+    position: relative;
+}
+
+.form-content label {
+    display: inline-block;
+    margin-bottom: 4px;
+    color: var(--text-dark);
+}
+
+.form-content input,
+.form-content select {
+    display: block;
+    width: 100%;
+    border-radius: 8px;
+    padding: 8px;
+    border: 2px solid #dfdfdf;
+}
+
+.form-content a {
+    position: absolute;
+    bottom: 0;
+    font-size: 0.8em;
+    left: 0;
+    visibility: hidden;
+}
+
+.form-content {
+    position: relative;
+}
+.toggle-password {
+    position: absolute;
+    bottom: 20px;
+    right: 10px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.form button {
+    width: 100%;
+ }
+
+.form-content.error input {
+    border-color: #ff3b25;
+    visibility: visible;
+}
+
+.form-content.error a {
+    color: #ff3b25;
+    visibility: visible;
+}
+

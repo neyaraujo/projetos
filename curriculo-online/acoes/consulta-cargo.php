@@ -14,7 +14,7 @@
             cargos (nome, perfil, idusuario)
             VALUES ('Auxiliar Administrativo', '', '$id_logado')";
             $ok2 = mysqli_query($con, $sql2);
-    }
+    } else {
 
         $idcargo        = $dados['idcargo'];
         $cargo          = $dados['nome'];
@@ -30,5 +30,6 @@
 
     // fecha a conexão
     // mysqli_close($con);
+    }
 
 ?>

@@ -69,6 +69,17 @@ btn_next.addEventListener('click', () => {
                     perfil.innerText = 'Profissional organizado e proativo, com experiência em Excel e Power BI para controle de dados, geração de relatórios gerenciais e apoio na tomada de decisões através de análises eficientes.';
                 break;
 
+                // À DISPOSIÇÃO DA EMPRESA
+            case 'À disposição da empresa1':
+                    perfil.innerText = 'Pessoa dedicada, organizada e com facilidade de adaptação a novos desafios. Disponível para desempenhar diversas funções, contribuindo com esforço, pontualidade e trabalho em equipe.';
+                break;
+            case 'À disposição da empresa2':
+                    perfil.innerText = 'Em busca de crescimento profissional e desenvolvimento de novas habilidades. Possuo boa comunicação, vontade de aprender e disponibilidade para atuar em diferentes setores da empresa.';
+                break;
+            case 'À disposição da empresa3':
+                    perfil.innerText = 'Profissional comprometido, proativo e disposto a adquirir experiência em diversas áreas. Busco uma oportunidade para contribuir com dedicação, responsabilidade e foco nos objetivos da empresa.';
+                break;
+
         default:
             break;
     }
@@ -99,8 +110,11 @@ cargo.addEventListener('blur',()=>{
         case 'Analista de Dados':
             perfil.innerText ='Profissional dedicado, com conhecimentos em Excel e Power BI para tratamento de dados, criação de gráficos e elaboração de dashboards interativos. Facilidade em aprender novas ferramentas e atuar com foco em resultados.';
             break;
+        case 'À disposição da empresa':
+            perfil.innerText ='Profissional em busca de oportunidade para ingressar no mercado de trabalho, com disposição para aprender, responsabilidade e comprometimento. Disponível para atuar em diferentes áreas conforme a necessidade da empresa.';
+            break;
         default:
-            perfil.innerText = '';
+            perfil.innerText = 'Profissional em busca de oportunidade para ingressar no mercado de trabalho, com disposição para aprender, responsabilidade e comprometimento. Disponível para atuar em diferentes áreas conforme a necessidade da empresa.';
             break;
     }
 

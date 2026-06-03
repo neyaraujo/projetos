@@ -161,8 +161,8 @@ body {
                 <div class="form-content">
                     <label for="nivel">Nivel de Escolaridade</label>
                     <select id="nivel" name="nivel">
-                        <option value="Ensino Fundamental">Ensino Fundamental</option>
                         <option value="Ensino Médio">Esnino Médio</option>
+                        <option value="Ensino Fundamental">Ensino Fundamental</option>
                         <option value="Ensino Superior">Ensino Superior</option>
                         <option value="Pós-Graduação">Pós-Graduação</option>
                         <option value="Mestrado">Mestrado</option>

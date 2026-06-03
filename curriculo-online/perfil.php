@@ -39,13 +39,34 @@
                 <label for="estado-civil">Cargo Pretendido</label>
                 <select id="cargo" name="cargo">
                     <optgroup label="Cargo Anterior">
-                        <option value="<?= $cargo ?>"><?= $cargo ?></option>
+                        <option 
+                            value="<?= $cargo ?>"><?= $cargo ?>
+                        </option>
                     </optgroup>
-                    <option value="Auxiliar Administrativo">Auxiliar Administrativo</option>
-                    <option value="Recepcionista">Recepcionista</option>
-                    <option value="Secretária">Secretária</option>
-                    <option value="Vendedor">Vendedor</option>
-                    <option value="Analista de Dados">Analista de Dados</option>
+                    <option 
+                        value="Auxiliar Administrativo">
+                        Auxiliar Administrativo
+                    </option>
+                    <option 
+                        value="Recepcionista">
+                        Recepcionista
+                    </option>
+                    <option 
+                        value="Secretária">
+                        Secretária
+                    </option>
+                    <option 
+                        value="Vendedor">
+                        Vendedor
+                    </option>
+                    <option 
+                        value="Analista de Dados">
+                        Analista de Dados
+                    </option>
+                    <option 
+                        value="À disposição da empresa">
+                        À disposição da empresa
+                    </option>
                 </select>
                 <a></a>
             </div>

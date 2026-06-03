@@ -1,155 +1,222 @@
 <?php 
     session_start();
     require_once 'acoes/verifica-logado.php';
-    include_once 'acoes/consulta-usuario.php';
+    require_once 'acoes/consulta-usuario.php';
     require_once 'acoes/funcoes.php';
     require_once 'acoes/modal.php';
-    require_once 'acoes/consulta-cargo.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formações</title>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <style>
+    @charset "UTF-8";
 
-    <title>Perfil</title>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/global.css">
-    <link rel="stylesheet" href="assets/css/header.css">
-    <link rel="stylesheet" href="assets/css/footer.css">
-    <link rel="stylesheet" href="assets/css/historico-profissional.css">
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+    :root {
+        --cor01: #0C3C60;
+        --cor02: #253541;
+        --cor03: #4D33DE;
+        --cor04: #000000;
+        --cor05: #ffffff;
+        --cor06: #6ed1ff;
+        --font-padrao: "Roboto", sans-serif;
+
+        --primary-blue: #0066ff;
+        --hover-blue: #0052cc;
+        --primary-yellow: #ffc107;
+        --hover-yellow: #eab000;
+        --text-dark: #333;
+        --text-muted: #666;
+        --bg-light: #f4f7f9;
+        --border-color: #e0e0e0;
+        --white: #ffffff;
+    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+            /* apenas para debugar */
+            /* outline: 1px solid red; */
+        }
+        ul {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+            color: initial;
+        }
+        body {
+            max-width: 100%;
+            min-height: 100vh;
+            background-color: #ccc;
+            color: #333;
+            background: #0C3C60;
+            font-family: var(--font-padrao);
+        }
+
+        .header {
+            width: 100%;
+            background: #f4f7f9;
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+        }
+
+        .header__container {
+            max-width: 900px;
+            padding: 20px;    
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0 auto;
+
+        }
+
+        .header__menu {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+
+        .header__title {
+            font-size: clamp(1.2rem, 2vw, 2rem);
+        }
+        .header__title--italic {
+            font-style: italic;
+            font-weight: 200;
+        }
+
+        .header__button {
+            background: #0C3C60;
+            padding: 5px 10px;
+            border-radius: 3px;
+            color: #fff;
+            font-size: 0.8rem;
+        }
+
+        .main {
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: stretch;
+            margin: 0 auto;
+        }
+
+        .main__courses {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+        .main__title {
+            align-self: center;
+            color: #fff;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        .main__item {
+            background: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .main__item--lista {
+            list-style: disc;
+            font-size: 12px;
+            font-style: italic;
+            padding: 5px;
+        }
+        .main__top {
+            margin-top: 50px;
+            align-self: center;
+            padding: 10px 20px;
+            border-radius: 5px;
+
+            background: #fff;
+        }
+    </style>
 </head>
 <body>
-    <?php require_once "header.php"?>
-    <main>
-        <form class="form" action="acoes/edita-usuario.php" id="form" method="post">
-            <h1>Histórico Profissional</h1>
-            <div class="form-content">
-                <label for="nome">Profissão</label>
-                <input 
-                type="text" 
-                name="nome" 
-                id="nome"
-                value="Servidor Público"
-                placeholder="Digite seu nome completo"/>
-                <a></a>
-            </div>
-            <div class="form-content">
-                <label for="nome">Instituição</label>
-                <input 
-                type="text" 
-                name="nome" 
-                id="nome"
-                value="Prefeitura Municipal"
-                placeholder="Digite seu nome completo"/>
-                <a></a>
-            </div>
-            <div class="form-content">
-                <label for="nome">Cidade</label>
-                <input 
-                type="text" 
-                name="nome" 
-                id="nome"
-                value="Pinheiro"
-                placeholder="Digite seu nome completo"/>
-                <a></a>
-            </div>
-            <div class="form-content">
-                <label for="nome">Estado</label>
-                <input 
-                type="text" 
-                name="nome" 
-                id="nome"
-                value="Maranhão"
-                placeholder="Digite seu nome completo"/>
-                <a></a>
-            </div>
-            <div class="form-content">
-                <label for="idade">Ano Entrada</label>
-                <input 
-                type="number" 
-                name="idade" 
-                id="idade"
-                value="2020"
-                step="1"
-                min="1900"
-                maxlength="4"
-                placeholder="Digite sua idade"/>
-                <a></a>
-            </div>
-            <div class="form-content">
-                <label for="idade">Ano Saída</label>
-                <input 
-                type="number" 
-                name="idade" 
-                id="idade"
-                value="2026"
-                step="1"
-                min="1900"
-                maxlength="4"
-                placeholder="Digite sua idade"/>
-                <a></a>
-            </div>
-            <div class="form-content descricao">
-                <label class="descricao__titulo" for="">Descrição da profissão</label>
-                <div class="descricao__container">
-                    <textarea name="" id="" class="descricao__texto" rows="5">
-                    </textarea>
-                    <span class="descricao__btn btn">Adicionar</span>
+
+    <header class="header">
+            <div class="header__container">
+                <div class="header__name">
+                    <h1 class="header__title">
+                        <strong>Currículo</strong><span class="header__title--italic">Online</span>
+                    </h1>
                 </div>
-                <ul class="descricao__list">
-                    <li class="descricao__item">
-                        Apoio administrativo e tecnológico na criação de tabelas, organização e manipulação de dados, auxiliando processos internos da administração pública.
-                    </li>
-                    <li class="descricao__item">
-                        Apoio administrativo e tecnológico na criação de tabelas, organização e manipulação de dados, auxiliando processos internos da administração pública.
+                <nav class="header__nav">
+                    <ul class="header__menu">
+                        <li class="header__item">
+                            <a class="header__link header__button" href="cadastrar-historico.php">
+                                Novo Histórico
+                            </a>
+                        </li>
+                        <li class="header__item"><a class="header__link material-symbols-outlined main__edit" href="painel.php">Close</a></li>
+                    </ul>
+                </nav>
+            </div>
+    </header>
+
+    <?php modalMensagem()?>
+    
+    <main class="main">
+            <section class="main__courses">
+                <h1 class="main__title">Histórico Profissional</h1>
+                <ul class="main__list">
+                        <?php
+                            include_once 'acoes/consulta-historico-do-usuario.php';
+                            
+                            while ($dados = mysqli_fetch_assoc($resultado)) {
+                                
+                                $idprofissao    = $dados['idprofissao'];
+                                $nome_profissao = $dados['nome_profissao'];
+                                $instituicao    = $dados['instituicao'];
+                                $cidade         = $dados['cidade'];
+                                $ano_entrada    = $dados['ano_entrada'];
+                                $ano_saida      = $dados['ano_saida'];
+                                $descricao_01   = $dados['descricao_01'];
+                                $descricao_02   = $dados['descricao_02'];
+                                $descricao_03   = $dados['descricao_03'];
+
+                                echo "<li class='main__item'>
+                                        <a 
+                                            class='material-symbols-outlined main__edit'
+                                            href='editar-formacao.php?id={$idprofissao}'>Edit
+                                        </a>
+                                        <a 
+                                            class='material-symbols-outlined main__delete' href='acoes/modal-apagar-formacao.php?id={$idprofissao}'>Delete
+                                        </a>
+                                        $nome_profissao, $instituicao, $cidade - $ano_entrada - $ano_saida
+                                    </li>";
+                                    if (!$descricao_01 == NULL) {
+                                       echo "<li class='main__item main__item--lista'>$descricao_01</li>";
+                                    }
+
+                                    if (!$descricao_02 == NULL) {
+                                       echo "<li class='main__item main__item--lista'>$descricao_02</li>";
+                                    }
+
+                                    if (!$descricao_03 == NULL) {
+                                       echo "<li class='main__item main__item--lista'>$descricao_03</li>";
+                                    }
+                                    
+                                }     
+                        ?>
                     </li>
                 </ul>
-            </div>
-            <style>
-                .descricao__container {
-                    display: flex;
-                    gap: 10px;
-                }
-                .descricao__texto {
-                    flex: 1 0 auto;
-                }  
-                .descricao__btn {
-                    flex: 0 1 100px;   
-                }
-                .btn {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    cursor: pointer;
-                    padding: 5px;
-                    border-radius: 5px;
-                    border: 1px solid #5d5d5d;
-                }
-                .descricao__list {
-                    display: flex;
-                    flex-direction: column;
-                    margin-top: 10px;
-                    margin-left: 20px;
-                    gap: 10px;
-                }
-                .descricao__item {
-                    list-style: disc;
-                    
-                    font-size: 12px;
-                }
-            </style>
-
-           
-
-            <button class="btn-primary" type="submit" name="btn_atualizar">Atualizar</button>
-        </form>
-        </section>
+                <a class="main__top" href="#">Topo</a>
+            </section>
     </main>
-
-<?php modalMensagem()?>
-    
-<?php require_once "footer.php"?>    
-<script src="assets/js/header.js"></script>
+    <?php modalMensagem()?>
 </body>
 </html>

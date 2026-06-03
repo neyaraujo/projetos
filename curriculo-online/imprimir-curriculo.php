@@ -171,6 +171,12 @@
         .course__title {
             font-size: 12pt;
         }
+        .course__information {
+            font-size: 10pt;
+        }
+        .course__description {
+            font-size: 10pt;
+        }
         .course__list {
             margin-top: 5pt;
         }
@@ -337,44 +343,49 @@
             ?>
 
              <!-- COURSES -->
-              <section class="course">
-                    <h2 class="course__title">
-                        CURSOS PROFISSIONALIZANTES
-                    </h2>
-                    <article class="course__item">
-                        <h3 class="course__information">
-                            Digitação - ConnectWord - 2025
-                        </h3>
-                        <ul class="course__list">
-                            <li class="course__item">
-                                Desenvolvimento de velocidade e precisão na digitação de textos e dados.
-                            </li>
-                            <li class="course__item">
-                                Capacitação para elaboração e edição de documentos com agilidade.
-                            </li>
-                            <li class="course__item">
-                                Aprimoramento da produtividade em rotinas administrativas e atendimento.
-                            </li>
-                        </ul>
-                    </article>
-                    <article class="course__item">
-                        <h3 class="course__information">
-                            Auxiliar Administrativo - SENAC - 2025
-                        </h3>
-                        <ul class="course__list">
-                            <li class="course__item">
-                                Capacitação em rotinas administrativas, organização de documentos, atendimento ao público e apoio aos processos internos da empresa.
-                            </li>
-                            <li class="course__item">
-                                Desenvolvimento de competências em arquivamento, controle de documentos, elaboração de relatórios, atendimento e suporte administrativo.
-                            </li>
-                            <li class="course__item">
-                                Formação voltada para execução de atividades administrativas, organização de informações, atendimento presencial e telefônico e utilização de ferramentas de escritório.
-                            </li>
-                        </ul>
-                    </article>
-                    
-              </section>
+
+            <?php require_once 'acoes/consulta-cursos-do-usuario.php';
+                $titulo = false;
+                if ($resultado->num_rows > 0) {
+                    while ($dados = mysqli_fetch_assoc($resultado)) {
+
+                        $idcurso = $dados['idcurso'];
+                        $nome_curso = $dados['nome_curso'];
+                        $instituicao = $dados['instituicao'];
+                        $ano_curso = $dados['ano_curso'];
+                        $descricao_01 = $dados['descricao_01'];
+                        $descricao_02 = $dados['descricao_02'];
+                        $descricao_03 = $dados['descricao_03'];
+
+                        if (!$titulo) {
+                            echo "<section class='course'>
+                                <h2 class='course__title'>
+                                    CURSOS PROFISSIONALIZANTES
+                                </h2>";
+                                $titulo = true;
+                            }
+                                echo"<article class='course__item'>";
+                                echo "<h3 class='course__information'>
+                                        $nome_curso - $instituicao - $ano_curso
+                                    </h3>";
+                                echo "<ul class='course__list'>";
+                                if (!empty($descricao_01)) {
+                                    echo "<li class='course__information'>$descricao_01</li>";
+                                }
+                                if (!empty($descricao_02)) {
+                                    echo "<li class='course__information'>$descricao_02</li>";
+                                }
+                                if (!empty($descricao_03)) {
+                                    echo "<li class='course__information'>$descricao_03</li>";
+                                }
+                                echo "</ul>";
+                                echo "</article>";
+                            
+                    }
+                }
+            
+            ?>
+
         </section>
         </section>
             <!-- CONTACT -->

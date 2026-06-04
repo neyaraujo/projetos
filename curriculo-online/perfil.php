@@ -52,6 +52,10 @@
                         Recepcionista
                     </option>
                     <option 
+                        value="Desenvolvedor Web Full Stack">
+                        Desenvolvedor Web Full Stack
+                    </option>
+                    <option 
                         value="Secretária">
                         Secretária
                     </option>

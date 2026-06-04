@@ -32,6 +32,11 @@
                     </a>
                 </li>
                 <li lang="nav-item">
+                    <a href="cadastrar-habilidade.php">
+                        Habilidades
+                    </a>
+                </li>
+                <li lang="nav-item">
                     <a href="curriculo.php">
                         Currículo
                     </a>

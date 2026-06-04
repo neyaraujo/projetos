@@ -79,6 +79,15 @@ btn_next.addEventListener('click', () => {
             case 'À disposição da empresa3':
                     perfil.innerText = 'Profissional comprometido, proativo e disposto a adquirir experiência em diversas áreas. Busco uma oportunidade para contribuir com dedicação, responsabilidade e foco nos objetivos da empresa.';
                 break;
+            case 'Desenvolvedor Web Full Stack1':
+                    perfil.innerText = 'Atuação em desenvolvimento web com PHP, HTML, CSS e JavaScript, além de experiência em suporte técnico, manutenção de computadores e automação de tarefas utilizando VBA e VBScript. Facilidade de aprendizado e adaptação a novos desafios.';
+                break;
+            case 'Desenvolvedor Web Full Stack2':
+                    perfil.innerText = 'Profissional de Tecnologia da Informação com conhecimentos em desenvolvimento de sistemas web, automação de processos, suporte ao usuário e ferramentas de produtividade. Comprometido com a organização, eficiência e melhoria contínua dos processos.';
+                break;
+            case 'Desenvolvedor Web Full Stack3':
+                    perfil.innerText = 'Profissional de Tecnologia da Informação com conhecimentos em desenvolvimento web, suporte técnico, automação de processos e ferramentas do Microsoft Office. Possui perfil organizado, proativo e comprometido com a qualidade dos serviços prestados.';
+                break;
 
         default:
             break;
@@ -112,6 +121,9 @@ cargo.addEventListener('blur',()=>{
             break;
         case 'À disposição da empresa':
             perfil.innerText ='Profissional em busca de oportunidade para ingressar no mercado de trabalho, com disposição para aprender, responsabilidade e comprometimento. Disponível para atuar em diferentes áreas conforme a necessidade da empresa.';
+            break;
+        case 'Desenvolvedor Web Full Stack':
+            perfil.innerText ='Profissional de TI com conhecimentos em desenvolvimento web, automação de processos, suporte técnico e design gráfico. Experiência na utilização de tecnologias para otimização de rotinas, resolução de problemas e apoio às atividades administrativas e operacionais.';
             break;
         default:
             perfil.innerText = 'Profissional em busca de oportunidade para ingressar no mercado de trabalho, com disposição para aprender, responsabilidade e comprometimento. Disponível para atuar em diferentes áreas conforme a necessidade da empresa.';

@@ -125,7 +125,7 @@
             padding: 10pt 0;
         }
         .contact__photo {
-            width: 50%;
+            width: 100%;
         }
         .contact__title {
             font-size: 12pt;
@@ -379,14 +379,11 @@
                                     echo "<li class='course__information'>$descricao_03</li>";
                                 }
                                 echo "</ul>";
-                                echo "</article>";
-                            
-                    }
-                }
-            
+                                echo "</article>"; 
+                    } // fim do while
+                    echo "</section>";
+                } // fim if num_rows  
             ?>
-
-        </section>
         </section>
             <!-- CONTACT -->
              <section class="right">
@@ -395,23 +392,42 @@
                         class="contact__photo"
                         src="fotos/<?= $foto ?>"
                         alt="foto de pefil">
+                        <style>
+                            .hidden {
+                                display: none;
+                            }
+                        </style>
+                        <script>
+                            document.addEventListener("DOMContentLoaded", () => {
+                                const photo = document.querySelector('.contact__photo');
+                                if (photo.getAttribute("src") === "fotos/user.png") {
+                                    photo.classList.add('hidden');
+                                } else {
+                                    photo.classList.remove('hidden');
+                                }
+                            })
+                        </script>
+
+
                     <h2 class="contact__title">
                         CONTATO
                     </h2>
                     <address class="contact__address">
                         <p class="contact__item">
                             <span class="material-symbols-outlined">location_on</span>
-                            Pinheiro, Maranhão
+                            <?= $endereco ?>
                         </p>
                         <p class="contact__item">
                             <span class="material-symbols-outlined">phone</span>
                             <a class="contact__link" href="tel:+5511146924888">
-                                (98) 98850-8348 (whatzap)
+                                <?= $celular ?>
                             </a>
                         </p>
                         <p class="contact__item">
                             <span class="material-symbols-outlined">email</span>
-                            <a class="contact__link" href="#">queraga@gmail.com</a>
+                            <a class="contact__link" href="#">
+                                <?= $email ?>
+                            </a>
                         </p>
                     </address>
                     <article class="contact__social enabled">
@@ -478,7 +494,7 @@
                 const btn_print = document.getElementById('btn-print');
 
                 btn_toggle.addEventListener('click', () => {
-                    pai.classList.toggle('ativo')
+                    photo.classList.toggle('ativo')
                 })
 
                 // PRINT

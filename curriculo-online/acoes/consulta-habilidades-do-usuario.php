@@ -1,0 +1,12 @@
+<?php 
+    require_once 'verifica-logado.php';
+    require_once 'conexao.php';
+    
+    $id_logado = $_SESSION['idusuario'];
+    
+    $sql =  "SELECT * FROM habilidades 
+            WHERE idusuario = '$id_logado'";
+    
+    $resultado = mysqli_query($con, $sql);
+
+?>

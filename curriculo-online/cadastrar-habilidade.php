@@ -1,8 +1,27 @@
 <?php 
     session_start();
     require_once 'acoes/verifica-logado.php';
+    require_once 'acoes/modal.php';
     $id_logado = $_SESSION['idusuario'];
     $email_logado = $_SESSION['email'];
+
+
+    if (isset($_GET['id'])) {
+        require_once 'acoes/verifica-logado.php';
+        require_once 'acoes/conexao.php';
+        $id_logado = $_SESSION['idusuario'];
+
+        $idhabilidade = mysqli_real_escape_string($con, $_GET['id']);
+
+        $sql = "SELECT * FROM habilidades WHERE idhabilidade = '$idhabilidade'";
+
+        $resultado = mysqli_query($con, $sql);
+
+        $dados = mysqli_fetch_assoc($resultado);
+        $habilidade = $dados['habilidade'];
+        $_SESSION['idhabilidade'] = $_GET['id'];
+
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -166,6 +185,7 @@ body {
                     type="text"
                     name="habilidade"
                     id="habilidade"
+                    value="<?= ($habilidade)?? '' ?>"
                     placeholder="O que você sabe fazer?"/>
                     <a></a>
                 </div>
@@ -183,8 +203,11 @@ body {
                 list-style: disc;
                 font-size: 10px;
             }
+            .ability__link {
+                cursor: pointer;
+            }
         </style>
-        <?php require_once 'acoes/consulta-habilidades-do-usuario.php'?>
+        <?php require_once 'acoes/consulta-habilidades-do-usuario.php';?>
         
         <?php 
             if ($resultado->num_rows > 0) {
@@ -193,14 +216,14 @@ body {
                 while ($dados = mysqli_fetch_assoc($resultado)) {
                     $idhabilidade = $dados['idhabilidade'];
                     $habilidade = $dados['habilidade'];
-                    echo "<li class='ability__item'>
-                                $habilidade
+                    echo "<li class='ability__item' name='habilidade'>
+                                <a href='?id=$idhabilidade' class='ability__link'>$habilidade</a>
                         </li>";
                 }
                 echo "</ul>";
             }
         ?>
+        <?= modalMensagem();?>
     </main>
-    
 </body>
 </html>

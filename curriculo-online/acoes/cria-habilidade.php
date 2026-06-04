@@ -6,8 +6,36 @@
 
     // chamar nossa conexao
     require_once 'conexao.php';
-
+    
     if(isset($_POST['btn_cadastrar'])) {
+        
+        if (isset($_SESSION['idhabilidade'])) {
+
+            $idhabilidade = $_SESSION['idhabilidade'];
+        
+            $habilidade = mysqli_real_escape_string($con, $_POST['habilidade']);
+
+            var_dump($habilidade);
+            // exit();
+
+            $sql = "UPDATE habilidades SET
+            habilidade = '$habilidade'
+            WHERE idhabilidade = '$idhabilidade'";
+            if (mysqli_query($,con, $sql)) {
+            
+            }
+
+            header('Location: ../cadastrar-habilidade.php');
+            exit();
+        }
+        
+
+        require_once 'consulta-habilidades-do-usuario.php';
+        if ($resultado->num_rows >=3) {
+            $_SESSION['mensagem'] = "No máximo 3 habilidades";
+            header('Location: ../cadastrar-habilidade.php');
+            exit();
+        }
 
         // pegar os dados postados e fazer o escape
         $habilidade       = mysqli_real_escape_string($con, $_POST['habilidade']);

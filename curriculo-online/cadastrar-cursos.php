@@ -195,24 +195,7 @@ body {
                     placeholder=""/>
                     <a></a>
                 </div>
-                <div class="form-content">
-                    <label for="ano_curso">Pontos positivos?</label>
-                    <input
-                    type="text"
-                    name="descricao_02"
-                    id="descricao-02"
-                    placeholder=""/>
-                    <a></a>
-                </div>
-                <div class="form-content">
-                    <label for="ano_curso">O que melhorou com o curso?</label>
-                    <input
-                    type="text"
-                    name="descricao_03"
-                    id="descricao-03"
-                    placeholder=""/>
-                    <a></a>
-                </div>
+                
                 <input type="hidden" name="idusuario" id="idusuario" value="<?= $id_logado ?>">
                 <button class="btn-primary" type="submit" name="btn_cadastrar">Cadastrar</button>
             </form>

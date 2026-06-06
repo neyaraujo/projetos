@@ -10,16 +10,11 @@
         require_once 'acoes/verifica-logado.php';
         require_once 'acoes/conexao.php';
         $id_logado = $_SESSION['idusuario'];
+        $idhabilidade = mysqli_real_escape_string($con, $_GET['id'])?? '';
+        $habilidade = mysqli_real_escape_string($con, $_GET['habilidade'])?? '';
+        
+        
 
-        $idhabilidade = mysqli_real_escape_string($con, $_GET['id']);
-
-        $sql = "SELECT * FROM habilidades WHERE idhabilidade = '$idhabilidade'";
-
-        $resultado = mysqli_query($con, $sql);
-
-        $dados = mysqli_fetch_assoc($resultado);
-        $habilidade = $dados['habilidade'];
-        $_SESSION['idhabilidade'] = $_GET['id'];
 
     }
 ?>
@@ -113,7 +108,7 @@ body {
 
 .ability__content {
     margin-bottom: 8px;
-    padding-bottom: 18px ;
+    padding-bottom: 10px ;
     position: relative;
 }
 
@@ -180,7 +175,8 @@ body {
            </h2>
             <form class="ability__form" action="acoes/cria-habilidade.php" id="form" method="POST">
                 <div class="ability__content">
-                    <label for="habilidade">Habilidade</label>
+                    <label for="habilidade">Habilidade
+                    </label>
                     <input
                     type="text"
                     name="habilidade"
@@ -189,7 +185,14 @@ body {
                     placeholder="O que você sabe fazer?"/>
                     <a></a>
                 </div>
+
+
+
+                <!-- PARTES OCULTAS -->
                 <input type="hidden" name="idusuario" id="idusuario" value="<?= $id_logado ?>">
+                <input type="hidden" name="idhabilidade" id="idhabilidade" 
+                value="<?= ($idhabilidade)?? '' ?>">
+
                 <button class="btn-primary" type="submit" name="btn_cadastrar">
                     Cadastrar
                 </button>
@@ -208,7 +211,6 @@ body {
             }
         </style>
         <?php require_once 'acoes/consulta-habilidades-do-usuario.php';?>
-        
         <?php 
             if ($resultado->num_rows > 0) {
                 
@@ -217,7 +219,7 @@ body {
                     $idhabilidade = $dados['idhabilidade'];
                     $habilidade = $dados['habilidade'];
                     echo "<li class='ability__item' name='habilidade'>
-                                <a href='?id=$idhabilidade' class='ability__link'>$habilidade</a>
+                                <a href='?id=$idhabilidade&habilidade=$habilidade' class='ability__link'>$habilidade</a>
                         </li>";
                 }
                 echo "</ul>";

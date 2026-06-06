@@ -347,15 +347,22 @@
             <?php require_once 'acoes/consulta-cursos-do-usuario.php';
                 $titulo = false;
                 if ($resultado->num_rows > 0) {
+                    echo "
+                        <section class='course'>
+                            <h2 class='course__title'>
+                                CURSOS PROFISSIONALIZANTES
+                            </h2>
+                        </section>
+                    ";
+
+
+
                     while ($dados = mysqli_fetch_assoc($resultado)) {
 
                         $idcurso = $dados['idcurso'];
                         $nome_curso = $dados['nome_curso'];
                         $instituicao = $dados['instituicao'];
                         $ano_curso = $dados['ano_curso'];
-                        $descricao_01 = $dados['descricao_01'];
-                        $descricao_02 = $dados['descricao_02'];
-                        $descricao_03 = $dados['descricao_03'];
 
                         if (!$titulo) {
                             echo "<section class='course'>
@@ -368,17 +375,6 @@
                                 echo "<h3 class='course__information'>
                                         $nome_curso - $instituicao - $ano_curso
                                     </h3>";
-                                echo "<ul class='course__list'>";
-                                if (!empty($descricao_01)) {
-                                    echo "<li class='course__information'>$descricao_01</li>";
-                                }
-                                if (!empty($descricao_02)) {
-                                    echo "<li class='course__information'>$descricao_02</li>";
-                                }
-                                if (!empty($descricao_03)) {
-                                    echo "<li class='course__information'>$descricao_03</li>";
-                                }
-                                echo "</ul>";
                                 echo "</article>"; 
                     } // fim do while
                     echo "</section>";
@@ -443,6 +439,33 @@
                 </section>
                 
                 <!-- SKILLS -->
+
+
+                <?php require_once 'acoes/consulta-habilidades-do-usuario.php';
+                // se existe habilidade então inicia a criação
+                    if ($resultado->num_rows >0) {
+                        echo 
+                        "<section class='skills'>
+                            <h2 class='skills__title'>
+                                HABILIDADES
+                            </h2>
+                        
+                        <ul class='skills__list'>";
+
+                        while ($dados = mysqli_fetch_assoc($resultado)) {
+                                echo "<li class='skills__item'>" . $dados['habilidade'] . "</li>";        
+                        }    
+                        echo "
+                        </ul>
+                        </section>";
+                    }
+
+                    echo "<pre>";
+                    var_dump($resultado);
+                    echo "</pre>";
+                    // exit();
+                ?>
+
                 <section class="skills">
                     <h2 class="skills__title">
                         HABILIDADES

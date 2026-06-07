@@ -6,12 +6,14 @@
     $email_logado = $_SESSION['email'];
 
 
-    if (isset($_GET['id'])) {
+    if (isset($_GET['idprofissao'])) {
         require_once 'acoes/verifica-logado.php';
         require_once 'acoes/conexao.php';
         $id_logado = $_SESSION['idusuario'];
-        $idhabilidade = mysqli_real_escape_string($con, $_GET['id'])?? '';
-        $habilidade = mysqli_real_escape_string($con, $_GET['habilidade'])?? '';
+        $idprofissao = mysqli_real_escape_string($con, $_GET['idprofissao'])?? '';
+        $nome_profissao = mysqli_real_escape_string($con, $_GET['nome_profissao'])?? '';
+        $descricao = mysqli_real_escape_string($con, $_GET['descricao'])?? '';
+
         
         
 
@@ -158,6 +160,10 @@ body {
     visibility: visible;
 }
 
+.hidden {
+    display: none;
+}
+
     </style>
 </head>
 <body>
@@ -180,66 +186,60 @@ body {
 
                         <?php 
                         require_once 'acoes/conexao.php';
-                            $sql = "SELECT * FROM profissoes
-                            WHERE idusuario = '$id_logado'";
-
+                            $sql = "SELECT DISTINCT nome_profissao
+                                    FROM profissoes
+                                    WHERE idusuario = '$id_logado'";
                             $resultado = mysqli_query($con, $sql);
 
-
                             if ($resultado->num_rows > 0) {
-                                echo "
-                                    <select name='nome_profissao' id='profissao'>";
 
-                                        while ($dados = mysqli_fetch_assoc($resultado)) {
-                                            $idprofissao = $dados['idprofissao'];
-                                            $nome_profissao = $dados['nome_profissao'];
-                                            echo "
-                                            <option value='$nome_profissao'>$nome_profissao</option>
-                                            ";                                            
-                                        }
-
-                                echo "        
-                                    </select>
-                                ";
                             }
                             
                         ?>
                 <div class="ability__content">
+                    <label for="">Profissão</label>
                     <input
                     type="text"
-                    name="descricao_profissional"
+                    name="nome_profissao"
                     id="descricao_profissional"
-                    value=""
+                    value="<?= ($nome_profissao)?? '' ?>"
+                    placeholder="Escolha uma profissão"/>
+                    <a></a>
+                </div>
+                <div class="ability__content">
+                    <label for="">Descrição da Profissão</label>
+                    <input
+                    type="text"
+                    name="descricao"
+                    id="descricao_profissional"
+                    value="<?= ($descricao)?? '' ?>"
                     placeholder=""/>
                     <a></a>
                 </div>
 
                 <script>
+
                         const item = document.getElementById('descricao_profissional');
                         const profissao = document.getElementById('profissao');
-                    blur()
-                        function blur () {
+                            
+
+                    change()
+                        function change () {
                             let texto = profissao.value;
                             item.placeholder = "O que voce fazia como " + texto + "?"
 
-                            profissao.addEventListener('blur',()=>{
+                            profissao.addEventListener('change',()=>{
                                 let texto = profissao.value;
                                 item.placeholder = "O que voce fazia como " + texto + "?"
                             })
 
                         }
 
-
-
-
                 </script>
 
                 <!-- PARTES OCULTAS -->
-                <input type="hidden" name="idusuario" id="idusuario" value="<?= $id_logado ?>">
-                <input type="text" name="idprofissao" id="idprofissao" value="<?= $idprofissao ?>">
-                <input type="hidden" name="idhabilidade" id="idhabilidade" 
-                value="<?= ($idhabilidade)?? '' ?>">
-
+                <input type="text" name="idusuario" id="idusuario" value="<?= $id_logado ?>">
+                <input type="text" name="idprofissao" id="idprofissao" value="<?= $_GET['idprofissao']?? '' ?>">
                 <button class="btn-primary" type="submit" name="btn_cadastrar">
                     Cadastrar
                 </button>
@@ -257,16 +257,24 @@ body {
                 cursor: pointer;
             }
         </style>
-        <?php require_once 'acoes/consulta-habilidades-do-usuario.php';?>
+
         <?php 
+            $sql = "SELECT * FROM profissoes
+            WHERE idusuario = '$id_logado'";
+
+            $resultado = mysqli_query($con, $sql);
+
             if ($resultado->num_rows > 0) {
                 
                 echo "<ul class='ability__list'>";
                 while ($dados = mysqli_fetch_assoc($resultado)) {
-                    $idhabilidade = $dados['idhabilidade'];
-                    $habilidade = $dados['habilidade'];
-                    echo "<li class='ability__item' name='habilidade'>
-                                <a href='?id=$idhabilidade&habilidade=$habilidade' class='ability__link'>$habilidade</a>
+                    $idprofissao = $dados['idprofissao']?? '';
+                    $nome_profissao = $dados['nome_profissao']?? '';
+                    $descricao = $dados['descricao']?? '';
+                    echo "<li class='ability__item'>
+                                <a href='?idprofissao=$idprofissao&nome_profissao=$nome_profissao&descricao=$descricao' class='ability__link'>$nome_profissao</a>
+                                </br>
+                                <p>$descricao</p>
                         </li>";
                 }
                 echo "</ul>";

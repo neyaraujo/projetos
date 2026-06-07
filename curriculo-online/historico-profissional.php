@@ -184,9 +184,7 @@
                                 $cidade         = $dados['cidade'];
                                 $ano_entrada    = $dados['ano_entrada'];
                                 $ano_saida      = $dados['ano_saida'];
-                                $descricao_01   = $dados['descricao_01'];
-                                $descricao_02   = $dados['descricao_02'];
-                                $descricao_03   = $dados['descricao_03'];
+
 
                                 echo "<li class='main__item'>
                                         <a 
@@ -198,18 +196,6 @@
                                         </a>
                                         $nome_profissao, $instituicao, $cidade - $ano_entrada - $ano_saida
                                     </li>";
-                                    if (!$descricao_01 == NULL) {
-                                       echo "<li class='main__item main__item--lista'>$descricao_01</li>";
-                                    }
-
-                                    if (!$descricao_02 == NULL) {
-                                       echo "<li class='main__item main__item--lista'>$descricao_02</li>";
-                                    }
-
-                                    if (!$descricao_03 == NULL) {
-                                       echo "<li class='main__item main__item--lista'>$descricao_03</li>";
-                                    }
-                                    
                                 }     
                         ?>
                     </li>

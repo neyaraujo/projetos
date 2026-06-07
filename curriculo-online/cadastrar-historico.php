@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Perfil</title>
+    <title>Histórico Profissional</title>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/header.css">
@@ -68,7 +68,7 @@
                 <a></a>
             </div>
             <div class="form-content">
-                <label for="data-entrada">Mês/Ano Entrada</label>
+                <label for="ano-entrada">Mês/Ano Entrada</label>
                 <input 
                 type="text" 
                 name="ano_entrada" 
@@ -81,61 +81,31 @@
                 <a></a>
             </div>
             <div class="form-content">
-                <label for="data-saida">Mês/Ano Saída</label>
+                <label for="ano-saida">Mês/Ano Saída</label>
                 <input 
-                type="text" 
-                name="ano_saida" 
-                id="ano-saida"
-                value=""
-                step="1"
-                min="1900"
-                maxlength="7"
-                placeholder="03/2026"/>
+                    type="text" 
+                    name="ano_saida" 
+                    id="ano-saida"
+                    value=""
+                    step="1"
+                    min="1900"
+                    maxlength="7"
+                    placeholder="03/2026"/>
                 <a></a>
             </div>
-            <div class="form-content profession">
-                <article class="profession__item">
-                    <label
-                        class="profession-description__label"
-                        for="descricao-01">
-                        O que você fazia no seu trabalho?
-                    </label>
-                        <textarea
-                            id="descricao-01"
-                            name="descricao_01"
-                            class="profession-description__textarea"
-                            rows="3">
-                        </textarea>
-                </article>
-                <article class="profession__item">
-                    <label
-                        class="profession-description__label"
-                        for="descricao-02">
-                        Como você contribuia para seu trabalho?
-                    </label>
-                        <textarea
-                            id="descricao-02"
-                            name="descricao_02"
-                            class="profession-description__textarea"
-                            rows="3">
-                        </textarea>
-                </article>
-                <article class="profession__item">
-                    <label
-                        class="profession-description__label"
-                        for="descricao-03">
-                        Qual a sua responsabilidade no trabalho?
-                    </label>
-                        <textarea
-                            id="descricao-03"
-                            name="descricao_03"
-                            class="profession-description__textarea"
-                            rows="3">
-                        </textarea>
-                </article>
-            </div>
-
             <style>
+                .flex {
+                    display: flex;
+                    justify-content: space-between;
+                }
+                .historico__add {
+                    cursor: pointer;
+                    padding: 5px;
+                    background: #ccc;
+                    margin: 2px;
+                    border-radius: 3px;
+                    font-size: 10px;
+                }
                 .form__title {
                     font-size: 16px;
                     text-align: center;
@@ -171,13 +141,9 @@
                 }
             </style>
 
-           
-
             <button class="btn-primary" type="submit" name="btn_cadastrar">Cadastrar</button>
         </form>
-        </section>
     </main>
-
 <?php modalMensagem()?>
     
 <?php require_once "footer.php"?>    

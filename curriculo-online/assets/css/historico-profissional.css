@@ -94,13 +94,11 @@ main .perfil button {
 
 .form-content {
     margin-bottom: 8px;
-    padding-bottom: 18px ;
     position: relative;
 }
 
 .form-content label {
     display: inline-block;
-    margin-bottom: 4px;
     color: var(--text-dark);
 }
 

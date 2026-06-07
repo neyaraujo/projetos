@@ -459,35 +459,7 @@
                         </ul>
                         </section>";
                     }
-
-                    echo "<pre>";
-                    var_dump($resultado);
-                    echo "</pre>";
-                    // exit();
                 ?>
-
-                <section class="skills">
-                    <h2 class="skills__title">
-                        HABILIDADES
-                    </h2>
-                    <ul class="skills__list">
-                        <li class="skills__item">
-                            Experiência em rotinas de escritório.
-                        </li>
-                        <li class="skills__item">
-                            Atendimento ao público e suporte ao cliente.
-                        </li>
-                        <li class="skills__item">
-                            Operação de caixa e atendimento comercial.
-                        </li>
-                        <li class="skills__item">
-                            Facilidade de aprendizado e adaptação a novos sistemas.
-                        </li>
-                        <li class="skills__item">
-                            Boa comunicação, responsabilidade e comprometimento profissional.
-                        </li>
-                    </ul>
-                </section>
                 <!-- TOOLS -->
                 <section class="tools">
                     <h2 class="tools__title">

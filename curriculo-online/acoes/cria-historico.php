@@ -10,15 +10,13 @@
         $estado = mysqli_real_escape_string($con, $_POST['estado']);
         $ano_entrada = mysqli_real_escape_string($con, $_POST['ano_entrada']);
         $ano_saida = mysqli_real_escape_string($con, $_POST['ano_saida']);
-        $descricao_01 = mysqli_real_escape_string($con, $_POST['descricao_01']);
-        $descricao_02 = mysqli_real_escape_string($con, $_POST['descricao_02']);
-        $descricao_03 = mysqli_real_escape_string($con, $_POST['descricao_03']);
+
 
         $sql = "INSERT INTO profissoes (
 
-            nome_profissao, instituicao, cidade, estado, ano_entrada, ano_saida, descricao_01, descricao_02, descricao_03, idusuario)
+            nome_profissao, instituicao, cidade, estado, ano_entrada, ano_saida, idusuario)
             VALUES 
-            ('$nome_profissao', '$instituicao', '$cidade', '$estado', '$ano_entrada', '$ano_saida', '$descricao_01', '$descricao_02', '$descricao_03', $id_logado)";
+            ('$nome_profissao', '$instituicao', '$cidade', '$estado', '$ano_entrada', '$ano_saida', $id_logado)";
 
             var_dump($sql);
 

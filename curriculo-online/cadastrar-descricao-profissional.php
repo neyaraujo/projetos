@@ -26,7 +26,7 @@
 
     <link rel="stylesheet" href="assets/css/register-user.css">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <title>Cadastrar Formação</title>
+    <title>Cadastrar Descrição Profissional</title>
     <style>
         :root {
         --cor01: #0C3C60;
@@ -167,27 +167,76 @@ body {
                <li class="header__list-item"><a class="header__list-link material-symbols-outlined main__edit" href="formacao.php">close</a></li>
            </ul>
        </header>
+
+
     
        <main class="ability">
         <div class="ability__container">
            <h2 class="ability__title">
-                Cadastro de Habilidades
+                Cadastro de Descrição Profissional
            </h2>
-            <form class="ability__form" action="acoes/cria-habilidade.php" id="form" method="POST">
+            <form class="ability__form" action="acoes/cria-descricao-profissional.php" id="form" method="POST">
                 <div class="ability__content">
-                    <label for="habilidade">Habilidade
-                    </label>
+
+                        <?php 
+                        require_once 'acoes/conexao.php';
+                            $sql = "SELECT * FROM profissoes
+                            WHERE idusuario = '$id_logado'";
+
+                            $resultado = mysqli_query($con, $sql);
+
+
+                            if ($resultado->num_rows > 0) {
+                                echo "
+                                    <select name='nome_profissao' id='profissao'>";
+
+                                        while ($dados = mysqli_fetch_assoc($resultado)) {
+                                            $idprofissao = $dados['idprofissao'];
+                                            $nome_profissao = $dados['nome_profissao'];
+                                            echo "
+                                            <option value='$nome_profissao'>$nome_profissao</option>
+                                            ";                                            
+                                        }
+
+                                echo "        
+                                    </select>
+                                ";
+                            }
+                            
+                        ?>
+                <div class="ability__content">
                     <input
                     type="text"
-                    name="habilidade"
-                    id="habilidade"
-                    value="<?= ($habilidade)?? '' ?>"
-                    placeholder="O que você sabe fazer?"/>
+                    name="descricao_profissional"
+                    id="descricao_profissional"
+                    value=""
+                    placeholder=""/>
                     <a></a>
                 </div>
 
+                <script>
+                        const item = document.getElementById('descricao_profissional');
+                        const profissao = document.getElementById('profissao');
+                    blur()
+                        function blur () {
+                            let texto = profissao.value;
+                            item.placeholder = "O que voce fazia como " + texto + "?"
+
+                            profissao.addEventListener('blur',()=>{
+                                let texto = profissao.value;
+                                item.placeholder = "O que voce fazia como " + texto + "?"
+                            })
+
+                        }
+
+
+
+
+                </script>
+
                 <!-- PARTES OCULTAS -->
                 <input type="hidden" name="idusuario" id="idusuario" value="<?= $id_logado ?>">
+                <input type="text" name="idprofissao" id="idprofissao" value="<?= $idprofissao ?>">
                 <input type="hidden" name="idhabilidade" id="idhabilidade" 
                 value="<?= ($idhabilidade)?? '' ?>">
 

@@ -174,8 +174,6 @@ body {
            </ul>
        </header>
 
-
-    
        <main class="ability">
         <div class="ability__container">
            <h2 class="ability__title">
@@ -183,19 +181,7 @@ body {
            </h2>
             <form class="ability__form" action="acoes/cria-descricao-profissional.php" id="form" method="POST">
                 <div class="ability__content">
-
-                        <?php 
-                        require_once 'acoes/conexao.php';
-                            $sql = "SELECT DISTINCT nome_profissao
-                                    FROM profissoes
-                                    WHERE idusuario = '$id_logado'";
-                            $resultado = mysqli_query($con, $sql);
-
-                            if ($resultado->num_rows > 0) {
-
-                            }
-                            
-                        ?>
+                </div>       
                 <div class="ability__content">
                     <label for="">Profissão</label>
                     <input
@@ -259,6 +245,7 @@ body {
         </style>
 
         <?php 
+            require_once 'acoes/conexao.php';
             $sql = "SELECT * FROM profissoes
             WHERE idusuario = '$id_logado'";
 

@@ -199,7 +199,7 @@ body {
                     <label for="descricao-curso">Decrição do Curso</label>
                     <input
                     type="text"
-                    name="descricao_curso"
+                    name="descricao"
                     id="descricao-curso"
                     value="<?= $descricao?>"
                     placeholder=""/>

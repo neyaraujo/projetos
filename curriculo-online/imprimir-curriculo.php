@@ -301,7 +301,7 @@
                     while ($dados = mysqli_fetch_assoc($resultado)) {
                     
                     $idprofissao    = $dados['idprofissao'];
-                    $nome_profissao = $dados['nome_profissao'];
+                    $profissao = $dados['profissao'];
                     $instituicao    = $dados['instituicao'];
                     $cidade         = $dados['cidade'];
                     $estado         = $dados['estado'];
@@ -317,7 +317,7 @@
                         }
                         echo "
                             <h3 class='experience__role'>
-                                $nome_profissao, $ano_entrada - $ano_saida
+                                $profissao, $ano_entrada - $ano_saida
                             </h3>
                             <h4 class='experience__company'>
                                 $instituicao, $cidade - " . strtoupper($estado) . "
@@ -539,8 +539,27 @@
                     </ul>
 
             </section>
+
+            <section class="qrcode">
+            <img class="qrcode__foto" src="fotos/qrcode.png" alt="">
+            </section>
+            <style>
+                .qrcode {
+                    position: relative;
+                    width: 200px;
+                }
+                .qrcode__foto {
+                    position: absolute;
+                    top: 100px;
+                    width: 100%;
+                }
+            </style>
+
+
+
         </section>
 
+       
     </main>
             <script>
                 // TOGGLE PHOTO

@@ -4,7 +4,7 @@
     $id_logado = $_SESSION['idusuario'];
 
     if (isset($_POST['btn_cadastrar'])) {
-        $nome_profissao = mysqli_real_escape_string($con, $_POST['nome_profissao']);
+        $profissao = mysqli_real_escape_string($con, $_POST['profissao']);
         $instituicao = mysqli_real_escape_string($con, $_POST['instituicao']);
         $cidade = mysqli_real_escape_string($con, $_POST['cidade']);
         $estado = mysqli_real_escape_string($con, $_POST['estado']);
@@ -15,9 +15,9 @@
 
         $sql = "INSERT INTO profissoes (
 
-            nome_profissao, instituicao, cidade, estado, ano_entrada, ano_saida, descricao, idusuario)
+            profissao, instituicao, cidade, estado, ano_entrada, ano_saida, descricao, idusuario)
             VALUES 
-            ('$nome_profissao', '$instituicao', '$cidade', '$estado', '$ano_entrada', '$ano_saida', '$descricao', '$id_logado')";
+            ('$profissao', '$instituicao', '$cidade', '$estado', '$ano_entrada', '$ano_saida', '$descricao', '$id_logado')";
 
         if (mysqli_query($con, $sql)) {
             $_SESSION['mensagem'] = "Cadastro realizado com sucesso!";

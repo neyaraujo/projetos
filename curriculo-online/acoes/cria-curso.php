@@ -8,14 +8,14 @@
         $instituicao = mysqli_real_escape_string($con, $_POST['instituicao']);
         $ano_curso = mysqli_real_escape_string($con, $_POST['ano_curso']);
         $idusuario = mysqli_real_escape_string($con, $_POST['idusuario']);
-        $descricao_01 = mysqli_real_escape_string($con, $_POST['descricao_01']);
-        $descricao_02 = mysqli_real_escape_string($con, $_POST['descricao_02']);
-        $descricao_03 = mysqli_real_escape_string($con, $_POST['descricao_03']);
+        $descricao = mysqli_real_escape_string($con, $_POST['descricao']);
+        
+
 
         $sql = "INSERT INTO cursos (
-        nome_curso, instituicao, ano_curso, idusuario, descricao_01, descricao_02, descricao_03)
+        nome_curso, instituicao, ano_curso, idusuario, descricao)
         VALUES
-        ('$nome_curso', '$instituicao', '$ano_curso', '$idusuario', '$descricao_01', '$descricao_02', '$descricao_03')";
+        ('$nome_curso', '$instituicao', '$ano_curso', '$idusuario', '$descricao')";
 
         if (mysqli_query($con, $sql)) {
             $_SESSION['mensagem'] = "Cadastro realizado com sucesso!";

@@ -79,6 +79,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            gap: 10px;
         }
         .main__imgs{
             width: 100px;
@@ -95,22 +96,25 @@
                 background: #fff;
                 padding: 10px;
         }
-        .main__information {
-            color: #fff;
-            font-size: clamp(1rem, 1.5vw, 1.5rem);
-            text-align: center;
-
-        }
         .main__user-title {
             text-align: center;
             color: white;
-            font-size: clamp(1.5rem, 2vw, 2rem );
+            /* font-size: clamp(1.5rem, 2vw, 2rem ); */
+            font-size: 14px;
+        }
+        .main__information {
+            color: #fff;
+            /* font-size: clamp(1rem, 1.5vw, 1.5rem); */
+            font-size: 12px;
+            text-align: center;
+
         }
 
         .main__container-foto {
             width: 100px;
             height: 100px;
             border-radius: 50%;
+            outline: 3px solid #fff;
             overflow: hidden;
         }
         .main__foto-perfil {
@@ -119,6 +123,7 @@
         }
         .main__title {
             color: #fff;
+            font-size: 16px;
         }
 
         .main__title.contatos {
@@ -129,7 +134,7 @@
             background: #fff;
             padding: 10px;
             border: 1px solid #ccc;
-            font-size: 1rem;
+            font-size: 12px;
         }
         .main__cards {
             display: flex;

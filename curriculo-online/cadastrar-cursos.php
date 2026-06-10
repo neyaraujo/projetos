@@ -51,6 +51,7 @@
         .main__subtitulo{
             padding: 10px;
             text-align: center;
+            font-size: 16px
         }
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
@@ -102,6 +103,7 @@ body {
 .form-content label {
     display: inline-block;
     margin-bottom: 4px;
+    font-size: 12px;
 }
 
 .form-content input,
@@ -111,6 +113,7 @@ body {
     border-radius: 8px;
     padding: 8px;
     border: 2px solid #dfdfdf;
+    font-size: 12px;
 }
 
 .form-content a {
@@ -190,8 +193,8 @@ body {
                     <label for="ano_curso">O que você aprendeu no curso?</label>
                     <input
                     type="text"
-                    name="descricao_01"
-                    id="descricao-01"
+                    name="descricao"
+                    id="descricao-curso"
                     placeholder=""/>
                     <a></a>
                 </div>

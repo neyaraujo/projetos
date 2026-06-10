@@ -18,10 +18,11 @@
     $dados = mysqli_fetch_assoc($resultado);
     
     // criar variaveis para cada dado do array associativo
-    $id_curso       = $dados['idcurso'];
-    $nome_curso     = $dados['nome_curso'];
-    $instituicao    = $dados['instituicao'];
-    $ano_curso      = $dados['ano_curso'];
+    $id_curso           = $dados['idcurso'];
+    $nome_curso         = $dados['nome_curso'];
+    $instituicao        = $dados['instituicao'];
+    $ano_curso          = $dados['ano_curso'];
+    $descricao          = $dados['descricao'];
 
 
         // escrever em tela nos campos do formulario

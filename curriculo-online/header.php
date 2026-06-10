@@ -27,13 +27,18 @@
                     </a>
                 </li>
                 <li lang="nav-item">
-                    <a href="historico-profissional.php">
+                    <a href="profissao.php">
                         Profissões
                     </a>
                 </li>
                 <li lang="nav-item">
                     <a href="cadastrar-habilidade.php">
                         Habilidades
+                    </a>
+                </li>
+                <li lang="nav-item">
+                    <a href="cadastrar-linguagem.php">
+                        Linguagens
                     </a>
                 </li>
                 <li lang="nav-item">

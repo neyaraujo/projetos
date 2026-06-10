@@ -1,9 +1,16 @@
 <?php 
     session_start();
     require_once 'acoes/verifica-logado.php';
-    include_once 'acoes/consulta-formacao.php';
     $id_logado = $_SESSION['idusuario'];
     $email_logado = $_SESSION['email'];
+    require_once 'acoes/modal.php';
+
+    if (isset($_GET['idlinguagem'])) {
+        $idlinguagem = $_GET['idlinguagem'];
+        $linguagem = $_GET['linguagem'];
+        $nivel = $_GET['nivel'];
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -13,7 +20,7 @@
 
     <link rel="stylesheet" href="assets/css/register-user.css">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <title>Editar Formação</title>
+    <title>Cadastrar Linguagens</title>
     <style>
         :root {
         --cor01: #0C3C60;
@@ -160,80 +167,86 @@ body {
     
     <div class="container">
        <main>
-           <h2 class="main__subtitulo">Cadastro de Formação</h2>
+           <h2 class="main__subtitulo">
+            Cadastar Linguagens
+           </h2>
+            <form class="form" action="acoes/cria-linguagem.php" id="form" method="POST">
+                <div class="form-content">
+                    <label for="nome_curso">Nome da Linguagem</label>
+                    <input
+                    type="text"
+                    value="<?= ($linguagem)?? '' ?>"
+                    name="linguagem"
+                    id="linguagem"
+                    placeholder=""/>
+                    <a></a>
+                </div>
+                <div class="form-content">
+                    <label for="nivel">Nivel de Linguagem</label>
 
-            <form class="form" action="acoes/edita-formacao.php" id="form" method="POST">
-                <div class="form-content">
-                    <label for="nivel">Nivel de Escolaridade</label>
                     <select id="nivel" name="nivel">
-                        <optgroup label="Dado anterior">
-                            <option value="<?= $nivel; ?>"><?= $nivel; ?></option>
-                        </optgroup>
-                        <option value="Ensino Fundamental">Ensino Fundamental</option>
-                        <option value="Ensino Médio">Esnino Médio</option>
-                        <option value="Ensino Superior">Ensino Superior</option>
-                        <option value="Pós-Graduação">Pós-Graduação</option>
-                        <option value="Mestrado">Mestrado</option>
-                        <option value="Doutorado">Doutorado</option>
+                        <?php 
+                        if (isset($idlinguagem)) {
+                            echo "
+                            <option value='$nivel'>$nivel</option>
+                            ";
+                        }
+                        ?>
+
+                        <option value="Básico">Básico</option>
+                        <option value="Intermediário">Intermediário</option>
+                        <option value="Avançado">Avançado</option>
+                        <option value="Expercialista">Especialista</option>
                     </select>
                     <a></a>
                 </div>
-                <div class="form-content">
-                    <label for="nome_curso">Nome do Curso</label>
-                    <input
-                    type="text"
-                    name="nome_curso"
-                    id="nome_curso"
-                    value="<?= $nome_curso ?>"
-                    placeholder=""/>
-                    <a></a>
-                </div>
-                <div class="form-content">
-                    <label for="nome_curso">Instituicao</label>
-                    <input
-                    type="text"
-                    name="instituicao"
-                    id="instituicao"
-                    value="<?= $instituicao ?>"
-                    placeholder=""/>
-                    <a></a>
-                </div>
-                <div class="form-content">
-                    <label for="nivel">Situação</label>
-                    <select name="situacao" id="situacao">
-                    <optgroup label="Dado anterior">
-                        <option value="<?= $situacao; ?>"><?= $situacao; ?></option>
-                    </optgroup>
-                        <option value="Concluído">Concluído</option>
-                        <option value="Andamento">Andamento</option>
-                    </select>
-                </div>
-                <div class="form-content">
-                    <label for="ano_inicio">Ano do Início</label>
-                    <input
-                    type="number"
-                    name="ano_inicio"
-                    id="ano_inicio"
-                    value="<?= $ano_inicio ?>"
-                    placeholder=""/>
-                    <a></a>
-                </div>
-                <div class="form-content">
-                    <label for="ano_termno">Ano do Término</label>
-                    <input
-                    type="number"
-                    name="ano_termino"
-                    id="ano_termino"
-                    value="<?= $ano_termino ?>"
-                    placeholder=""/>
-                    <a></a>
-                </div>
-                <input type="hidden" name="idformacao" id="id_formacao" value="<?= $idformacao ?>">
-                <input type="hidden" name="idusuario" id="idusuario" value="<?= $id_logado ?>">
-                <button class="btn-primary" type="submit" name="btn_editar">Editar</button>
+                <input type="text" name="idusuario" id="idusuario" value="<?= $id_logado ?>">
+                <input type="text" name="idlinguagem" id="idlinguagem" value="<?= ($idlinguagem)?? '' ?>">
+                <button class="btn-primary" type="submit" name="btn_cadastrar">Cadastrar</button>
             </form>
+
+            <!-- LISTA DE LINGUAGENS DE PROGRAMAÇÃO -->
+                <?php 
+                    require_once 'acoes/conexao.php';
+
+                    $sql = "SELECT * FROM linguagens
+                    WHERE idusuario = '$id_logado'";
+                    $resultado = mysqli_query($con, $sql);
+
+                    echo "
+                        <ul class='linguagem__list'>";
+                        
+                        while ($dados = mysqli_fetch_assoc($resultado)) {
+                            $linguagem = $dados['linguagem'];
+                            $idlinguagem = $dados['idlinguagem'];
+                            $nivel = $dados['nivel'];
+                            echo "
+                                <li class='linguagem__item'>
+                                    <a class='linguagem__link' href='?idlinguagem=$idlinguagem&linguagem=$linguagem&nivel=$nivel'>$linguagem</a>
+                                </li>";
+                        }
+                    echo "
+                        </ul>";
+
+                    
+                ?>
+
               </div>
+              <style>
+                .linguagem__list {
+                    margin-left: 40px;
+                }
+
+                .linguagem__item {
+                    list-style: disc;
+                }
+                .linguagem__link {
+                    color: #000000;
+                    font-size: 12px;
+                }
+              </style>
        </main>
+       <?php modalMensagem();?>
     
 </body>
 </html>

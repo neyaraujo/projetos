@@ -98,6 +98,7 @@ main .perfil button {
 }
 
 .form-content label {
+    font-size: 12px;
     display: inline-block;
     color: var(--text-dark);
 }
@@ -108,6 +109,7 @@ main .perfil button {
     width: 100%;
     border-radius: 8px;
     padding: 8px;
+    font-size: 11px;
     border: 2px solid #dfdfdf;
 }
 

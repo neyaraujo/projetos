@@ -51,6 +51,7 @@
             color: #fff;
         }
         .main__subtitulo{
+            font-size: 16px;
             padding: 10px;
             text-align: center;
         }
@@ -104,6 +105,7 @@ body {
 .form-content label {
     display: inline-block;
     margin-bottom: 4px;
+    font-size: 14px;
 }
 
 .form-content input,
@@ -113,6 +115,7 @@ body {
     border-radius: 8px;
     padding: 8px;
     border: 2px solid #dfdfdf;
+    font-size: 12px;
 }
 
 .form-content a {
@@ -189,6 +192,16 @@ body {
                     name="ano_curso"
                     id="ano_curso"
                     value="<?= $ano_curso ?>"
+                    placeholder=""/>
+                    <a></a>
+                </div>
+                <div class="form-content">
+                    <label for="descricao-curso">Decrição do Curso</label>
+                    <input
+                    type="text"
+                    name="descricao_curso"
+                    id="descricao-curso"
+                    value="<?= $descricao?>"
                     placeholder=""/>
                     <a></a>
                 </div>

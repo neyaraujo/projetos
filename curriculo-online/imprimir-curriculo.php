@@ -3,7 +3,6 @@
     require_once 'acoes/verifica-logado.php';
     include_once 'acoes/consulta-usuario.php';
     include_once 'acoes/consulta-cargo.php';
-
 ?>
 
 
@@ -23,6 +22,10 @@
             padding: 0;
             box-sizing: border-box;
             /* outline: 1px solid  red; */
+
+            /* correção para impressão das cores */
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
         }
         li {
             margin-left: 10pt;
@@ -50,12 +53,13 @@
         }
         /* RESUME */
         .resume {
+            
             margin: 1cm;
-
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 20px;
         }
+
 
         /* HERO */
         .hero {
@@ -184,6 +188,46 @@
             font-size: 10pt;
         }
 
+                /* linguagem */
+        .linguagem {
+            margin-bottom: 10pt;
+            break-inside: void;
+        }
+        .linguagem__container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .linguagem__item{
+            flex: 1 1 50%;
+        }
+        
+        .linguagem__title {
+            font-size: 12pt;
+        }
+        .linguagem__language {
+            font-size: 10pt;
+        }
+
+        .linguagem__item {
+            flex-wrap: wrap;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .linguagem__bar {
+            margin-top: 3px;
+            width: 100%;
+            background: #ccc;
+        }
+
+
+
+        /* PROGRESS */
+        <?php require_once 'acoes/consulta-nivel.php'; ?>
+
+
         /* TOOLS */
         .tools {
             border-bottom: 1px solid black;
@@ -195,9 +239,6 @@
         .tools__list {
             font-size: 10pt;
         }
-
-        
-        
 
 
         @media print {
@@ -222,6 +263,8 @@
     </style>
 </head>
 <body>
+
+
 
     <nav class="nav">
         <ul class="nav__list">
@@ -252,9 +295,6 @@
             </section>
             <!-- EXPERIENCE -->
                 <section class="experience">
-                    <!-- <h2 class="experience__title">
-                        HISTÓRICO PROFISSIONAL
-                    </h2> -->
                     <?php require_once 'acoes/consulta-historico-do-usuario.php';
                     $titulo = false;
                 
@@ -267,9 +307,7 @@
                     $estado         = $dados['estado'];
                     $ano_entrada    = $dados['ano_entrada'];
                     $ano_saida      = $dados['ano_saida'];
-                    $descricao_01   = $dados['descricao_01'];
-                    $descricao_02   = $dados['descricao_02'];
-                    $descricao_03   = $dados['descricao_03'];
+                    $descricao      = $dados['descricao'];
 
                     if (!empty($idprofissao)) {
                         if (!$titulo) {
@@ -286,18 +324,13 @@
                             </h4>";
                     };
 
-                    echo "<ul class='experience__list'>";
+                        echo "<ul class='experience__list'>";
 
-                    if (!empty($descricao_01)) {
-                        echo "<li class='experience__activity'>$descricao_01</li>";
-                    }
-                    if (!empty($descricao_02)) {
-                        echo "<li class='experience__activity'>$descricao_02</li>";
-                    }
-                    if (!empty($descricao_03)) {
-                        echo "<li class='experience__activity'>$descricao_03</li>";
-                    }
-                    echo "</ul>";
+                        if (!empty($descricao)) {
+                            echo "<li class='experience__activity'>$descricao</li>";
+                            echo "</ul>";
+                        }
+                   
 
                     };
                 
@@ -338,8 +371,8 @@
                                     </h4>
                                 </article>";
                         }
-                        echo "</section>";
                     }
+                echo "</section>";
             ?>
 
              <!-- COURSES -->
@@ -351,11 +384,30 @@
                         <section class='course'>
                             <h2 class='course__title'>
                                 CURSOS PROFISSIONALIZANTES
-                            </h2>
-                        </section>
-                    ";
+                            </h2>";
 
+                         while ($dados = mysqli_fetch_assoc($resultado)) {
+                            $idcurso = $dados['idcurso'];
+                            $nome_curso = $dados['nome_curso'];
+                            $instituicao = $dados['instituicao'];
+                            $ano_curso = $dados['ano_curso'];
+                            $descricao = $dados['descricao'];
 
+                            
+                            echo "
+                                <article class='course__item'>
+                                    <h3  class='course_information'>
+                                        $nome_curso - $instituicao - $ano_curso
+                                    </h3>
+                                    <ul>
+                                        <li>$descricao</li>
+                                    </u>
+                                </article>";
+                        }
+                            echo "
+                        </section>";
+
+                    $titulo = true;
 
                     while ($dados = mysqli_fetch_assoc($resultado)) {
 
@@ -363,6 +415,7 @@
                         $nome_curso = $dados['nome_curso'];
                         $instituicao = $dados['instituicao'];
                         $ano_curso = $dados['ano_curso'];
+                        $descricao = $dados['descricao'];
 
                         if (!$titulo) {
                             echo "<section class='course'>
@@ -374,13 +427,21 @@
                                 echo"<article class='course__item'>";
                                 echo "<h3 class='course__information'>
                                         $nome_curso - $instituicao - $ano_curso
+
                                     </h3>";
                                 echo "</article>"; 
                     } // fim do while
-                    echo "</section>";
                 } // fim if num_rows  
+            ?>  
+
+            <!-- INICIO SECTIIO LINGUAGEM -->
+            <?php 
+                require_once 'acoes/consulta-linguagem.php';
             ?>
-        </section>
+            <!-- FIM SECTION LINGUAGEM -->
+                
+            </section>
+
             <!-- CONTACT -->
              <section class="right">
                 <section class="contact">

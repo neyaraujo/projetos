@@ -10,7 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formações</title>
+    <title>Profissões</title>
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <style>
     @charset "UTF-8";
@@ -50,6 +50,9 @@
             text-decoration: none;
             color: initial;
         }
+        .material-symbols-outlined {
+            font-size: 14px;
+        }
         body {
             max-width: 100%;
             min-height: 100vh;
@@ -58,6 +61,7 @@
             background: #0C3C60;
             font-family: var(--font-padrao);
         }
+
 
         .header {
             width: 100%;
@@ -98,6 +102,7 @@
             font-size: 0.8rem;
         }
 
+
         .main {
             max-width: 900px;
             display: flex;
@@ -129,12 +134,13 @@
             gap: 10px;
         }
 
-        .main__item--lista {
+        .main__item-list {
             list-style: disc;
             font-size: 12px;
-            font-style: italic;
+            /* font-style: italic; */
             padding: 5px;
         }
+
         .main__top {
             margin-top: 50px;
             align-self: center;
@@ -157,8 +163,8 @@
                 <nav class="header__nav">
                     <ul class="header__menu">
                         <li class="header__item">
-                            <a class="header__link header__button" href="cadastrar-historico.php">
-                                Novo Histórico
+                            <a class="header__link header__button" href="cadastrar-profissao.php">
+                                Nova Profissão
                             </a>
                         </li>
                         <li class="header__item"><a class="header__link material-symbols-outlined main__edit" href="painel.php">Close</a></li>
@@ -171,7 +177,7 @@
     
     <main class="main">
             <section class="main__courses">
-                <h1 class="main__title">Histórico Profissional</h1>
+                <h1 class="main__title">Profissões</h1>
                 <ul class="main__list">
                         <?php
                             include_once 'acoes/consulta-historico-do-usuario.php';
@@ -179,30 +185,46 @@
                             while ($dados = mysqli_fetch_assoc($resultado)) {
                                 
                                 $idprofissao    = $dados['idprofissao'];
-                                $nome_profissao = $dados['nome_profissao'];
+                                $profissao = $dados['profissao'];
                                 $instituicao    = $dados['instituicao'];
                                 $cidade         = $dados['cidade'];
                                 $ano_entrada    = $dados['ano_entrada'];
                                 $ano_saida      = $dados['ano_saida'];
+                                $descricao      =$dados['descricao'];
 
 
-                                echo "<li class='main__item'>
+                                echo "<li class='main__item main__item-list'>
                                         <a 
                                             class='material-symbols-outlined main__edit'
-                                            href='editar-formacao.php?id={$idprofissao}'>Edit
+                                            href='edita-profissao.php?id={$idprofissao}'>Edit
                                         </a>
                                         <a 
                                             class='material-symbols-outlined main__delete' href='acoes/modal-apagar-formacao.php?id={$idprofissao}'>Delete
                                         </a>
-                                        $nome_profissao, $instituicao, $cidade - $ano_entrada - $ano_saida
+                                        <strong>$profissao</strong>, $instituicao, $cidade - $ano_entrada - $ano_saida
                                     </li>";
+                                    if (!empty($descricao)) {
+                                        echo "
+                                        <p class='main__item main__item-descricao'>
+                                            $descricao
+                                        </p>
+                                            ";
+                                    }
+                                   
                                 }     
                         ?>
                     </li>
                 </ul>
-                <a class="main__top" href="#">Topo</a>
             </section>
     </main>
+    <style>
+        .main__item-descricao {
+            font-size: 12px;
+            padding: 3px;
+            text-indent: 40px;
+            font-style: italic;
+        }
+    </style>
     <?php modalMensagem()?>
 </body>
 </html>

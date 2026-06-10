@@ -98,11 +98,13 @@ header {
 .user .email {
     color: var(--text-muted);
     font-style: italic;
+    font-size: 12px;
+    
 }
 
 .navigation a, 
 .navigation .login a {
-    font-size: 1rem;
+    font-size: 12px;
     color: var(--text-muted);
     transition: 0.3s;
 }

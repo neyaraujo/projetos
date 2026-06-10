@@ -93,6 +93,11 @@ body {
     overflow: hidden;
 
 }
+.ability__title {
+    font-size: 16px;
+    text-align: center;
+    padding: 10px;
+}
 
 .header {
     background: var(--cor03);
@@ -106,6 +111,7 @@ body {
     padding: 18px;
 }
 
+
 .ability__content {
     margin-bottom: 8px;
     padding-bottom: 10px ;
@@ -115,6 +121,7 @@ body {
 .ability__content label {
     display: inline-block;
     margin-bottom: 4px;
+    font-size: 14px;
 }
 
 .ability__content input,
@@ -124,6 +131,7 @@ body {
     border-radius: 8px;
     padding: 8px;
     border: 2px solid #dfdfdf;
+    font-size: 12px;
 }
 
 .ability__content a {
@@ -175,7 +183,7 @@ body {
            </h2>
             <form class="ability__form" action="acoes/cria-habilidade.php" id="form" method="POST">
                 <div class="ability__content">
-                    <label for="habilidade">Habilidade
+                    <label for="habilidade">Habilidades
                     </label>
                     <input
                     type="text"
@@ -203,9 +211,11 @@ body {
             .ability__item {
                 list-style: disc;
                 font-size: 10px;
+                margin-bottom: 10px;
             }
             .ability__link {
                 cursor: pointer;
+                color: #000000;
             }
         </style>
         <?php require_once 'acoes/consulta-habilidades-do-usuario.php';?>

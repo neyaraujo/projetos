@@ -50,6 +50,10 @@
             text-decoration: none;
             color: initial;
         }
+
+        .material-symbols-outlined {
+            font-size: 14px;
+        }
         body {
             max-width: 100%;
             min-height: 100vh;
@@ -117,12 +121,14 @@
             color: #fff;
             margin-top: 40px;
             margin-bottom: 20px;
+            font-size: 16px;
         }
 
         .main__item {
             background: #fff;
             border: 1px solid #ccc;
             padding: 10px;
+            font-size: 12px;
 
             display: flex;
             align-items: center;
@@ -182,7 +188,6 @@
                         ?>
                     </li>
                 </ul>
-                <a class="main__top" href="#">Topo</a>
             </section>
     </main>
     <?php modalMensagem()?>

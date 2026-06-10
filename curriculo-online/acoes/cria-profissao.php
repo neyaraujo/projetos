@@ -10,24 +10,23 @@
         $estado = mysqli_real_escape_string($con, $_POST['estado']);
         $ano_entrada = mysqli_real_escape_string($con, $_POST['ano_entrada']);
         $ano_saida = mysqli_real_escape_string($con, $_POST['ano_saida']);
+        $descricao = mysqli_real_escape_string($con, $_POST['descricao']);
 
 
         $sql = "INSERT INTO profissoes (
 
-            nome_profissao, instituicao, cidade, estado, ano_entrada, ano_saida, idusuario)
+            nome_profissao, instituicao, cidade, estado, ano_entrada, ano_saida, descricao, idusuario)
             VALUES 
-            ('$nome_profissao', '$instituicao', '$cidade', '$estado', '$ano_entrada', '$ano_saida', $id_logado)";
-
-            var_dump($sql);
+            ('$nome_profissao', '$instituicao', '$cidade', '$estado', '$ano_entrada', '$ano_saida', '$descricao', '$id_logado')";
 
         if (mysqli_query($con, $sql)) {
             $_SESSION['mensagem'] = "Cadastro realizado com sucesso!";
             $_SESSION['status'] = "success";
-            header('Location: ../historico-profissional.php');
+            header('Location: ../profissao.php');
         } else {
             $_SESSION['mensagem'] = "Não foi possível cadastrar curso";
             $_SESSION['status'] = "danger";
-            header('Location: ../historico-profissional.php');
+            header('Location: ../profissao.php');
         }
         mysqli_close($con);
 

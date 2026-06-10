@@ -49,6 +49,10 @@
             text-decoration: none;
             color: initial;
         }
+        .material-symbols-outlined {
+            font-size: 14px;
+        }
+        
         body {
             max-width: 100%;
             min-height: 100vh;
@@ -122,9 +126,11 @@
             background: #fff;
             border: 1px solid #ccc;
             padding: 10px;
+            font-size: 12px;
 
             display: flex;
             align-items: center;
+            gap: 10px;
         }
         .main__top {
             margin-top: 50px;
@@ -169,15 +175,27 @@
                                 $nome_curso = $dados['nome_curso'];
                                 $instituicao = $dados['instituicao'];
                                 $ano_curso = $dados['ano_curso'];
+                                $descricao = $dados['descricao'];
                                     
                                     echo "<li class='main__item'>
                                     <a class='material-symbols-outlined main__edit' href='editar-curso.php?id={$idcurso}'>Edit</a>
                                     <a class='material-symbols-outlined main__delete' href='acoes/modal-apagar-curso.php?id={$idcurso}'>Delete</a>$nome_curso - $instituicao - $ano_curso
-                                    </li>";                              
+                                    </li>
+                                    <p class='main__item main__item-descricao'>$descricao</p>
+                            
+                                    ";
+                                                                  
                             }
                         ?>
                 </ul>
-                <a class="main__top" href="#">Topo</a>
+                <style>
+                    .main__item-descricao {
+                        font-size: 10px;
+                        text-indent: 50px;
+                        padding: 5px;
+                        
+                    }
+                </style>
             </section>
     </main>
 </body>

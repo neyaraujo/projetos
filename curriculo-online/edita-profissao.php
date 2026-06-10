@@ -1,7 +1,8 @@
 <?php 
     session_start();
     require_once 'acoes/verifica-logado.php';
-    require_once 'acoes/modal.php'
+    require_once 'acoes/modal.php';
+    require_once 'acoes/consulta-profissao.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -9,7 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Histórico Profissional</title>
+    <title>Edita Profissão</title>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/header.css">
@@ -19,15 +20,15 @@
 <body>
     <?php require_once "header.php"?>
     <main>
-        <form class="form" action="acoes/cria-historico.php" id="form" method="post">
-            <h1 class="form__title">Histórico Profissional</h1>
+        <form class="form" action="acoes/edita-profissao.php" id="form" method="post">
+            <h1 class="form__title">Edita Profissão</h1>
             <div class="form-content">
                 <label for="nome-profissao">Profissão</label>
                 <input 
                 type="text" 
-                name="nome_profissao" 
-                id="nome-profissao"
-                value=""
+                name="profissao" 
+                id="profissao"
+                value="<?= $profissao ?>"
                 list="lista-profissoes"
                 placeholder="Digite seu nome completo"/>
                 <a></a>
@@ -43,7 +44,7 @@
                 type="text" 
                 name="instituicao" 
                 id="instituicao"
-                value=""
+                value="<?= $instituicao ?>"
                 placeholder="Digite o nome da instituição"/>
                 <a></a>
             </div>
@@ -53,7 +54,7 @@
                 type="text" 
                 name="cidade" 
                 id="cidade"
-                value=""
+                value="<?= $cidade ?>"
                 placeholder="Digite o nome da cidade"/>
                 <a></a>
             </div>
@@ -63,7 +64,7 @@
                 type="text" 
                 name="estado" 
                 id="estado"
-                value=""
+                value="<?= $estado ?>"
                 placeholder="MA"/>
                 <a></a>
             </div>
@@ -73,7 +74,7 @@
                 type="text" 
                 name="ano_entrada" 
                 id="ano-entrada"
-                value=""
+                value="<?= $ano_entrada ?>"
                 step="1"
                 min="1900"
                 maxlength="7"
@@ -86,13 +87,24 @@
                     type="text" 
                     name="ano_saida" 
                     id="ano-saida"
-                    value=""
+                    value="<?= $ano_saida ?>"
                     step="1"
                     min="1900"
                     maxlength="7"
                     placeholder="03/2026"/>
                 <a></a>
             </div>
+            <div class="form-content">
+                <label for="ano-saida">Descrição da profissao</label>
+                <input 
+                    type="text" 
+                    name="descricao" 
+                    id="descricao"
+                    value="<?= $descricao; ?>"
+                    />
+                <a></a>
+            </div>
+            <input type="text" name="idprofissao" value="<?= $idprofissao ?>">
             <style>
                 .flex {
                     display: flex;
@@ -141,7 +153,7 @@
                 }
             </style>
 
-            <button class="btn-primary" type="submit" name="btn_cadastrar">Cadastrar</button>
+            <button class="btn-primary" type="submit" name="btn_editar">Editar</button>
         </form>
     </main>
 <?php modalMensagem()?>

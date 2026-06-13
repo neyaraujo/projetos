@@ -10,8 +10,8 @@
         require_once 'acoes/verifica-logado.php';
         require_once 'acoes/conexao.php';
         $id_logado = $_SESSION['idusuario'];
-        $idhabilidade = mysqli_real_escape_string($con, $_GET['id'])?? '';
-        $habilidade = mysqli_real_escape_string($con, $_GET['habilidade'])?? '';
+        $idinformacao = mysqli_real_escape_string($con, $_GET['id'])?? '';
+        $informacao = mysqli_real_escape_string($con, $_GET['informacao'])?? '';
         
         
 
@@ -66,9 +66,6 @@
             text-align: center;
         }
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
-
 
 * {
     box-sizing: border-box;
@@ -84,7 +81,7 @@ body {
     flex-direction: column;
 }
 
-.ability {
+.information {
     background-color: #fafafa;
     /* border-radius: 14px; */
     max-width: 800px;
@@ -93,7 +90,7 @@ body {
     overflow: hidden;
 
 }
-.ability__title {
+.information__title {
     font-size: 16px;
     text-align: center;
     padding: 10px;
@@ -107,25 +104,25 @@ body {
 
 }
 
-.ability__form{
+.information__form{
     padding: 18px;
 }
 
 
-.ability__content {
+.information__content {
     margin-bottom: 8px;
     padding-bottom: 10px ;
     position: relative;
 }
 
-.ability__content label {
+.information__content label {
     display: inline-block;
     margin-bottom: 4px;
     font-size: 14px;
 }
 
-.ability__content input,
-.ability__content select {
+.information__content input,
+.information__content select {
     display: block;
     width: 100%;
     border-radius: 8px;
@@ -134,7 +131,7 @@ body {
     font-size: 12px;
 }
 
-.ability__content a {
+.information__content a {
     position: absolute;
     bottom: 0;
     font-size: 0.8em;
@@ -142,11 +139,11 @@ body {
     visibility: hidden;
 }
 
-.ability__content {
+.information__content {
     position: relative;
 }
 
-.ability button {
+.information button {
     width: 100%;
     background: var(--cor01);
     color: var(--cor05);
@@ -156,12 +153,12 @@ body {
     cursor: pointer;
  }
 
-.ability__content.error input {
+.information__content.error input {
     border-color: #ff3b25;
     visibility: visible;
 }
 
-.ability__content.error a {
+.information__content.error a {
     color: #ff3b25;
     visibility: visible;
 }
@@ -176,58 +173,58 @@ body {
            </ul>
        </header>
     
-       <main class="ability">
-        <div class="ability__container">
-           <h2 class="ability__title">
-                Cadastro de Habilidades
+       <main class="information">
+        <div class="information__container">
+           <h2 class="information__title">
+                Informações Adicionais
            </h2>
-            <form class="ability__form" action="acoes/cria-habilidade.php" id="form" method="POST">
-                <div class="ability__content">
-                    <label for="habilidade">Habilidades
+            <form class="information__form" action="acoes/cria-informacao-adicional.php" id="form" method="POST">
+                <div class="information__content">
+                    <label for="informacao">Informação
                     </label>
                     <input
                     type="text"
-                    name="habilidade"
-                    id="habilidade"
-                    value="<?= ($habilidade)?? '' ?>"
+                    name="informacao"
+                    id="informacao"
+                    value="<?= ($informacao)?? '' ?>"
                     placeholder="O que você sabe fazer?"/>
                     <a></a>
                 </div>
 
                 <!-- PARTES OCULTAS -->
                 <input type="hidden" name="idusuario" id="idusuario" value="<?= $id_logado ?>">
-                <input type="hidden" name="idhabilidade" id="idhabilidade" 
-                value="<?= ($idhabilidade)?? '' ?>">
+                <input type="hidden" name="idinformacao" id="idinformacao" 
+                value="<?= ($idinformacao)?? '' ?>">
 
-                <button class="btn-primary" type="submit" name="btn_cadastrar">
+                <button id="btn_cadastrar" class="btn-primary" type="submit" name="btn_cadastrar">
                     Cadastrar
                 </button>
             </form>
         </div>
         <style>
-            .ability__list {
+            .information__list {
                 margin-left: 40px;
             }
-            .ability__item {
+            .information__item {
                 list-style: disc;
                 font-size: 10px;
                 margin-bottom: 10px;
             }
-            .ability__link {
+            .information__link {
                 cursor: pointer;
                 color: #000000;
             }
         </style>
-        <?php require_once 'acoes/consulta-habilidades-do-usuario.php';?>
+        <?php require_once 'acoes/consulta-informacoes-adicionais-do-usuario.php';?>
         <?php 
             if ($resultado->num_rows > 0) {
                 
-                echo "<ul class='ability__list'>";
+                echo "<ul class='information__list'>";
                 while ($dados = mysqli_fetch_assoc($resultado)) {
-                    $idhabilidade = $dados['idhabilidade'];
-                    $habilidade = $dados['habilidade'];
-                    echo "<li class='ability__item' name='habilidade'>
-                                <a href='?id=$idhabilidade&habilidade=$habilidade' class='ability__link'>$habilidade</a>
+                    $idinformacao = $dados['idinformacao'];
+                    $informacao = $dados['informacao'];
+                    echo "<li class='information__item' name='informacao'>
+                                <a href='?id=$idinformacao&informacao=$informacao' class='information__link'>$informacao</a>
                         </li>";
                 }
                 echo "</ul>";
@@ -235,5 +232,15 @@ body {
         ?>
         <?= modalMensagem();?>
     </main>
+
+    <script>
+        let idinformacao = document.getElementById('idinformacao');
+        let btn = document.getElementById('btn_cadastrar');
+            if (idinformacao.value.length > 0) {
+                btn.textContent = 'Editar';
+            } else {
+                btn.textContent = 'Cadastrar';
+            }
+    </script>
 </body>
 </html>

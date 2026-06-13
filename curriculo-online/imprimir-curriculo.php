@@ -103,6 +103,7 @@
         }
         .experience__activity{
             font-size: 10pt;
+            text-align: justify;
         }
 
         /* ACADEMIC */
@@ -177,7 +178,16 @@
         }
         .course__information {
             font-size: 10pt;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
         }
+
+        .course__ano-curso {
+            justify-self: end;
+        }
+
+
+        .course__ano-curso
         .course__description {
             font-size: 10pt;
         }
@@ -231,7 +241,7 @@
         /* TOOLS */
         .tools {
             border-bottom: 1px solid black;
-            margin-bottom: 5pt;
+            margin-bottom: 20pt;
         }
         .tools__title {
             font-size: 12pt;
@@ -396,41 +406,25 @@
                             
                             echo "
                                 <article class='course__item'>
-                                    <h3  class='course_information'>
-                                        $nome_curso - $instituicao - $ano_curso
+                                    <h3  class='course__information'>
+                                        <span>$nome_curso</span><span>$instituicao</span><span class='course__ano-curso'>$ano_curso</span>
                                     </h3>
-                                    <ul>
-                                        <li>$descricao</li>
+                                    <ul class='course__list'>";
+
+                                    if (!$descricao === '') {
+                                        echo "
+                                            <li class='course__description'>$descricao</li>
+                                        ";
+                                    }
+
+
+                            echo "
                                     </u>
                                 </article>";
                         }
                             echo "
                         </section>";
 
-                    $titulo = true;
-
-                    while ($dados = mysqli_fetch_assoc($resultado)) {
-
-                        $idcurso = $dados['idcurso'];
-                        $nome_curso = $dados['nome_curso'];
-                        $instituicao = $dados['instituicao'];
-                        $ano_curso = $dados['ano_curso'];
-                        $descricao = $dados['descricao'];
-
-                        if (!$titulo) {
-                            echo "<section class='course'>
-                                <h2 class='course__title'>
-                                    CURSOS PROFISSIONALIZANTES
-                                </h2>";
-                                $titulo = true;
-                            }
-                                echo"<article class='course__item'>";
-                                echo "<h3 class='course__information'>
-                                        $nome_curso - $instituicao - $ano_curso
-
-                                    </h3>";
-                                echo "</article>"; 
-                    } // fim do while
                 } // fim if num_rows  
             ?>  
 
@@ -537,27 +531,47 @@
                             Comunicação: email, whatzap, facebook e instagran.
                         </li>
                     </ul>
+                </section>
 
+                <?php 
+                    require_once 'acoes/consulta-informacoes-adicionais-do-usuario.php';
+                    
+                    if ($resultado->num_rows > 0) {
+                        echo "
+                             <section class='additional'>
+                                <h2 class='additional__title'>
+                                    INFORMAÇÕES ADICIONAIS
+                                </h2>
+                             </section>
+                             <ul class='additional__list'>";
+                                while ($dados = mysqli_fetch_assoc($resultado)) {
+                                    $informacao = $dados['informacao'];
+                                    echo "
+                                        <li class='additional__item'>$informacao</li>
+                                    ";
+                                }
+
+                             echo "
+                                </ul>
+                        ";
+                    }
+    
+                ?>
+                <style>
+                    .additional {
+                        border-bottom: 1px solid black;
+                    }
+                    .additional__title {
+                        font-size: 12pt;
+                    }
+                    .additional__list {
+                        margin-top: 10pt;
+                    }
+                    .additional__item {
+                        font-size: 10pt;
+                    }
+                </style>
             </section>
-
-            <section class="qrcode">
-            <img class="qrcode__foto" src="fotos/qrcode.png" alt="">
-            </section>
-            <style>
-                .qrcode {
-                    position: relative;
-                    width: 200px;
-                }
-                .qrcode__foto {
-                    position: absolute;
-                    top: 100px;
-                    width: 100%;
-                }
-            </style>
-
-
-
-        </section>
 
        
     </main>

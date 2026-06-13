@@ -200,8 +200,8 @@ body {
                     </select>
                     <a></a>
                 </div>
-                <input type="text" name="idusuario" id="idusuario" value="<?= $id_logado ?>">
-                <input type="text" name="idlinguagem" id="idlinguagem" value="<?= ($idlinguagem)?? '' ?>">
+                <input type="hidden" name="idusuario" id="idusuario" value="<?= $id_logado ?>">
+                <input type="hidden" name="idlinguagem" id="idlinguagem" value="<?= ($idlinguagem)?? '' ?>">
                 <button class="btn-primary" type="submit" name="btn_cadastrar">Cadastrar</button>
             </form>
 

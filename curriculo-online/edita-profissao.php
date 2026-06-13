@@ -104,7 +104,7 @@
                     />
                 <a></a>
             </div>
-            <input type="text" name="idprofissao" value="<?= $idprofissao ?>">
+            <input type="hidden" name="idprofissao" value="<?= $idprofissao ?>">
             <style>
                 .flex {
                     display: flex;

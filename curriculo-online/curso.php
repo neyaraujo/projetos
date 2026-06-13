@@ -180,10 +180,12 @@
                                     echo "<li class='main__item'>
                                     <a class='material-symbols-outlined main__edit' href='editar-curso.php?id={$idcurso}'>Edit</a>
                                     <a class='material-symbols-outlined main__delete' href='acoes/modal-apagar-curso.php?id={$idcurso}'>Delete</a>$nome_curso - $instituicao - $ano_curso
-                                    </li>
-                                    <p class='main__item main__item-descricao'>$descricao</p>
-                            
-                                    ";
+                                    </li>";
+                                    if (!empty($descricao)) {
+
+                                        echo "<p class='main__item main__item-descricao'>$descricao</p>";
+
+                                    }
                                                                   
                             }
                         ?>

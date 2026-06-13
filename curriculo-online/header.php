@@ -4,7 +4,7 @@
             <div class="menu">
                 <span class="material-symbols-outlined">menu</span>
             </div>
-            <a class="logo" href="">Curriculo<span><i>Online</i></span></a>
+            <a class="logo" href="painel.php">Curriculo<span><i>Online</i></span></a>
             <ul class="nav-menu">
                 <li lang="nav-item">
                     <a href="painel.php">
@@ -34,6 +34,11 @@
                 <li lang="nav-item">
                     <a href="cadastrar-habilidade.php">
                         Habilidades
+                    </a>
+                </li>
+                <li lang="nav-item">
+                    <a href="cadastrar-informacao-adicional.php">
+                        Adicionais
                     </a>
                 </li>
                 <li lang="nav-item">

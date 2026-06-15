@@ -14,7 +14,7 @@
 
         echo "<section class='linguagem'>
             <h2 class='linguagem__title'>
-                LINGUAGENS DE PROGRAMAÇÃO
+                <a href='cadastrar-linguagem.php'>LINGUAGENS DE PROGRAMAÇÃO</a>
             </h2>";
         echo "<div class='linguagem__container'>";
 

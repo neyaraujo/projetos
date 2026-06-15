@@ -190,12 +190,11 @@ body {
                     <a></a>
                 </div>
                 <div class="form-content">
-                    <label for="ano_curso">O que você aprendeu no curso?</label>
                     <input
-                    type="text"
+                    type="hidden"
                     name="descricao"
                     id="descricao-curso"
-                    placeholder=""/>
+                    placeholder="O que você aprendeu no curso?"/>
                     <a></a>
                 </div>
                 

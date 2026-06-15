@@ -27,6 +27,12 @@
             -webkit-print-color-adjust: exact;
             print-color-adjust: exact;
         }
+        a {
+            color: #004f77;
+            transition: 0.3 ease-in-out;
+            text-decoration: none;
+        }
+
         li {
             margin-left: 10pt;
             margin-bottom: 5pt;
@@ -198,7 +204,7 @@
             font-size: 10pt;
         }
 
-                /* linguagem */
+        /* LINGUAGEM */
         .linguagem {
             margin-bottom: 10pt;
             break-inside: void;
@@ -206,7 +212,7 @@
         .linguagem__container {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 1px;
         }
 
         .linguagem__item{
@@ -252,8 +258,12 @@
 
 
         @media print {
-            .resume {
+            body {
+                width: 210mm;
+                height: 297mm;
                 transform: scale(1);
+                transform-origin: top left;
+                overflow: hidden;
             }
             nav {
                display: none;
@@ -265,14 +275,19 @@
         }
 
         @media (max-width: 800px) {
-            body {
-                transform: scale(1);
-            }
+            
         }
-
     </style>
 </head>
 <body>
+    <header class="header">
+        <a class="header__logo" href="">Curriculo Online</a>
+        <nav class="menu">
+            <ul class="menu__list">
+                <li class="menu__item"><a href="#">Home</a></li>
+            </ul>
+        </nav>
+    </header>
 
 
 
@@ -290,14 +305,14 @@
         <section class="left">
             <header class="hero">
                 <h1 class="hero__name">
-                    <?= strtoupper($nome) ?>
+                    <?="<a href='perfil.php'>" . strtoupper($nome) . "</a>"?>
                 </h1>
             </header>
 
             <!-- PROFILE -->
             <section class="profile">
                 <h2 class="profile__title">
-                    PERFIL PROFISSIONAL
+                    <a href="perfil.php">PERFIL PROFISSIONAL</a>
                 </h2>
                 <p class="profile__description">
                     <?= $perfil ?>
@@ -321,7 +336,7 @@
 
                     if (!empty($idprofissao)) {
                         if (!$titulo) {
-                            echo "<h2 class='experience__title'>HISTÓRICO PROFISSIONAL</h2>
+                            echo "<h2 class='experience__title'><a href='profissao.php'>HISTÓRICO PROFISSIONAL</a></h2>
                                     <article  class='experience__item'>";
                             $titulo = true;
                         }
@@ -368,7 +383,7 @@
                             if (!$titulo) {
                                 echo "<section class='academic'>";
                                 echo "<h2 class='academic__title'>
-                                        FORMAÇÃO ACADÊMICA
+                                        <a href='formacao.php'>FORMAÇÃO ACADÊMICA</a>
                                     </h2>";
                                 $titulo = true;
                             }
@@ -393,7 +408,7 @@
                     echo "
                         <section class='course'>
                             <h2 class='course__title'>
-                                CURSOS PROFISSIONALIZANTES
+                                <a href='curso.php'>CURSOS PROFISSIONALIZANTES</a>
                             </h2>";
 
                          while ($dados = mysqli_fetch_assoc($resultado)) {
@@ -408,20 +423,22 @@
                                 <article class='course__item'>
                                     <h3  class='course__information'>
                                         <span>$nome_curso</span><span>$instituicao</span><span class='course__ano-curso'>$ano_curso</span>
-                                    </h3>
-                                    <ul class='course__list'>";
+                                    </h3>";
 
-                                    if (!$descricao === '') {
-                                        echo "
-                                            <li class='course__description'>$descricao</li>
-                                        ";
-                                    }
+                            if ($descricao !== '') {
+                                echo "<p>
+                                    <ul course__list>
+                                        <li course__descrition>$descricao</li>
+                                    </ul>";
+                            }
+                                    
+
 
 
                             echo "
-                                    </u>
-                                </article>";
+                            </article>";
                         }
+
                             echo "
                         </section>";
 
@@ -461,7 +478,7 @@
 
 
                     <h2 class="contact__title">
-                        CONTATO
+                        <a href='perfil.php'>CONTATO</a>
                     </h2>
                     <address class="contact__address">
                         <p class="contact__item">
@@ -502,7 +519,7 @@
                         echo 
                         "<section class='skills'>
                             <h2 class='skills__title'>
-                                HABILIDADES
+                                <a href='cadastrar-habilidade.php'>HABILIDADES</a>
                             </h2>
                         
                         <ul class='skills__list'>";
@@ -518,7 +535,7 @@
                 <!-- TOOLS -->
                 <section class="tools">
                     <h2 class="tools__title">
-                        FERRAMENTAS
+                        <a href='#'>FERRAMENTAS</a>
                     </h2>
                     <ul class="tools__list">
                         <li class="tools__item">
@@ -533,6 +550,7 @@
                     </ul>
                 </section>
 
+                <!-- INFORMAÇÕES ADICIONAIS -->
                 <?php 
                     require_once 'acoes/consulta-informacoes-adicionais-do-usuario.php';
                     
@@ -540,7 +558,7 @@
                         echo "
                              <section class='additional'>
                                 <h2 class='additional__title'>
-                                    INFORMAÇÕES ADICIONAIS
+                                    <a href='cadastrar-informacao-adicional.php'>INFORMAÇÕES ADICIONAIS</a>
                                 </h2>
                              </section>
                              <ul class='additional__list'>";
@@ -571,16 +589,40 @@
                         font-size: 10pt;
                     }
                 </style>
+
+                <?php require_once 'gerar-qrcode.php'?>
             </section>
 
        
     </main>
             <script>
+                // CONTROLE DE IMPRESSÃO
+                function ajustarEscala() {
+                    const A4_LARGURA = 210;
+                    const A4_ALTURA = 297;
+
+                    const larguraPagina = A4_LARGURA * 96 / 25.4;
+                    const alturaPagina = A4_ALTURA * 96 / 25.4;
+
+                    const conteudo = document.body;
+
+                    const escalaLargura = larguraPagina / conteudo.scrollWidth;
+                    const escalaAltura = alturaPagina / conteudo.scrollHeight;
+
+                    let escala = Math.min(escalaLargura, escalaAltura);
+                    if (escala > 1) escala = 1;
+
+                    conteudo.style.transform = `scale(${escala})`;
+                    conteudo.style.transformOrigin = "top left";
+                    
+                }
+
                 // TOGGLE PHOTO
                 const btn_toggle = document.getElementById('btn_toggle');
                 const photo = document.querySelector(".contact__photo");
                 const pai = photo.parentElement;
                 const btn_print = document.getElementById('btn-print');
+
 
                 btn_toggle.addEventListener('click', () => {
                     photo.classList.toggle('ativo')

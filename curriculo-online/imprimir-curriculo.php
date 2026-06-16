@@ -3,6 +3,8 @@
     require_once 'acoes/verifica-logado.php';
     include_once 'acoes/consulta-usuario.php';
     include_once 'acoes/consulta-cargo.php';
+
+    include 'acoes/funcoes.php';
 ?>
 
 
@@ -477,26 +479,50 @@
                         </script>
 
 
+
                     <h2 class="contact__title">
                         <a href='perfil.php'>CONTATO</a>
                     </h2>
                     <address class="contact__address">
-                        <p class="contact__item">
-                            <span class="material-symbols-outlined">location_on</span>
-                            <?= $endereco ?>
-                        </p>
-                        <p class="contact__item">
-                            <span class="material-symbols-outlined">phone</span>
-                            <a class="contact__link" href="tel:+5511146924888">
-                                <?= $celular ?>
-                            </a>
-                        </p>
-                        <p class="contact__item">
-                            <span class="material-symbols-outlined">email</span>
-                            <a class="contact__link" href="#">
-                                <?= $email ?>
-                            </a>
-                        </p>
+
+                        <?php 
+                            if (isset($endereco) && $endereco !== ''){
+                                echo "
+                                <p class='contact__item'>
+                                    <span class='material-symbols-outlined'>location_on
+                                    </span>
+                                    $endereco;
+                                </p>                                
+                                
+                                ";
+                            }
+
+                            if (isset($celular) && $celular !== '') {
+                                echo "
+                                <p class='contact__item'>
+                                    <span class='material-symbols-outlined'>phone</span>
+                                    <a class='contact__link'
+                                        style='cursor: pointer;' 
+                                        onclick='contato()'>
+                                        ". formatarCelular($celular) ."
+                                    </a>
+                                </p>                                
+                                ";
+                            }
+
+
+                            if (isset($email) && $email !== '') {
+                                echo "
+                                <p class='contact__item'>
+                                    <span class='material-symbols-outlined'>email</span>
+                                    <a class='contact__link'>
+                                        $email
+                                    </a>
+                                </p>                                
+                                
+                                ";
+                            }
+                        ?>
                     </address>
                     <article class="contact__social enabled">
                         <ul class="contact__list">
@@ -533,22 +559,29 @@
                     }
                 ?>
                 <!-- TOOLS -->
-                <section class="tools">
-                    <h2 class="tools__title">
-                        <a href='#'>FERRAMENTAS</a>
-                    </h2>
-                    <ul class="tools__list">
-                        <li class="tools__item">
-                            Tecnologias criação de documentos: Word, excel.
-                        </li>
-                        <li class="tools__item">
-                            Metodologias: Scrum e Kanban
-                        </li>
-                        <li class="tools__item">
-                            Comunicação: email, whatzap, facebook e instagran.
-                        </li>
-                    </ul>
-                </section>
+
+                <?php 
+                    require_once 'acoes/consulta-ferramentas-do-usuario.php';
+                    if($resultado->num_rows > 0){
+                        echo "
+                            <section class='tools'>
+                                <h2 class='tools__title'>
+                                    <a href='cadastrar-ferramenta.php'>FERRAMENTAS</a>
+                                </h2>
+                                <ul class='tools__list'>";
+                                while ($dados = mysqli_fetch_assoc($resultado)) {
+                                    $ferramenta = $dados['ferramenta'];
+                                    echo "
+                                        <li class='tools__item'>$ferramenta</li>
+                                    ";
+                                }
+                                    
+                        echo "
+                                </ul>
+                            </section>
+                        ";
+                    }
+                ?>
 
                 <!-- INFORMAÇÕES ADICIONAIS -->
                 <?php 
@@ -590,7 +623,12 @@
                     }
                 </style>
 
-                <?php require_once 'gerar-qrcode.php'?>
+                <?php 
+                if (!empty($celular)) {
+                    require_once 'gerar-qrcode.php';
+                }
+                
+                ?>
             </section>
 
        
@@ -638,6 +676,15 @@
                         elemento.style.display = 'none';
                     });
                 });
+
+                // CONTATOS
+                function contato(){
+
+                    let meuNumero = <?= deixaSoNumero($celular) ?>;
+                    let mensagem = 'Olá, encontrei seu currículo e gostaria de conversar.';
+                    let url = `https://wa.me/${meuNumero}?text=${encodeURIComponent(mensagem)}` 
+                    window.open(url, '_blank');
+                }
 
             </script>    
 

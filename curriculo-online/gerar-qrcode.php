@@ -28,9 +28,11 @@
 
 <input type="hidden" id="celular" placeholder="Digite o celular" value="<?= $celular ?>">
 
-<div class="qrcod__container">
+<div class="qrcod__container" style="cursor: pointer;" onclick="contato()">
     <img class="qrcod__image" id="qrcode" width="200px">
-    <h3 class="qrcod__text">whatzap</h3>
+    <h3 class="qrcod__text">
+        whatzap
+    </h3>
 </div>
 
 

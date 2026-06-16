@@ -36,6 +36,25 @@ function welcome() {
     }
 }
 
+function formatarCelular($numero) {
+
+    // Remove tudo que não for número
+    $numero = preg_replace('/\D/', '', $numero);
+
+    if (strlen($numero) !== 11) {
+        return $numero;
+    }
+    return '('.substr($numero, 0, 2).') '
+        . substr($numero, 2, 5)
+        . '-'
+        . substr($numero, 7);
+
+}
+
+function deixaSoNumero($numero) {
+    return $numero = preg_replace('/\D/', '', $numero);
+}
+
 
 
 ?>

@@ -14,7 +14,7 @@
         const url =  `https://wa.me/${telefone}?text=${mensagem}`;
 
         function enviarWhatsApp () {
-            console.log(url);
+            window.open(url, "_blank");
         };
     </script>
 </body>

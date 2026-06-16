@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado Usado</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <a href="#"><strong>Mercado</strong>Usado</a>
+        <nav class="menu">
+            <ul class="menu__list">
+                <li class="menu__item"><a class="menu__link" href="#">Crie a sua conta</a></li>
+                <li class="menu__item"><a class="menu__link" href="#">Entre</a></li>
+                <li class="menu__item"><a class="menu__link" href="#">compras</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="produtos">
+        <ul class="produtos__list" >
+
+            <li class="produto__item" onclick="comprar('processador_i5')">
+                <article class="produto__container">
+                    <a class="produto__card" >
+                        <div class="produto__img-container">
+                            <img class="produto__img" src="img/processador-i5-2g.png" alt="">
+                        </div>
+                        <div class="produto__description">
+                            <h3 class="produto__title">Processador i5 1155 (usado)</h3>
+                            <span class="produto__preco">R$ 150,00</span>
+                        </div>
+                    </a>
+                </article>
+            </li>
+            <li class="produto__item" onclick="comprar('processador i3')">
+                <article class="produto__container">
+                    <a class="produto__card" >
+                        <div class="produto__img-container">
+                            <img class="produto__img" src="img/processador-i5-2g.png" alt="">
+                        </div>
+                        <div class="produto__description">
+                            <h3 class="produto__title">Processador i3 1155 (usado)</h3>
+                            <span class="produto__preco">R$ 100,00</span>
+                        </div>
+                    </a>
+                </article>
+            </li>
+            <li class="produto__item" onclick="comprar('ssd-Kington-120gb')">
+                <article class="produto__container">
+                    <a class="produto__card">
+                        <div class="produto__img-container">
+                            <img class="produto__img" src="img/ssd-kington-120.png" alt="">
+                        </div>
+                        <div class="produto__description">
+                            <h3 class="produto__title">Ssd sata 120gb Kington(usado)</h3>
+                            <span class="produto__preco">R$ 150,00</span>
+                        </div>
+                    </a>
+                </article>
+            </li>
+            <li class="produto__item" onclick="comprar('memória-dd3-4gb')">
+                <article class="produto__container">
+                    <a class="produto__card">
+                        <div class="produto__img-container">
+                            <img class="produto__img" src="img/memoria-dd3-4g.png" alt="">
+                        </div>
+                        <div class="produto__description">
+                            <h3 class="produto__title">Memória ddr3 4gb(usado)</h3>
+                            <span class="produto__preco">R$ 100,00</span>
+                        </div>
+                    </a>
+                </article>
+            </li>
+            <li class="produto__item" onclick="comprar('ssd-wim-256bg')">
+                <article class="produto__container">
+                    <a class="produto__card">
+                        <div class="produto__img-container">
+                            <img class="produto__img" src="img/ssd-wim-256.png" alt="">
+                        </div>
+                        <div class="produto__description">
+                            <h3 class="produto__title">ssd-wim-240gb(usado)</h3>
+                            <span class="produto__preco">R$ 200,00</span>
+                        </div>
+                    </a>
+                </article>
+            </li>
+            
+        </ul>
+    </main>
+    <footer class="footer">
+        <p class="footer__text">&copy 2026 Mercado Usado - Todos os direitos reservados.</p>
+    </footer>
+    <script>
+        function comprar(produto) {
+            const telefone = '5598988508348';
+            const mensagem = `Olá, gostaria de mais informações sobre ${produto}`
+            const url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
+            window.open(url, "_blank");
+        };
+    </script>
+</body>
+</html>

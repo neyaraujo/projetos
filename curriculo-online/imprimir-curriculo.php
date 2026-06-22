@@ -258,6 +258,46 @@
             font-size: 10pt;
         }
 
+        /* HEADER */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+        }
+        .header__logo{
+            color: #000;
+            font-size: 20px;
+        }
+        .header__logo span{
+            font-style: italic;
+        }
+        .menu__list {
+            display: flex;
+            gap: 10px;
+        }
+        .menu__item {
+            list-style: none;
+            cursor: pointer;
+        }
+        .menu__link {
+            color: hsl(240, 5%, 45%);
+        }
+        .menu__item::after {
+            content: "";
+            display: block;
+            width: 0%;
+            height: 1px;
+            transition: all 0.3s ease-in-out 0.05s;
+        }
+        .menu__link:hover {
+            color: hsl(240, 10%, 10%);
+        }
+        .menu__item:hover::after {
+            width: 100%;
+            background: #000;
+        }
+
+
 
         @media print {
             body {
@@ -267,7 +307,7 @@
                 transform-origin: top left;
                 overflow: hidden;
             }
-            nav {
+            .header {
                display: none;
             }
         }
@@ -283,24 +323,23 @@
 </head>
 <body>
     <header class="header">
-        <a class="header__logo" href="">Curriculo Online</a>
+        <a class="header__logo" href="painel.php"><strong>Curriculo</strong><span>Online</span></a>
         <nav class="menu">
             <ul class="menu__list">
-                <li class="menu__item"><a href="#">Home</a></li>
+                <li class="menu__item"><a class="menu__link" id="btn_toggle">Remove/Foto</a></li>
+                <li class="menu__item"><a class="menu__link" id="btn-print">Imprimir</a></li>
+                <li class="menu__item"><a class="menu__link" id="btn-print">X</a></li>
             </ul>
         </nav>
     </header>
 
+    <style>
 
+        
 
-    <nav class="nav">
-        <ul class="nav__list">
-            <li class="nav__item"><button id="btn_toggle">Remover/Foto</button></li>
-            <li class="nav__item"><button id="btn-print">Imprimir</button></li>
-            <li class="nav__item close"><a href="curriculo.php">X</a></li>
-            
-        </ul>
-    </nav>            
+    </style>
+
+          
     <!-- RESUMO -->
     <main class="resume">
         <!-- HERO -->

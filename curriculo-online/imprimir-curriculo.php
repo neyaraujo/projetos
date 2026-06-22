@@ -328,7 +328,7 @@
             <ul class="menu__list">
                 <li class="menu__item"><a class="menu__link" id="btn_toggle">Remove/Foto</a></li>
                 <li class="menu__item"><a class="menu__link" id="btn-print">Imprimir</a></li>
-                <li class="menu__item"><a class="menu__link" id="btn-print">X</a></li>
+                <li class="menu__item"><a href="painel.php" class="menu__link" id="btn-print">X</a></li>
             </ul>
         </nav>
     </header>

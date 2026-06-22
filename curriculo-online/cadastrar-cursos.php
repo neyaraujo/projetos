@@ -191,7 +191,7 @@ body {
                 </div>
                 <div class="form-content">
                     <input
-                    type="hidden"
+                    type="text"
                     name="descricao"
                     id="descricao-curso"
                     placeholder="O que você aprendeu no curso?"/>

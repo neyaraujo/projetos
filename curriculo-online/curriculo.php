@@ -3,6 +3,7 @@
     require_once 'acoes/verifica-logado.php';
     require_once 'acoes/consulta-usuario.php';
     require_once 'acoes/consulta-cargo.php';
+    require_once 'acoes/funcoes.php';
 
 ?>
 <!DOCTYPE html>
@@ -198,7 +199,7 @@
                 <img class="main__foto-perfil" src="fotos/<?= $foto ?>" alt="">
             </div>
             <p class="main__information"><?= $_SESSION['nome'] . ",<br>" 
-            . $_SESSION['nacionalidade'] . ", " . $_SESSION['estado_civil'] . ", " . $_SESSION['idade'] . " anos" ?></p>
+            . $_SESSION['nacionalidade'] . ", " . $_SESSION['estado_civil'] . ", " . formatarNascimento($_SESSION['idade']) . " anos" ?></p>
 
         </div>
         

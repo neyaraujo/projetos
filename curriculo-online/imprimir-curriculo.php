@@ -522,6 +522,11 @@
                     <h2 class="contact__title">
                         <a href='perfil.php'>CONTATO</a>
                     </h2>
+                    <div class="idade">
+                        <p class="idade__descrition contact__item">
+                            <?= formatarNascimento($idade) ?>
+                        </p>
+                    </div>
                     <address class="contact__address">
 
                         <?php 

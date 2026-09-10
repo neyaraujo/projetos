@@ -55,6 +55,10 @@ function deixaSoNumero($numero) {
     return $numero = preg_replace('/\D/', '', $numero);
 }
 
-
+function formatarNascimento ($anoNascimento) {
+    $anoAtual = date("Y");
+    $idade = $anoAtual - $anoNascimento;
+    return $idade . " Anos";
+}
 
 ?>

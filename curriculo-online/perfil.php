@@ -146,7 +146,7 @@
                 <a></a>
             </div>
             <div class="form-content">
-                <label for="idade">Idade</label>
+                <label for="idade">Nascimento</label>
                 <input 
                 type="number" 
                 name="idade" 
@@ -154,7 +154,7 @@
                 value="<?= $_SESSION['idade'] ?>"
                 step="1"
                 min="1"
-                placeholder="Digite sua idade"/>
+                placeholder="Digite o ano de nascimento"/>
                 <a></a>
             </div>
             <div class="form-content">
